@@ -1,3 +1,5 @@
+Muutos GibHubista käsin.
+
 commit 52499da6b24477003b5c76079c4079f69aec3039
 Author: Essi Savonius <essi.savonius@hotmail.fi>
 Date:   Sat Mar 18 13:15:14 2023 +0200
