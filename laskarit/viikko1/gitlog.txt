@@ -1,0 +1,113 @@
+commit 52499da6b24477003b5c76079c4079f69aec3039
+Author: Essi Savonius <essi.savonius@hotmail.fi>
+Date:   Sat Mar 18 13:15:14 2023 +0200
+
+    file1 poisto ja file2 -> file22
+
+ tiedostoja/file2             | 0
+ tiedostoja/{file1 => file22} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 31994d3fa7d34b5f418e8636d34423a8b4c1c735
+Author: Essi Savonius <essi.savonius@hotmail.fi>
+Date:   Sat Mar 18 13:11:36 2023 +0200
+
+    lisättiin hakemisto tiedostoja sekä hakemiston sisälle tiedostot file1, file2 ja file3
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit e7b1e2ca741cb38fc12850b8c4728a900db4bb68
+Author: Essi Savonius <essi.savonius@hotmail.fi>
+Date:   Sat Mar 18 12:58:14 2023 +0200
+
+    muutoksia eka.txt ja kolmas.txt
+
+ eka.txt    | 3 ++-
+ kolmas.txt | 2 +-
+ 2 files changed, 3 insertions(+), 2 deletions(-)
+
+commit e6154bdab6bfe65b6c1fb93df845ccec0419cdf3
+Author: Essi Savonius <essi.savonius@hotmail.fi>
+Date:   Sat Mar 18 12:55:06 2023 +0200
+
+    tiedosto.txt uusi nimi: eka.txt
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit ebdb45fbfba8764ee1b70d22afeda0f71fe8e77b
+Author: Essi Savonius <essi.savonius@hotmail.fi>
+Date:   Sat Mar 18 12:52:45 2023 +0200
+
+    toinen.txt poisto
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit 782a2db2c303700267bb340cfa979934e250ab5f
+Author: Essi Savonius <essi.savonius@hotmail.fi>
+Date:   Sat Mar 18 12:47:37 2023 +0200
+
+    tiedosto.txt osan tekstistä poisto ja tekstin lisäys
+
+ tiedosto.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit f257d0993f5fca3ea00a038168ff6a3fe57937b2
+Author: Essi Savonius <essi.savonius@hotmail.fi>
+Date:   Sat Mar 18 12:46:14 2023 +0200
+
+    tiedosto.txt lisäys tekstiä
+
+ tiedosto.txt | 27 +++++++++++++++++++++++++++
+ 1 file changed, 27 insertions(+)
+
+commit 14407ac2888df4c45fe99bf50dbe419e2b3f795c
+Author: Essi Savonius <essi.savonius@hotmail.fi>
+Date:   Fri Mar 17 20:55:47 2023 +0200
+
+    stuff hakemiston ja joku.txt luonti
+
+ stuff/joku.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit c4c6a11e929f9d2a5fbb1c739a8b19ca90aaa760
+Author: Essi Savonius <essi.savonius@hotmail.fi>
+Date:   Fri Mar 17 20:53:54 2023 +0200
+
+    muutoksia toinen.txt ja kolmas.txt
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit c5c46c644d2645ec7c7d6c623369311eba347e62
+Author: Essi Savonius <essi.savonius@hotmail.fi>
+Date:   Fri Mar 17 20:52:00 2023 +0200
+
+    kolmas.txt luotu
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit f968e792525a510b6eaddd67e02d0d235a562519
+Author: Essi Savonius <essi.savonius@hotmail.fi>
+Date:   Fri Mar 17 20:48:39 2023 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit 947f56e6e52fb4c6ee616b6cf52d8d8e737ac82b
+Author: Essi Savonius <essi.savonius@hotmail.fi>
+Date:   Fri Mar 17 20:45:37 2023 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
