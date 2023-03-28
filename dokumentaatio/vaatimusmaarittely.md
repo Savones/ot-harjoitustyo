@@ -6,10 +6,14 @@ Sovellus on muistipeli, jota pelaamalla käyttäjä voi testata ja harjoittaa mu
 
 
 ## Käyttäjät
-Sovelluksessa on vain käyttäjärooli.
+Sovelluksessa on vain käyttäjä-/pelaajarooli.
 
 ## Käyttöliittymä
-Aukeaa kirjautumisnäkymään, jossa käyttäjällä on vaihtoehtona syöttää jo olemassa olevat tunnukset tai painaa nappia luodakseen uuden käyttäjän. Jos syöttää olemassa olevat tunnukset päätyy pelin aloitus näkymään. Jos taas painaa nappia uuden käyttäjän luomiseen päätyy näkymään, jossa sen voi tehdä. Sisäänkirjautuneena, eli pelinäkymästä voi valita haluaako aloittaa uuden pelin, tarkastella aiempia suorituksia/leaderboardia vai kirjautua ulos. Uuden pelin aloituksesta päätyy näkymään, jossa peliä pelataan. Leaderboard on oma näkymänsä. Uloskirjautuminen vie takaisin kirjautumisnäkymään.
+- Kirjautumisnäkymä
+- Uuden tunnuksen luonti näkymä
+- Pelin aloitus näkymä
+- Itse pelin näkymä
+- Leaderboard näkymä
 
 ## Perustoiminnallisuus
 
