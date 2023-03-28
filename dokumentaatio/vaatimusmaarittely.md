@@ -16,15 +16,15 @@ Sovelluksessa on vain käyttäjä-/pelaajarooli.
 - Leaderboard näkymä (5)
 
 ## Perustoiminnallisuus
-# Ennen kirjautumista
+### Ennen kirjautumista
 - Kirjautumis näkymästä nappia painamalla pääsee uuden tunnuksen luonti näkymään, jossa käyttäjätunnuksen voi luoda (1 -> 2)
 - Käyttäjä voi kirjautua sisään jo olemassa olevalle tilille (1 -> 3)
 
-# Kirjautumisen jälkeen
+### Kirjautumisen jälkeen
 - Käyttäjä voi aloittaa uuden pelin (3 -> 4)
-  _ Käyttäjä voi pelata peliä (4)
-  _ Käyttäjä voi lopettaa pelin (4 -> 3)
-  _ Kun käyttäjä häviää palataan pelin aloitus näkymään (4 -> 3)
+  - Käyttäjä voi pelata peliä (4)
+  - Käyttäjä voi lopettaa pelin (4 -> 3)
+  -  Kun käyttäjä häviää palataan pelin aloitus näkymään (4 -> 3)
 - Käyttäjä voi siirtyä leaderboard näkymään (3 -> 5)
 - Käyttäjä voi kirjautua ulos (3 -> 1)
 
