@@ -20,7 +20,6 @@ Sovelluksessa on vain käyttäjä-/pelaajarooli.
 
 - Kirjautumis näkymästä nappia painamalla pääsee uuden tunnuksen luonti näkymään, jossa käyttäjätunnuksen voi luoda (1 -> 2)
   - Käyttäjänimen oltava ainakin 3 merkkiä ja se ei saa olla jo käytössä
-  - Salasanan oltava ainakin kuusi merkkiä
 
 - Käyttäjä voi kirjautua sisään jo olemassa olevalle tilille (1 -> 3)
   - Käyttäjätunnuksen on oltava olemassa (oikea nimi ja salasana yhdistelmä)
@@ -40,3 +39,6 @@ Sovelluksessa on vain käyttäjä-/pelaajarooli.
 - Käyttäjä voi kirjautua ulos (3 -> 1)
 
 ## Laajennusideoita 
+
+- Pelaaja voi valita vaikeustason (esim. ruutujen määrän tai montako uutta ruudun painallusta per tason nousu)
+- Salasanan luomisessa rajoitteita (tarpeeksi monta merkkiä, löydytävä isoja ja pieniä kirjaimia sekä erikoismerkkejä)
