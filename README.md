@@ -13,6 +13,6 @@
 ## Oma projekti
 ### Dokumetaatio
 
-[vaatimusmäärittely.md](https://github.com/Savones/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
+[tyoaikakirjanpito.md](https://github.com/Savones/ot-harjoitustyo/blob/master/memomy_game/dokumentaatio/tyoaikakirjanpito.md)
 
-[tyoaikakirjanpito.md](https://github.com/Savones/ot-harjoitustyo/blob/master/dokumentaatio/tyoaikakirjanpito.md)
+[vaatimusmaarittely.md](https://github.com/Savones/ot-harjoitustyo/blob/master/memomy_game/dokumentaatio/vaatimusmaarittely.md)
