@@ -8,6 +8,7 @@ packages = [{include = "memomy_game"}]
 
 [tool.poetry.dependencies]
 python = "^3.8"
+invoke = "^2.0.0"
 
 
 [build-system]
