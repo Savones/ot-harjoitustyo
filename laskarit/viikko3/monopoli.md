@@ -7,4 +7,8 @@
       class Ruutu{
           seuraava_ruutu
       }
+      Lauta "1" -- "40" Ruutu
+      class Lauta{
+          2 noppaa
+      }
 ```
