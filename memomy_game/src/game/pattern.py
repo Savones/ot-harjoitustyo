@@ -12,6 +12,7 @@ class Pattern:
         random_column = random.randint(0,2)
         self.pattern.append([random_row, random_column])
 
+    
 
 
 

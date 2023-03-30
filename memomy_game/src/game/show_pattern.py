@@ -1,13 +1,16 @@
-from pattern import Pattern
+# from pattern import Pattern
+# ui:n rajapinta (näyttää patternin pelaajalle)
 
 class ShowPattern:
-    def __inti__(self):
-        self.grid = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
-        self.pattern_list = Pattern()
     
-    def show_pattern(self):
-        for item in self.pattern_list:
-            pass
+    def show_pattern(self, pattern):
+        for item in pattern:
+            grid = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+            # for row in grid:
+            #     print(row)
+            # print()
 
-    def default_grid(self):
-        self.grid = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+            grid[item[0]][item[1]] = 1
+            for row in grid:
+                print(row)
+            print()
