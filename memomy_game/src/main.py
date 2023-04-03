@@ -8,8 +8,10 @@ def main():
     pattern = Pattern()
     show_pattern = ShowPattern()
     check = Check()
+    display = Display()
 
-    loop = Loop(pattern, show_pattern, check)
+    loop = Loop(pattern, show_pattern, check, display)
+    # loop.start_text_based_version()
     loop.start()
 
 main()

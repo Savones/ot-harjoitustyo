@@ -1,12 +1,14 @@
+import pygame
 
 class Loop:
 
-    def __init__(self, pattern, show_pattern, check):
+    def __init__(self, pattern, show_pattern, check, display):
         self.pattern = pattern
         self.show_pattern = show_pattern
         self.check = check
+        self.display = display
 
-    def start(self):
+    def start_text_based_version(self):
 
         # breaks when player fails, every new loop is new level
         while True:
@@ -30,10 +32,34 @@ class Loop:
 
             if over:
                 break
+    
+    # here would start the actual program
+    def start(self):
+        self.display.draw_screen()
+        while True: 
+            self.pattern.add_random_press()
+            if self.round() != 1:
+                break
+        print("done")
+    
 
+    def round(self):
+        self.display.draw_pattern(self.pattern.pattern_list)
 
+        clicks = 0
+        running = True
+        while running:
+            for event in pygame.event.get():
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    clicks += 1
+                    pos = pygame.mouse.get_pos()
+                    self.display.draw_click(pos)
+                
+                if clicks >= len(self.pattern.pattern_list):
+                    return 1
 
-
-if __name__ == "__main__":
-    loop = Loop()
-    loop.start()
+                if event.type == pygame.QUIT:
+                    running = False
+    
+    def check_pos(self, pos):
+        pass
