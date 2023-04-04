@@ -12,6 +12,7 @@ class Loop:
         pygame.init()
         self.display.draw_screen()
         while True: 
+            self.pattern.level_up()
             self.pattern.add_random_press()
             round = self.round()
             if round == None:
@@ -19,21 +20,24 @@ class Loop:
             elif round == -1:
                 self.display.lost()
                 break
-        print("done")
     
 
     def round(self):
-        self.display.draw_pattern(self.pattern.pattern_list)
+        self.display.draw_pattern(self.pattern.pattern_list, self.pattern.level)
         clicks = 0
         running = True
         while running:
             for event in pygame.event.get():
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     pos = pygame.mouse.get_pos()
-                    self.display.draw_click(pos)
-                    if not self.check.check_click(pos, self.pattern.pattern_list[clicks]):
+                    if not self.check.check_misclick(pos):
+                        continue
+                    elif not self.check.check_click(pos, self.pattern.pattern_list[clicks]):
+                        self.display.draw_click(pos)
                         return -1 
-                    clicks += 1
+                    else:
+                        self.display.draw_click(pos)
+                        clicks += 1
                 
                 if clicks >= len(self.pattern.pattern_list):
                     return 1

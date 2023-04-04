@@ -1,0 +1,3 @@
+- miten hoitaa "delay"?
+- miksi ohjelma kaatuu, kun päästään pidemmälle?
+- onko käyttöliittymä tarpeeksi irrallaan?

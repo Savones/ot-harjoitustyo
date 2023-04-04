@@ -9,11 +9,11 @@ class Display:
         self.display = pygame.display.set_mode((WIDTH, HEIGHT))
 
     def draw_screen(self):
-        square_color = (255, 255, 255)
+        self.display.fill((0, 0, 0))
         x = 155
         y = 100
         for i in range(1, 10):
-            pygame.draw.rect(self.display, square_color, pygame.Rect(x, y, 90, 90))
+            pygame.draw.rect(self.display, WHITE_COLOR, pygame.Rect(x, y, 90, 90))
             if i % 3 == 0:
                 y += 100
                 x = 155
@@ -21,6 +21,7 @@ class Display:
                 x += 100
 
         pygame.display.flip()
+        pygame.time.delay(1000)
 
     def draw_click(self, pos):
         x = 155
@@ -42,9 +43,13 @@ class Display:
         
 
 
-    def draw_pattern(self, pattern: list):
-        print(pattern)
-        pygame.time.delay(300)
+    def draw_pattern(self, pattern: list, level: int):
+
+        font = pygame.font.SysFont("Ariel", 58)
+        text = font.render(f"Level: {level}", True, WHITE_COLOR)
+        self.display.blit(text,(155, 450))
+        pygame.display.flip()
+
         for element in pattern:
             x = 155
             y = 100
@@ -61,10 +66,10 @@ class Display:
     def draw_hit(self, x, y):
         pygame.draw.rect(self.display, (0, 200, 0), pygame.Rect(x, y, 90, 90))
         pygame.display.flip()
-        pygame.time.delay(300)
+        pygame.time.delay(200)
         pygame.draw.rect(self.display, (255, 255, 255), pygame.Rect(x, y, 90, 90))
         pygame.display.flip()
-        pygame.time.delay(300)
+        pygame.time.delay(200)
 
 
     def lost(self):
@@ -74,4 +79,4 @@ class Display:
         
         self.display.blit(text,(200, 255))
         pygame.display.flip()
-        pygame.time.delay(1500)
+        pygame.time.delay(2000)
