@@ -13,10 +13,6 @@ class TestPattern(unittest.TestCase):
 
     # tests add_random_press method
 
-    def test_random_row_exists(self):
+    def test_picked_square_exists(self):
         self.pattern.add_random_press()
-        self.assertTrue(0 <= self.pattern.pattern_list[0][0] <= 2)
-
-    def test_random_column_exists(self):
-        self.pattern.add_random_press()
-        self.assertTrue(0 <= self.pattern.pattern_list[0][1] <= 2)
+        self.assertTrue(1 <= self.pattern.pattern_list[0] <= 9)
