@@ -1,9 +1,9 @@
-# OHTE, harjoitustyö
-## Muistipeli
+# Muistipeli / Memory game
+
 ### Dokumetaatio
 
-[tyoaikakirjanpito.md](https://github.com/Savones/ot-harjoitustyo/blob/master/memomy_game/dokumentaatio/tyoaikakirjanpito.md)
+[Työaikakirjanpito](https://github.com/Savones/ot-harjoitustyo/blob/master/memomy_game/dokumentaatio/tyoaikakirjanpito.md)
 
-[vaatimusmaarittely.md](https://github.com/Savones/ot-harjoitustyo/blob/master/memomy_game/dokumentaatio/vaatimusmaarittely.md)
+[Vaatimusmäärittely](https://github.com/Savones/ot-harjoitustyo/blob/master/memomy_game/dokumentaatio/vaatimusmaarittely.md)
 
-[changelog.md](https://github.com/Savones/ot-harjoitustyo/blob/master/memomy_game/dokumentaatio/changelog.md)
+[Changelog](https://github.com/Savones/ot-harjoitustyo/blob/master/memomy_game/dokumentaatio/changelog.md)
