@@ -15,7 +15,10 @@ class Display:
         self.clock = pygame.time.Clock()
 
     def draw_screen(self):
-        self.display.fill(DARK_VIOLET)
+        self.display.fill(VIOLET)
+
+        pygame.draw.rect(self.display, (DARK_VIOLET), pygame.Rect(125, 70, 350, 350), 0, 15)
+
         x = 155
         y = 100
         for i in range(1, 10):
@@ -77,7 +80,7 @@ class Display:
     
     def draw_level(self, level):
         font = pygame.font.SysFont("Inter", 58)
-        pygame.draw.rect(self.display, VIOLET, pygame.Rect(155, 435, 200, 60), 0, 15)
+        pygame.draw.rect(self.display, DARK_VIOLET, pygame.Rect(155, 435, 200, 60), 0, 15)
         pygame.display.update()
         text = font.render(f"Level: {level}", True, LIGHT_PINK)
         self.display.blit(text,(165, 445))
