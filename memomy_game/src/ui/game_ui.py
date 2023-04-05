@@ -7,6 +7,7 @@ WHITE_COLOR = (255, 255, 255)
 class Display:
     def __init__(self):
         self.display = pygame.display.set_mode((WIDTH, HEIGHT))
+        self.clock = pygame.time.Clock()
 
     def draw_screen(self):
         self.display.fill((0, 0, 0))
@@ -20,7 +21,7 @@ class Display:
             else:
                 x += 100
 
-        pygame.display.flip()
+        pygame.display.update()
         pygame.time.delay(1000)
 
     def draw_click(self, pos):
@@ -36,20 +37,15 @@ class Display:
                 x += 100
         
         pygame.draw.rect(self.display, (200, 0, 0), pygame.Rect(x, y, 90, 90))
-        pygame.display.flip()
+        pygame.display.update()
         pygame.time.delay(100)
         pygame.draw.rect(self.display, (255, 255, 255), pygame.Rect(x, y, 90, 90))
-        pygame.display.flip()
+        pygame.display.update()
         
 
 
     def draw_pattern(self, pattern: list, level: int):
-
-        font = pygame.font.SysFont("Ariel", 58)
-        text = font.render(f"Level: {level}", True, WHITE_COLOR)
-        self.display.blit(text,(155, 450))
-        pygame.display.flip()
-
+        self.draw_level(level)
         for element in pattern:
             x = 155
             y = 100
@@ -62,21 +58,23 @@ class Display:
                 else:
                     x += 100
 
+    
+    def draw_level(self, level):
+        font = pygame.font.SysFont("Ariel", 58)
+        pygame.draw.rect(self.display, (0, 0, 0), pygame.Rect(155, 450, 200, 60))
+        pygame.display.update()
+        text = font.render(f"Level: {level}", True, WHITE_COLOR)
+        self.display.blit(text,(155, 450))
+        pygame.display.update()
+
 
     def draw_hit(self, x, y):
         pygame.draw.rect(self.display, (0, 200, 0), pygame.Rect(x, y, 90, 90))
-        pygame.display.flip()
-        pygame.time.delay(200)
+        pygame.display.update()
+        pygame.time.delay(150)
+
         pygame.draw.rect(self.display, (255, 255, 255), pygame.Rect(x, y, 90, 90))
-        pygame.display.flip()
-        pygame.time.delay(200)
+        pygame.display.update()
+        pygame.time.delay(150)
 
 
-    def lost(self):
-        self.display.fill(RED_COLOR)
-        font = pygame.font.SysFont("Ariel", 64)
-        text = font.render("YOU LOST", True, WHITE_COLOR)
-        
-        self.display.blit(text,(200, 255))
-        pygame.display.flip()
-        pygame.time.delay(2000)

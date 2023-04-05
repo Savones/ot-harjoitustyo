@@ -11,3 +11,7 @@ class Pattern:
     
     def level_up(self):
         self.level += 1
+
+    def default(self):
+        self.level = 0
+        self.pattern_list = []
