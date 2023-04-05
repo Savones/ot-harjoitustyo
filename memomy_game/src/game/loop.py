@@ -75,4 +75,4 @@ class Loop:
 
                 if event.type == pygame.QUIT:
                         print("Player closed the game")
-                        running = False
+                        exit()

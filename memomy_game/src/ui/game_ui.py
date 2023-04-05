@@ -62,16 +62,7 @@ class Display:
                     x = 155
                 else:
                     x += 100
-
-    
-    def draw_level(self, level):
-        font = pygame.font.SysFont("Inter", 58)
-        pygame.draw.rect(self.display, DARK_VIOLET, pygame.Rect(155, 450, 200, 60))
-        pygame.display.update()
-        text = font.render(f"Level: {level}", True, LIGHT_PINK)
-        self.display.blit(text,(155, 450))
-        pygame.display.update()
-
+                    
 
     def draw_hit(self, x, y):
         pygame.draw.rect(self.display, (GREEN), pygame.Rect(x, y, 90, 90), 0, 15)
@@ -81,5 +72,18 @@ class Display:
         pygame.draw.rect(self.display, (LIGHT_PINK), pygame.Rect(x, y, 90, 90), 0 ,15)
         pygame.display.update()
         pygame.time.delay(150)
+    
+
+    
+    def draw_level(self, level):
+        font = pygame.font.SysFont("Inter", 58)
+        pygame.draw.rect(self.display, VIOLET, pygame.Rect(155, 435, 200, 60), 0, 15)
+        pygame.display.update()
+        text = font.render(f"Level: {level}", True, LIGHT_PINK)
+        self.display.blit(text,(165, 445))
+        pygame.display.update()
+
+
+    
 
 
