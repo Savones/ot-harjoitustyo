@@ -55,14 +55,21 @@ class Loop:
                     print("Player closed the game")
                     running = False
     
-    
+
     def game_over(self):
         self.game_over_display.draw_screen()
         running = True
         while running:
             for event in pygame.event.get():
+
                 if event.type == pygame.MOUSEBUTTONDOWN:
-                    self.start()
+                    pos = pygame.mouse.get_pos()
+
+                    # if "try again" box is clicked -> starts game again
+                    if self.check.check_try_again(pos):
+                        self.game_over_display.try_again_hover()
+                        self.start()
+
                 if event.type == pygame.QUIT:
                         print("Player closed the game")
                         running = False

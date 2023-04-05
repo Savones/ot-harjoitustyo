@@ -1,8 +1,13 @@
 import pygame
 HEIGHT = 600
 WIDTH = 600
-RED_COLOR = (255, 87, 51)
-WHITE_COLOR = (255, 255, 255)
+WHITE = (255, 255, 255)
+DARK_VIOLET = (54, 29, 50)
+VIOLET = (84, 60, 82)
+SALMON = (245, 89, 81)
+BABY_PINK = (237, 210, 203)
+LIGHT_PINK = (241, 232, 230)
+GREEN = (88, 179, 104)
 
 class Display:
     def __init__(self):
@@ -10,11 +15,11 @@ class Display:
         self.clock = pygame.time.Clock()
 
     def draw_screen(self):
-        self.display.fill((0, 0, 0))
+        self.display.fill(DARK_VIOLET)
         x = 155
         y = 100
         for i in range(1, 10):
-            pygame.draw.rect(self.display, WHITE_COLOR, pygame.Rect(x, y, 90, 90))
+            pygame.draw.rect(self.display, LIGHT_PINK, pygame.Rect(x, y, 90, 90), 0, 15)
             if i % 3 == 0:
                 y += 100
                 x = 155
@@ -36,10 +41,10 @@ class Display:
             else:
                 x += 100
         
-        pygame.draw.rect(self.display, (200, 0, 0), pygame.Rect(x, y, 90, 90))
+        pygame.draw.rect(self.display, (SALMON), pygame.Rect(x, y, 90, 90), 0, 15)
         pygame.display.update()
         pygame.time.delay(100)
-        pygame.draw.rect(self.display, (255, 255, 255), pygame.Rect(x, y, 90, 90))
+        pygame.draw.rect(self.display, (LIGHT_PINK), pygame.Rect(x, y, 90, 90), 0, 15)
         pygame.display.update()
         
 
@@ -60,20 +65,20 @@ class Display:
 
     
     def draw_level(self, level):
-        font = pygame.font.SysFont("Ariel", 58)
-        pygame.draw.rect(self.display, (0, 0, 0), pygame.Rect(155, 450, 200, 60))
+        font = pygame.font.SysFont("Inter", 58)
+        pygame.draw.rect(self.display, DARK_VIOLET, pygame.Rect(155, 450, 200, 60))
         pygame.display.update()
-        text = font.render(f"Level: {level}", True, WHITE_COLOR)
+        text = font.render(f"Level: {level}", True, LIGHT_PINK)
         self.display.blit(text,(155, 450))
         pygame.display.update()
 
 
     def draw_hit(self, x, y):
-        pygame.draw.rect(self.display, (0, 200, 0), pygame.Rect(x, y, 90, 90))
+        pygame.draw.rect(self.display, (GREEN), pygame.Rect(x, y, 90, 90), 0, 15)
         pygame.display.update()
         pygame.time.delay(150)
 
-        pygame.draw.rect(self.display, (255, 255, 255), pygame.Rect(x, y, 90, 90))
+        pygame.draw.rect(self.display, (LIGHT_PINK), pygame.Rect(x, y, 90, 90), 0 ,15)
         pygame.display.update()
         pygame.time.delay(150)
 

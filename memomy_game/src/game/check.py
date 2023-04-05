@@ -34,3 +34,9 @@ class Check:
                 x += 100
         
         return found
+    
+    def check_try_again(self, pos):
+        if (85 + 180) >= pos[0] >= 85 and (405 + 60) >= pos[1] >= 405:
+            return True
+        else:
+            return False
