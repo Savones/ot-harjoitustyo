@@ -14,3 +14,9 @@
   - Jos ei osu mihinkään ruutuun, ei tapahdu mitään
 - Käyttäjä voi sulkea pelin
 
+## Viikko 4
+
+- Lisätty GameOverDisplay-luokka, joka huolehtii gameover graafisesta näkymästä
+- Testattu Check-luokka
+
+- Kun käyttäjä häviää pelin, gameover-näkymä aukeaa, josta käyttäjä voi nappia painamalla aloittaa pelin alusta
