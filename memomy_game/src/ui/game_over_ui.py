@@ -33,9 +33,18 @@ class GameOverDisplay:
         pygame.display.update()
     
     def try_again_hover(self):
-        pygame.draw.rect(self.display, VIOLET, pygame.Rect(85, 405, 180, 60))
+        pygame.draw.rect(self.display, LIGHT_PINK, pygame.Rect(85, 405, 180, 60), 0, 15)
+        font = pygame.font.SysFont("Inter", 40)
+        text = font.render(f"TRY AGAIN", True, VIOLET)
+        self.display.blit(text,(97, 423))
 
-        font = pygame.font.SysFont("Ariel", 40)
+        pygame.display.update()
+
+    def try_again_unhover(self):
+        pygame.draw.rect(self.display, VIOLET, pygame.Rect(85, 405, 180, 60), 0, 15)
+        font = pygame.font.SysFont("Inter", 40)
         text = font.render(f"TRY AGAIN", True, LIGHT_PINK)
         self.display.blit(text,(97, 423))
+
+        pygame.display.update()
 

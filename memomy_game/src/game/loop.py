@@ -18,7 +18,7 @@ class Loop:
             self.pattern.add_random_press()
             round = self.round()
             if round == None:
-                break
+                exit()
             elif round == -1:
                 self.game_over()
                 break
@@ -62,13 +62,16 @@ class Loop:
         while running:
             for event in pygame.event.get():
 
-                if event.type == pygame.MOUSEBUTTONDOWN:
-                    pos = pygame.mouse.get_pos()
+                pos = pygame.mouse.get_pos()
 
-                    # if "try again" box is clicked -> starts game again
-                    if self.check.check_try_again(pos):
+                # if "try again" box is clicked -> starts game again
+                if self.check.check_try_again(pos):
                         self.game_over_display.try_again_hover()
-                        self.start()
+                        if event.type == pygame.MOUSEBUTTONDOWN:
+                            self.start()
+                
+                else:
+                    self.game_over_display.try_again_unhover()
 
                 if event.type == pygame.QUIT:
                         print("Player closed the game")
