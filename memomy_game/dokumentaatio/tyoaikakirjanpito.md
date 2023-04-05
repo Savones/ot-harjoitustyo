@@ -8,4 +8,5 @@ Päivä | Tunteja | Kuvaus
 30.3 | 4 | Arkkitehtuurin suunnittelua ja luokkien koodaamista
 1.4 | 1 | Testausta
 4.4 | 4 | Luokkien koodausta
-Yht | 14 |
+6.4 | 6 | Luokkien koodausta ja testausta
+Yht | 20 |
