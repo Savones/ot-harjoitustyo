@@ -8,72 +8,67 @@ SALMON = (245, 89, 81)
 BABY_PINK = (237, 210, 203)
 LIGHT_PINK = (241, 232, 230)
 
+# kaikki toiminnalliset elementit omissa metodeissaan
 
 class GameOverDisplay:
     def __init__(self):
         self.display = pygame.display.set_mode((WIDTH, HEIGHT))
     
+
     def draw_screen(self):
         self.display.fill((BABY_PINK))
 
         # Game over text
-        font = pygame.font.SysFont("Inter", 82)
-        text = font.render(f"GAME OVER", True, SALMON)
-        self.display.blit(text,(130, 210))
+        self.draw_text(SALMON, 130, 210, 82, "GAME OVER")
 
         # Try again button
-        pygame.draw.rect(self.display, VIOLET, pygame.Rect(75, 405, 200, 60), 0, 15)
-
-        font = pygame.font.SysFont("Inter", 36)
-        text = font.render(f"TRY AGAIN", True, LIGHT_PINK)
-        self.display.blit(text,(105, 423))
+        self.try_again_button(False)
 
         # Scoreboard button
-        pygame.draw.rect(self.display, VIOLET, pygame.Rect(325, 405, 200, 60), 0, 15)
-
-        font = pygame.font.SysFont("Inter", 36)
-        text = font.render(f"SCOREBOARD", True, LIGHT_PINK)
-        self.display.blit(text,(340, 423))
+        self.scoreboard_button(False)
 
         # Log-out button
-        pygame.draw.rect(self.display, DARK_VIOLET, pygame.Rect(450, 25, 120, 45), 0, 15)
-
-        font = pygame.font.SysFont("Inter", 28)
-        text = font.render(f"LOG OUT", True, LIGHT_PINK)
-        self.display.blit(text,(465, 39))
-
-        pygame.display.update()
+        self.log_out_button()
     
 
-    def try_again_hover(self):
-        pygame.draw.rect(self.display, LIGHT_PINK, pygame.Rect(75, 405, 200, 60), 0, 15)
-        font = pygame.font.SysFont("Inter", 36)
-        text = font.render(f"TRY AGAIN", True, VIOLET)
-        self.display.blit(text,(105, 423))
+    def draw_box(self, color, x, y, width, height):
+        pygame.draw.rect(self.display, color, pygame.Rect(x, y, width, height), 0, 15)
 
+
+    def draw_text(self, color, x, y, font_size, content):
+        font = pygame.font.SysFont("Inter", font_size)
+        text = font.render(content, True, color)
+        self.display.blit(text,(x, y))
+
+
+    def try_again_button(self, hovered: bool):
+        if not hovered:
+            text_color = LIGHT_PINK
+            box_color = VIOLET
+        else:
+            text_color = VIOLET
+            box_color = LIGHT_PINK
+        
+        self.draw_box(box_color, 75, 405, 200, 60)
+        self.draw_text(text_color, 105, 423, 36, "TRY AGAIN")
         pygame.display.update()
 
-    def try_again_unhover(self):
-        pygame.draw.rect(self.display, VIOLET, pygame.Rect(75, 405, 200, 60), 0, 15)
-        font = pygame.font.SysFont("Inter", 36)
-        text = font.render(f"TRY AGAIN", True, LIGHT_PINK)
-        self.display.blit(text,(105, 423))
 
+    def scoreboard_button(self, hovered: bool):
+        if not hovered:
+            text_color = LIGHT_PINK
+            box_color = VIOLET
+        else:
+            text_color = VIOLET
+            box_color = LIGHT_PINK
+        
+        self.draw_box(box_color, 325, 405, 200, 60)
+        self.draw_text(text_color, 340, 423, 36, "SCOREBOARD")
         pygame.display.update()
 
 
-    def scoreboard_hover(self):
-        pygame.draw.rect(self.display, LIGHT_PINK, pygame.Rect(325, 405, 200, 60), 0, 15)
-        font = pygame.font.SysFont("Inter", 36)
-        text = font.render(f"SCOREBOARD", True, VIOLET)
-        self.display.blit(text,(340, 423))
+    def log_out_button(self):
 
-        pygame.display.update()
-
-    def scoreboard_unhover(self):
-        pygame.draw.rect(self.display, VIOLET, pygame.Rect(325, 405, 200, 60), 0, 15)
-        font = pygame.font.SysFont("Inter", 36)
-        text = font.render(f"SCOREBOARD", True, LIGHT_PINK)
-        self.display.blit(text,(340, 423))
-
+        self.draw_box(DARK_VIOLET, 450, 25, 120, 45)
+        self.draw_text(LIGHT_PINK, 465, 39, 28, "LOG OUT")
         pygame.display.update()

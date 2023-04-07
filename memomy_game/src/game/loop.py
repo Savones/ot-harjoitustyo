@@ -74,19 +74,19 @@ class Loop:
 
                 # if "try again" box is clicked -> starts game again
                 if self.check.check_try_again_pos(pos):
-                        self.game_over_display.try_again_hover()
+                        self.game_over_display.try_again_button(True)
                         if event.type == pygame.MOUSEBUTTONDOWN:
                             self.start_game()
                 else:
-                    self.game_over_display.try_again_unhover()
+                    self.game_over_display.try_again_button(False)
                 
                 # if "scoreboard" box is clicked
                 if self.check.check_scoreboard_pos(pos):
-                        self.game_over_display.scoreboard_hover()
+                        self.game_over_display.scoreboard_button(True)
                         if event.type == pygame.MOUSEBUTTONDOWN:
                             self.scoreboard()
                 else:
-                    self.game_over_display.scoreboard_unhover()
+                    self.game_over_display.scoreboard_button(False)
 
 
                 if event.type == pygame.QUIT:

@@ -72,11 +72,11 @@ class Display:
     def draw_hit(self, x, y):
         pygame.draw.rect(self.display, (GREEN), pygame.Rect(x, y, 90, 90), 0, 15)
         pygame.display.update()
-        pygame.time.delay(150)
+        pygame.time.delay(175)
 
         pygame.draw.rect(self.display, (LIGHT_PINK), pygame.Rect(x, y, 90, 90), 0 ,15)
         pygame.display.update()
-        pygame.time.delay(150)
+        pygame.time.delay(175)
     
 
     def draw_level(self, level):
