@@ -81,19 +81,15 @@ class Display:
 
     def draw_level(self, level):
         font = pygame.font.SysFont("Inter", 42)
-        # pygame.draw.rect(self.display, DARK_VIOLET, pygame.Rect(125, 445, 200, 60), 0, 15)
         pygame.draw.rect(self.display, DARK_VIOLET, pygame.Rect(125, 445, 165, 60), 0, 15)
-        pygame.display.update()
-        text = font.render(f"Score: {level}", True, BABY_PINK)
+        text = font.render(f"SCORE: {level}", True, BABY_PINK)
         self.display.blit(text,(143, 461))
         pygame.display.update()
     
 
     def draw_high_score(self, hs):
         font = pygame.font.SysFont("Inter", 42)
-        # pygame.draw.rect(self.display, DARK_VIOLET, pygame.Rect(125, 520, 200, 60), 0, 15)
         pygame.draw.rect(self.display, DARK_VIOLET, pygame.Rect(305, 445, 165, 60), 0, 15)
-        pygame.display.update()
         text = font.render(f"HS: {hs}", True, YELLOW)
         self.display.blit(text,(323, 461))
         pygame.display.update()

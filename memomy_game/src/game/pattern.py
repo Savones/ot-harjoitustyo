@@ -13,7 +13,7 @@ class Pattern:
     def level_up(self):
         self.level += 1
 
-    def get_high_score(self):
+    def change_high_score(self):
         if self.level > self.high_score:
             self.high_score = self.level
 

@@ -33,8 +33,20 @@ class Check:
         
         return found
     
-    def check_try_again(self, pos):
-        if (85 + 180) >= pos[0] >= 85 and (405 + 60) >= pos[1] >= 405:
+    def check_try_again_pos(self, pos):
+        if (75 + 200) >= pos[0] >= 85 and (405 + 60) >= pos[1] >= 405:
+            return True
+        else:
+            return False
+
+    def check_scoreboard_pos(self, pos):
+        if (325 + 200) >= pos[0] >= 325 and (405 + 60) >= pos[1] >= 405:
+            return True
+        else:
+            return False
+    
+    def check_return_pos(self, pos):
+        if (450 + 120) >= pos[0] >= 450 and (25 + 45) >= pos[1] >= 25:
             return True
         else:
             return False
