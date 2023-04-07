@@ -4,6 +4,7 @@ class Pattern:
     def __init__(self):
         self.pattern_list = []
         self.level = 0
+        self.high_score = 0
     
     def add_random_press(self):
         random_press = random.randint(1, 9)
@@ -11,6 +12,10 @@ class Pattern:
     
     def level_up(self):
         self.level += 1
+
+    def get_high_score(self):
+        if self.level > self.high_score:
+            self.high_score = self.level
 
     def default(self):
         self.level = 0

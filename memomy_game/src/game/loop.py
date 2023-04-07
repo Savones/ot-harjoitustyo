@@ -11,11 +11,13 @@ class Loop:
         
 
     def start(self):
+
         self.display.draw_screen()
         self.pattern.default()
+
         while True: 
-            self.pattern.level_up()
             self.pattern.add_random_press()
+
             round = self.round()
             if round == None:
                 exit()
@@ -25,9 +27,11 @@ class Loop:
     
 
     def round(self):
-        self.display.draw_pattern(self.pattern.pattern_list, self.pattern.level)
+
+        self.display.draw_pattern(self.pattern.pattern_list, self.pattern.level, self.pattern.high_score)
         clicks = 0
         running = True
+
         while running:
             for event in pygame.event.get():
                 if event.type == pygame.MOUSEBUTTONDOWN:
@@ -49,6 +53,8 @@ class Loop:
                 
                 # goes to next level once player complites pattern without fail
                 if clicks >= len(self.pattern.pattern_list):
+                    self.pattern.level_up()
+                    self.pattern.get_high_score()
                     return 1
 
                 if event.type == pygame.QUIT:
@@ -57,8 +63,10 @@ class Loop:
     
 
     def game_over(self):
+
         self.game_over_display.draw_screen()
         running = True
+
         while running:
             for event in pygame.event.get():
 
@@ -69,9 +77,15 @@ class Loop:
                         self.game_over_display.try_again_hover()
                         if event.type == pygame.MOUSEBUTTONDOWN:
                             self.start()
-                
                 else:
                     self.game_over_display.try_again_unhover()
+                
+                # if self.check.check_try_again(pos):
+                #         self.game_over_display.try_again_hover()
+                #         if event.type == pygame.MOUSEBUTTONDOWN:
+                #             self.start()
+                # else:
+                #     self.game_over_display.try_again_unhover()
 
                 if event.type == pygame.QUIT:
                         print("Player closed the game")

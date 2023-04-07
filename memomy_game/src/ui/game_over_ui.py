@@ -30,6 +30,13 @@ class GameOverDisplay:
         text = font.render(f"TRY AGAIN", True, LIGHT_PINK)
         self.display.blit(text,(105, 423))
 
+        # Scoreboard button
+        pygame.draw.rect(self.display, VIOLET, pygame.Rect(335, 405, 180, 60), 0, 15)
+
+        font = pygame.font.SysFont("Inter", 36)
+        text = font.render(f"SCOREBOARD", True, LIGHT_PINK)
+        self.display.blit(text,(105, 423))
+
         pygame.display.update()
     
 
