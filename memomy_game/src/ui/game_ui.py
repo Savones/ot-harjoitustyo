@@ -1,4 +1,6 @@
 import pygame
+from ui.main_ui import MainUi
+
 HEIGHT = 600
 WIDTH = 600
 WHITE = (255, 255, 255)
@@ -13,17 +15,17 @@ GREEN = (88, 179, 104)
 class Display:
     def __init__(self):
         self.display = pygame.display.set_mode((WIDTH, HEIGHT))
-        self.clock = pygame.time.Clock()
+        self.main = MainUi()
+
 
     def draw_screen(self):
         self.display.fill(VIOLET)
-
-        pygame.draw.rect(self.display, (DARK_VIOLET), pygame.Rect(125, 70, 350, 350), 0, 15)
+        self.main.draw_box(DARK_VIOLET, 125, 70, 350, 350)
 
         x = 155
         y = 100
         for i in range(1, 10):
-            pygame.draw.rect(self.display, LIGHT_PINK, pygame.Rect(x, y, 90, 90), 0, 15)
+            self.main.draw_box(LIGHT_PINK, x, y, 90, 90)
             if i % 3 == 0:
                 y += 100
                 x = 155
@@ -32,6 +34,7 @@ class Display:
 
         pygame.display.update()
         pygame.time.delay(1000)
+
 
     def draw_click(self, pos):
         x = 155
@@ -45,12 +48,7 @@ class Display:
             else:
                 x += 100
         
-        pygame.draw.rect(self.display, (SALMON), pygame.Rect(x, y, 90, 90), 0, 15)
-        pygame.display.update()
-        pygame.time.delay(100)
-        pygame.draw.rect(self.display, (LIGHT_PINK), pygame.Rect(x, y, 90, 90), 0, 15)
-        pygame.display.update()
-        
+        self.draw_flash(x, y, 100, SALMON)
 
 
     def draw_pattern(self, pattern: list, level: int, high_score: int):
@@ -61,38 +59,35 @@ class Display:
             y = 100
             for i in range(1, 10):
                 if i == element:
-                    self.draw_hit(x, y)
+                    self.draw_flash(x, y, 175, GREEN)
                 if i % 3 == 0:
                     y += 100
                     x = 155
                 else:
                     x += 100
-                    
+    
 
-    def draw_hit(self, x, y):
-        pygame.draw.rect(self.display, (GREEN), pygame.Rect(x, y, 90, 90), 0, 15)
+    def draw_flash(self, x, y, time, color):
+        self.main.draw_box(color, x, y, 90, 90)
         pygame.display.update()
-        pygame.time.delay(175)
+        pygame.time.delay(time)
 
-        pygame.draw.rect(self.display, (LIGHT_PINK), pygame.Rect(x, y, 90, 90), 0 ,15)
+        self.main.draw_box(LIGHT_PINK, x, y, 90, 90)
         pygame.display.update()
-        pygame.time.delay(175)
+        pygame.time.delay(time)
     
 
     def draw_level(self, level):
-        font = pygame.font.SysFont("Inter", 42)
-        pygame.draw.rect(self.display, DARK_VIOLET, pygame.Rect(125, 445, 165, 60), 0, 15)
-        text = font.render(f"SCORE: {level}", True, BABY_PINK)
-        self.display.blit(text,(143, 461))
+        self.main.draw_box(DARK_VIOLET, 125, 445, 165, 60)
+        self.main.draw_text(BABY_PINK, 143, 461, 42, f"SCORE: {level}")
         pygame.display.update()
     
 
     def draw_high_score(self, hs):
-        font = pygame.font.SysFont("Inter", 42)
-        pygame.draw.rect(self.display, DARK_VIOLET, pygame.Rect(305, 445, 165, 60), 0, 15)
-        text = font.render(f"HS: {hs}", True, YELLOW)
-        self.display.blit(text,(323, 461))
+        self.main.draw_box(DARK_VIOLET, 305, 445, 165, 60)
+        self.main.draw_text(YELLOW, 323, 461, 42, f"SCORE: {hs}")
         pygame.display.update()
+
 
 
 
