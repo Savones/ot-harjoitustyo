@@ -9,4 +9,5 @@ Päivä | Tunteja | Kuvaus
 1.4 | 1 | Testausta
 4.4 | 4 | Luokkien koodausta
 6.4 | 6 | Luokkien koodausta ja testausta
-Yht | 20 |
+7.4 | 3 | Koodin laadun parantamista
+Yht | 23 |
