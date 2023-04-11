@@ -1,4 +1,6 @@
 import pygame
+from ui.main_ui import MainUi
+
 HEIGHT = 600
 WIDTH = 600
 WHITE = (255, 255, 255)
@@ -11,40 +13,29 @@ LIGHT_PINK = (241, 232, 230)
 class ScoreboardDisplay:
     def __init__(self):
         self.display = pygame.display.set_mode((WIDTH, HEIGHT))
+        self.main = MainUi()
 
     def draw_screen(self):
         self.display.fill((BABY_PINK))
-        pygame.draw.rect(self.display, (LIGHT_PINK), pygame.Rect(100, 200, 400, 350), 0, 15)
+        self.main.draw_box(LIGHT_PINK, 100, 200, 400, 350)
 
         # random text for now
-        font = pygame.font.SysFont("Inter", 64)
-        text = font.render(f"SCOREBOARD", True, VIOLET)
-        self.display.blit(text,(140, 120))
+        self.main.draw_text(VIOLET, 140, 120, 64, "SCOREBOARD")
 
         # return button
-        pygame.draw.rect(self.display, SALMON, pygame.Rect(450, 25, 120, 45), 0, 15)
-
-        font = pygame.font.SysFont("Inter", 28)
-        text = font.render(f"RETURN", True, LIGHT_PINK)
-        self.display.blit(text,(468, 39))
+        self.return_button(False)
 
         pygame.display.update()
     
-    def return_hover(self):
-        pygame.draw.rect(self.display, LIGHT_PINK, pygame.Rect(450, 25, 120, 45), 0, 15)
 
-        font = pygame.font.SysFont("Inter", 28)
-        text = font.render(f"RETURN", True, SALMON)
-        self.display.blit(text,(468, 39))
-
+    def return_button(self, hovered: bool):
+        if not hovered:
+            text_color = LIGHT_PINK
+            box_color = SALMON
+        else:
+            text_color = SALMON
+            box_color = LIGHT_PINK
+        
+        self.main.draw_box(box_color, 450, 25, 120, 45)
+        self.main.draw_text(text_color, 468, 39, 28, "RETURN")
         pygame.display.update()
-
-    def return_unhover(self):
-        pygame.draw.rect(self.display, SALMON, pygame.Rect(450, 25, 120, 45), 0, 15)
-
-        font = pygame.font.SysFont("Inter", 28)
-        text = font.render(f"RETURN", True, LIGHT_PINK)
-        self.display.blit(text,(468, 39))
-
-        pygame.display.update()
-

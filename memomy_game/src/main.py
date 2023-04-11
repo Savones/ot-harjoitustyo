@@ -5,6 +5,9 @@ from game.loop import Loop
 from ui.game_over_ui import GameOverDisplay
 from ui.scoreboard_ui import ScoreboardDisplay
 
+from registeration.player_database import Database
+from registeration.registeration_loop import RegisterationLoop
+
 def main():
     pattern = Pattern()
     check = Check()
@@ -12,8 +15,12 @@ def main():
     game_over_display = GameOverDisplay()
     scoreboard_display = ScoreboardDisplay()
 
+    database = Database()
 
-    loop = Loop(pattern, check, display, game_over_display, scoreboard_display)
-    loop.start_game()
+    registeration_loop = RegisterationLoop(database)
+    registeration_loop.start()
+
+    # loop = Loop(pattern, check, display, game_over_display, scoreboard_display)
+    # loop.start_game()
 
 main()

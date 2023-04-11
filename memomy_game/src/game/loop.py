@@ -95,6 +95,7 @@ class Loop:
 
 
     def scoreboard(self):
+        
         self.scoreboard_display.draw_screen()
         running = True
 
@@ -105,11 +106,11 @@ class Loop:
 
                 # if "return" box is clicked -> starts game again
                 if self.check.check_return_pos(pos):
-                        self.scoreboard_display.return_hover()
+                        self.scoreboard_display.return_button(True)
                         if event.type == pygame.MOUSEBUTTONDOWN:
                             self.game_over()
                 else:
-                    self.scoreboard_display.return_unhover()
+                    self.scoreboard_display.return_button(False)
 
                 if event.type == pygame.QUIT:
                         print("Player closed the game")
