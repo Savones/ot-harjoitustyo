@@ -5,6 +5,7 @@ WIDTH = 600
 class MainUi():
     def __init__(self, display):
         self.display = display
+        pygame.init()
 
 
     def draw_box(self, color, x, y, width, height):

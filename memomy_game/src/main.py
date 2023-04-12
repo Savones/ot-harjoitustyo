@@ -8,6 +8,7 @@ from ui.scoreboard_ui import ScoreboardDisplay
 
 from registeration.player_database import Database
 from registeration.registeration_loop import RegisterationLoop
+from ui.registeration_ui import RegisDisplay
 
 HEIGHT = 600
 WIDTH = 600
@@ -16,8 +17,9 @@ def main():
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
     database = Database()
+    regis_display = RegisDisplay(screen)
 
-    registeration_loop = RegisterationLoop(database)
+    registeration_loop = RegisterationLoop(database, regis_display)
     player = registeration_loop.start()
 
     pattern = Pattern(player, database)

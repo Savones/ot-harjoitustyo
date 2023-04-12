@@ -13,5 +13,16 @@ LIGHT_PINK = (241, 232, 230)
 GREEN = (88, 179, 104)
 
 class RegisDisplay:
-    def __init__(self):
-        pass
+    def __init__(self, screen):
+        self.display = screen
+        self.main = MainUi(self.display)
+    
+
+    def draw_screen(self):
+        self.display.fill(SALMON)
+        pygame.display.update()
+    
+    def update_screen(self, text):
+        self.display.fill(SALMON)
+        self.main.draw_text(WHITE, 100, 100, 38, text)
+        pygame.display.update()
