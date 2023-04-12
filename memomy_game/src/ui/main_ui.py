@@ -3,8 +3,9 @@ HEIGHT = 600
 WIDTH = 600
 
 class MainUi():
-    def __init__(self):
-        self.display = pygame.display.set_mode((WIDTH, HEIGHT))
+    def __init__(self, display):
+        # self.display = pygame.display.set_mode((WIDTH, HEIGHT))
+        self.display = display
 
 
     def draw_box(self, color, x, y, width, height):

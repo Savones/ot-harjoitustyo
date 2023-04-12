@@ -15,7 +15,7 @@ GREEN = (88, 179, 104)
 class Display:
     def __init__(self):
         self.display = pygame.display.set_mode((WIDTH, HEIGHT))
-        self.main = MainUi()
+        self.main = MainUi(self.display)
 
 
     def draw_screen(self):

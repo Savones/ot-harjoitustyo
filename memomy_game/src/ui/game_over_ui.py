@@ -14,7 +14,7 @@ LIGHT_PINK = (241, 232, 230)
 class GameOverDisplay:
     def __init__(self):
         self.display = pygame.display.set_mode((WIDTH, HEIGHT))
-        self.main = MainUi()
+        self.main = MainUi(self.display)
     
 
     def draw_screen(self):

@@ -14,7 +14,7 @@ LIGHT_PINK = (241, 232, 230)
 class ScoreboardDisplay:
     def __init__(self):
         self.display = pygame.display.set_mode((WIDTH, HEIGHT))
-        self.main = MainUi()
+        self.main = MainUi(self.display)
         self.database = Database()
 
 
