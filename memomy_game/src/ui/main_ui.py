@@ -4,7 +4,6 @@ WIDTH = 600
 
 class MainUi():
     def __init__(self, display):
-        # self.display = pygame.display.set_mode((WIDTH, HEIGHT))
         self.display = display
 
 

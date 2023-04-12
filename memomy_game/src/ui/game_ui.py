@@ -13,8 +13,8 @@ LIGHT_PINK = (241, 232, 230)
 GREEN = (88, 179, 104)
 
 class Display:
-    def __init__(self):
-        self.display = pygame.display.set_mode((WIDTH, HEIGHT))
+    def __init__(self, screen):
+        self.display = screen
         self.main = MainUi(self.display)
 
 
@@ -65,7 +65,7 @@ class Display:
                     x = 155
                 else:
                     x += 100
-    
+
 
     def draw_flash(self, x, y, time, color):
         self.main.draw_box(color, x, y, 90, 90)

@@ -1,12 +1,11 @@
 import random
-from registeration.player_database import Database
 
 class Pattern:
-    def __init__(self, player):
+    def __init__(self, player, database):
         self.pattern_list = []
         self.level = 0
         self.player = player
-        self.database = Database()
+        self.database = database
         self.high_score = self.database.get_hs(player)
     
     def add_random_press(self):

@@ -1,6 +1,5 @@
 import pygame
 from ui.main_ui import MainUi
-from registeration.player_database import Database
 
 HEIGHT = 600
 WIDTH = 600
@@ -11,32 +10,34 @@ SALMON = (245, 89, 81)
 BABY_PINK = (237, 210, 203)
 LIGHT_PINK = (241, 232, 230)
 
+
 class ScoreboardDisplay:
-    def __init__(self):
-        self.display = pygame.display.set_mode((WIDTH, HEIGHT))
+    def __init__(self, screen, player, database):
+        self.display = screen
         self.main = MainUi(self.display)
-        self.database = Database()
+        self.database = database
+        self.player = player
 
 
     def draw_screen(self):
         self.display.fill((BABY_PINK))
         self.main.draw_box(LIGHT_PINK, 100, 200, 400, 350)
 
-        # random text for now
         self.main.draw_text(VIOLET, 140, 120, 64, "SCOREBOARD")
 
         self.draw_grid()
 
         self.draw_scoreboard()
 
-        # return button
         self.return_button(False)
 
         pygame.display.update()
 
     
     def draw_grid(self):
-        self.main.draw_box(BABY_PINK, 300, 200, 6, 350)
+        self.main.draw_box(BABY_PINK, 400, 200, 6, 350)
+        self.main.draw_box(BABY_PINK, 200, 200, 6, 350)
+
 
         x = 100
         y = 200
@@ -49,14 +50,19 @@ class ScoreboardDisplay:
         test = self.database.get_players_table()
         print(test)
 
-        x = 150
         y = 155
+
         for i, player in enumerate(test):
             if i >= 5:
                 continue
             y += 70
-            self.main.draw_text(VIOLET, x, y, 38, player[1])
-            self.main.draw_text(VIOLET, x + 250, y, 40, str(player[2]))
+            if player[1] == self.player:
+                color = SALMON
+            else:
+                color = VIOLET
+            self.main.draw_text(VIOLET, 135, y, 40, f"{i + 1}.")
+            self.main.draw_text(color, 250, y, 38, player[1])
+            self.main.draw_text(VIOLET, 445, y, 40, str(player[2]))
 
 
     def return_button(self, hovered: bool):

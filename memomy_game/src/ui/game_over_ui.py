@@ -9,11 +9,10 @@ SALMON = (245, 89, 81)
 BABY_PINK = (237, 210, 203)
 LIGHT_PINK = (241, 232, 230)
 
-# kaikki toiminnalliset elementit omissa metodeissaan
 
 class GameOverDisplay:
-    def __init__(self):
-        self.display = pygame.display.set_mode((WIDTH, HEIGHT))
+    def __init__(self, screen):
+        self.display = screen
         self.main = MainUi(self.display)
     
 
