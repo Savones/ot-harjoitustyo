@@ -9,18 +9,18 @@ from registeration.player_database import Database
 from registeration.registeration_loop import RegisterationLoop
 
 def main():
-    pattern = Pattern()
+    database = Database()
+
+    registeration_loop = RegisterationLoop(database)
+    player = registeration_loop.start()
+
+    pattern = Pattern(player)
     check = Check()
     display = Display()
     game_over_display = GameOverDisplay()
     scoreboard_display = ScoreboardDisplay()
 
-    database = Database()
-
-    registeration_loop = RegisterationLoop(database)
-    registeration_loop.start()
-
-    # loop = Loop(pattern, check, display, game_over_display, scoreboard_display)
-    # loop.start_game()
+    loop = Loop(pattern, check, display, game_over_display, scoreboard_display)
+    loop.start_game()
 
 main()

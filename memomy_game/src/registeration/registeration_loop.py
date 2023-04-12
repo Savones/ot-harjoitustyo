@@ -1,4 +1,5 @@
 import pygame
+import random
 
 class RegisterationLoop:
     def __init__(self, database):
@@ -15,11 +16,5 @@ class RegisterationLoop:
         
         if not self.database.player_exists(player_input):
             self.database.add_player(player_input, 0)
-            print("lisätty")
 
-        else:
-            print("löyty")
-        
-        self.database.print_players_table()
-
-
+        return player_input

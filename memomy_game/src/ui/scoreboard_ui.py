@@ -1,5 +1,6 @@
 import pygame
 from ui.main_ui import MainUi
+from registeration.player_database import Database
 
 HEIGHT = 600
 WIDTH = 600
@@ -14,6 +15,8 @@ class ScoreboardDisplay:
     def __init__(self):
         self.display = pygame.display.set_mode((WIDTH, HEIGHT))
         self.main = MainUi()
+        self.database = Database()
+
 
     def draw_screen(self):
         self.display.fill((BABY_PINK))
@@ -22,11 +25,21 @@ class ScoreboardDisplay:
         # random text for now
         self.main.draw_text(VIOLET, 140, 120, 64, "SCOREBOARD")
 
+        self.draw_scoreboard()
+
         # return button
         self.return_button(False)
 
         pygame.display.update()
     
+
+    def draw_scoreboard(self):
+        test = self.database.get_players_table()
+        print(test)
+
+        for player in test:
+            print(player[1], player[2])
+
 
     def return_button(self, hovered: bool):
         if not hovered:

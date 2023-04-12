@@ -20,9 +20,8 @@ class Database:
         os.remove("player_database.db")
 
 
-    def print_players_table(self):
-        for player in self.db.execute("SELECT * FROM Players"):
-            print(player)
+    def get_players_table(self):    
+        return self.db.execute("SELECT * FROM Players").fetchall()
 
 
     def table_exists(self):
@@ -47,5 +46,12 @@ class Database:
         try:
             hs = self.db.execute("SELECT hs FROM Players WHERE name = ?", [p_name]).fetchone()[0]
             return hs
+        except:
+            print("Error")
+    
+    
+    def change_hs(self, p_name, new_hs):
+        try:
+            self.db.execute("UPDATE Players SET hs = ? WHERE name = ?", [new_hs, p_name])
         except:
             print("Error")

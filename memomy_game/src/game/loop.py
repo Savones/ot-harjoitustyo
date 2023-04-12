@@ -10,6 +10,7 @@ class Loop:
         self.scoreboard_display = scoreboard_display
         pygame.init()
 
+
     def start_game(self):
 
         self.display.draw_screen()
@@ -22,6 +23,7 @@ class Loop:
             if round == None:
                 exit()
             elif round == -1:
+                self.pattern.update_hs_in_db()
                 self.game_over()
                 break
     
