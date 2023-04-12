@@ -48,3 +48,7 @@ class RegisDisplay:
         self.main.draw_box(box_color, 340, 340, 150, 60)
         self.main.draw_text(text_color, 365, 357, 42, "ENTER")
         pygame.display.update()
+
+    
+    def username_unvalid(self):
+        print("Username not valid. Username has to have 1-6 characters.")

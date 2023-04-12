@@ -17,6 +17,7 @@ class Check:
         else:
             return False
 
+
     def check_misclick(self, pos):
         found = False
         x = 155
@@ -30,35 +31,21 @@ class Check:
                 x = 155
             else:
                 x += 100
-        
         return found
     
-    def check_try_again_pos(self, pos):
-        if (75 + 200) >= pos[0] >= 85 and (405 + 60) >= pos[1] >= 405:
+
+    def check_if_valid(self, username):
+        if len(username) >= 7 or len(username) <= 0:
+            return False
+        
+        return True
+    
+
+    def if_hovered(self, pos, x, y, width, height):
+        if (x + width) >= pos[0] >= x and (y + height) >= pos[1] >= y:
             return True
         else:
             return False
 
-    def check_scoreboard_pos(self, pos):
-        if (325 + 200) >= pos[0] >= 325 and (405 + 60) >= pos[1] >= 405:
-            return True
-        else:
-            return False
-    
-    def check_return_pos(self, pos):
-        if (450 + 120) >= pos[0] >= 450 and (25 + 45) >= pos[1] >= 25:
-            return True
-        else:
-            return False
-    
-    def check_enter_pos(self, pos):
-        if (340 + 150) >= pos[0] >= 340 and (340 + 60) >= pos[1] >= 340:
-            return True
-        else:
-            return False
         
-    def check_logout_pos(self, pos):
-        if (450 + 120) >= pos[0] >= 450 and (25 + 45) >= pos[1] >= 25:
-            return True
-        else:
-            return False
+    

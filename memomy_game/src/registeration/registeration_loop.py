@@ -8,7 +8,6 @@ class RegisterationLoop:
     
     def start(self):
 
-        # self.database.reset_db()
         player_input = ""
 
         if self.database.table_exists() == False:
@@ -25,9 +24,14 @@ class RegisterationLoop:
                         player_input = player_input[0: -1]
 
                     elif event.key == pygame.K_RETURN:
+
                         if not self.database.player_exists(player_input):
                             self.database.add_player(player_input, 0)
-                        return player_input
+
+                        if self.check.check_if_valid(player_input):
+                            return player_input
+                        
+                        self.display.username_unvalid()
 
                     else:
                         player_input += event.unicode
@@ -35,10 +39,13 @@ class RegisterationLoop:
                 
                 pos = pygame.mouse.get_pos()
 
-                if self.check.check_enter_pos(pos):
+                if self.check.if_hovered(pos, 340, 340, 150, 60):
                         self.display.enter_button(True)
                         if event.type == pygame.MOUSEBUTTONDOWN:
-                            return player_input
+                            if self.check.check_if_valid(player_input):
+                                return player_input
+                        
+                            self.display.username_unvalid()
                 else:
                     self.display.enter_button(False)
                 

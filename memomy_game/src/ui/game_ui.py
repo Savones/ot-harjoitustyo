@@ -79,13 +79,13 @@ class Display:
 
     def draw_level(self, level):
         self.main.draw_box(DARK_VIOLET, 125, 445, 165, 60)
-        self.main.draw_text(BABY_PINK, 140, 461, 42, f"SCORE: {level}")
+        self.main.draw_text(BABY_PINK, 143, 464, 34, f"SCORE: {level}")
         pygame.display.update()
     
 
     def draw_high_score(self, hs):
         self.main.draw_box(DARK_VIOLET, 305, 445, 165, 60)
-        self.main.draw_text(YELLOW, 323, 461, 42, f"HS: {hs}")
+        self.main.draw_text(YELLOW, 326, 464, 34, f"HS: {hs}")
         pygame.display.update()
 
 

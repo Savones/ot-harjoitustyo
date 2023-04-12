@@ -1,4 +1,5 @@
 import pygame
+import os
 from game.pattern import Pattern
 from game.check import Check
 from ui.game_ui import Display

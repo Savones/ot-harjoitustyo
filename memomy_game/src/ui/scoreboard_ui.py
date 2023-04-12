@@ -47,12 +47,11 @@ class ScoreboardDisplay:
     
 
     def draw_scoreboard(self):
-        test = self.database.get_players_table()
-        print(test)
+        data = self.database.get_players_table()
 
         y = 155
 
-        for i, player in enumerate(test):
+        for i, player in enumerate(data):
             if i >= 5:
                 continue
             y += 70

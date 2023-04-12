@@ -75,7 +75,7 @@ class Loop:
                 pos = pygame.mouse.get_pos()
 
                 # if "try again" box is clicked -> starts game again
-                if self.check.check_try_again_pos(pos):
+                if self.check.if_hovered(pos, 75, 405, 200, 60):
                         self.game_over_display.try_again_button(True)
                         if event.type == pygame.MOUSEBUTTONDOWN:
                             self.start_game()
@@ -84,7 +84,7 @@ class Loop:
                     self.game_over_display.try_again_button(False)
                 
                 # if "scoreboard" box is clicked
-                if self.check.check_scoreboard_pos(pos):
+                if self.check.if_hovered(pos, 325, 405, 200, 60):
                         self.game_over_display.scoreboard_button(True)
                         if event.type == pygame.MOUSEBUTTONDOWN:
                             self.scoreboard()
@@ -93,7 +93,7 @@ class Loop:
                     self.game_over_display.scoreboard_button(False)
 
                 # if "logout" clicked
-                if self.check.check_logout_pos(pos):
+                if self.check.if_hovered(pos, 450, 25, 120, 45):
                         self.game_over_display.log_out_button(True)
                         if event.type == pygame.MOUSEBUTTONDOWN:
                             return
@@ -117,7 +117,7 @@ class Loop:
                 pos = pygame.mouse.get_pos()
 
                 # if "return" box is clicked -> starts game again
-                if self.check.check_return_pos(pos):
+                if self.check.if_hovered(pos, 450, 25, 120, 45):
                         self.scoreboard_display.return_button(True)
                         if event.type == pygame.MOUSEBUTTONDOWN:
                             self.game_over()
