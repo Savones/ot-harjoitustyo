@@ -17,13 +17,13 @@ def main():
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
     database = Database()
+    check = Check()
     regis_display = RegisDisplay(screen)
 
-    registeration_loop = RegisterationLoop(database, regis_display)
+    registeration_loop = RegisterationLoop(database, regis_display, check)
     player = registeration_loop.start()
 
     pattern = Pattern(player, database)
-    check = Check()
     display = Display(screen)
     game_over_display = GameOverDisplay(screen)
     scoreboard_display = ScoreboardDisplay(screen, player, database)

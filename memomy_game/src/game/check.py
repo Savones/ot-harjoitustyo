@@ -50,3 +50,9 @@ class Check:
             return True
         else:
             return False
+    
+    def check_enter_pos(self, pos):
+        if (340 + 150) >= pos[0] >= 340 and (340 + 60) >= pos[1] >= 340:
+            return True
+        else:
+            return False

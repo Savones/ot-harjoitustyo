@@ -1,9 +1,10 @@
 import pygame
 
 class RegisterationLoop:
-    def __init__(self, database, display):
+    def __init__(self, database, display, check):
         self.database = database
         self.display = display
+        self.check = check
     
     def start(self):
 
@@ -18,9 +19,6 @@ class RegisterationLoop:
 
         while running:
             for event in pygame.event.get():
-                if event.type == pygame.MOUSEBUTTONDOWN:
-                    player_input = input("User name: ")
-                    running = False
                 
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_BACKSPACE:
@@ -34,6 +32,15 @@ class RegisterationLoop:
                     else:
                         player_input += event.unicode
                     self.display.update_screen(player_input)
+                
+                pos = pygame.mouse.get_pos()
+
+                if self.check.check_enter_pos(pos):
+                        self.display.enter_button(True)
+                        if event.type == pygame.MOUSEBUTTONDOWN:
+                            return player_input
+                else:
+                    self.display.enter_button(False)
                 
                 
                 if event.type == pygame.QUIT:

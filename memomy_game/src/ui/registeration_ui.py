@@ -19,10 +19,32 @@ class RegisDisplay:
     
 
     def draw_screen(self):
-        self.display.fill(SALMON)
+        self.display.fill(BABY_PINK)
+        self.main.draw_box(VIOLET, 75, 200, 450, 250)
+        self.main.draw_box(LIGHT_PINK, 270, 250, 220, 50)
+
+        self.main.draw_text(VIOLET, 200, 100, 82, "LOG IN")
+        self.main.draw_text(LIGHT_PINK, 110, 265, 32, "USERNAME:")
+
+        self.enter_button(False)
+
         pygame.display.update()
     
+
     def update_screen(self, text):
-        self.display.fill(SALMON)
-        self.main.draw_text(WHITE, 100, 100, 38, text)
+        self.main.draw_box(LIGHT_PINK, 270, 250, 220, 50)
+        self.main.draw_text(DARK_VIOLET, 290, 265, 32, text)
+        pygame.display.update()
+    
+
+    def enter_button(self, hovered):
+        if not hovered:
+            text_color = LIGHT_PINK
+            box_color = SALMON
+        else:
+            text_color = SALMON
+            box_color = LIGHT_PINK
+        
+        self.main.draw_box(box_color, 340, 340, 150, 60)
+        self.main.draw_text(text_color, 365, 357, 42, "ENTER")
         pygame.display.update()
