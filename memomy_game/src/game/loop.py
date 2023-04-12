@@ -79,6 +79,7 @@ class Loop:
                         self.game_over_display.try_again_button(True)
                         if event.type == pygame.MOUSEBUTTONDOWN:
                             self.start_game()
+                            return
                 else:
                     self.game_over_display.try_again_button(False)
                 
@@ -87,8 +88,17 @@ class Loop:
                         self.game_over_display.scoreboard_button(True)
                         if event.type == pygame.MOUSEBUTTONDOWN:
                             self.scoreboard()
+                            return
                 else:
                     self.game_over_display.scoreboard_button(False)
+
+                # if "logout" clicked
+                if self.check.check_logout_pos(pos):
+                        self.game_over_display.log_out_button(True)
+                        if event.type == pygame.MOUSEBUTTONDOWN:
+                            return
+                else:
+                    self.game_over_display.log_out_button(False)
 
 
                 if event.type == pygame.QUIT:
@@ -111,6 +121,7 @@ class Loop:
                         self.scoreboard_display.return_button(True)
                         if event.type == pygame.MOUSEBUTTONDOWN:
                             self.game_over()
+                            return
                 else:
                     self.scoreboard_display.return_button(False)
 

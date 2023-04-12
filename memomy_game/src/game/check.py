@@ -56,3 +56,9 @@ class Check:
             return True
         else:
             return False
+        
+    def check_logout_pos(self, pos):
+        if (450 + 120) >= pos[0] >= 450 and (25 + 45) >= pos[1] >= 25:
+            return True
+        else:
+            return False

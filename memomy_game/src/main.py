@@ -18,17 +18,19 @@ def main():
 
     database = Database()
     check = Check()
-    regis_display = RegisDisplay(screen)
 
-    registeration_loop = RegisterationLoop(database, regis_display, check)
-    player = registeration_loop.start()
+    while True:
+        regis_display = RegisDisplay(screen)
 
-    pattern = Pattern(player, database)
-    display = Display(screen)
-    game_over_display = GameOverDisplay(screen)
-    scoreboard_display = ScoreboardDisplay(screen, player, database)
+        registeration_loop = RegisterationLoop(database, regis_display, check)
+        player = registeration_loop.start()
 
-    loop = Loop(pattern, check, display, game_over_display, scoreboard_display)
-    loop.start_game()
+        pattern = Pattern(player, database)
+        display = Display(screen)
+        game_over_display = GameOverDisplay(screen)
+        scoreboard_display = ScoreboardDisplay(screen, player, database)
+
+        loop = Loop(pattern, check, display, game_over_display, scoreboard_display)
+        loop.start_game()
 
 main()
