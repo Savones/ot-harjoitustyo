@@ -25,20 +25,38 @@ class ScoreboardDisplay:
         # random text for now
         self.main.draw_text(VIOLET, 140, 120, 64, "SCOREBOARD")
 
+        self.draw_grid()
+
         self.draw_scoreboard()
 
         # return button
         self.return_button(False)
 
         pygame.display.update()
+
+    
+    def draw_grid(self):
+        self.main.draw_box(BABY_PINK, 300, 200, 6, 350)
+
+        x = 100
+        y = 200
+        for _ in range(4):
+            y += 70
+            self.main.draw_box(BABY_PINK, x, y, 400, 6)
     
 
     def draw_scoreboard(self):
         test = self.database.get_players_table()
         print(test)
 
-        for player in test:
-            print(player[1], player[2])
+        x = 150
+        y = 155
+        for i, player in enumerate(test):
+            if i >= 5:
+                continue
+            y += 70
+            self.main.draw_text(VIOLET, x, y, 38, player[1])
+            self.main.draw_text(VIOLET, x + 250, y, 40, str(player[2]))
 
 
     def return_button(self, hovered: bool):

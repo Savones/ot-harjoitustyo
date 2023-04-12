@@ -21,7 +21,7 @@ class Database:
 
 
     def get_players_table(self):    
-        return self.db.execute("SELECT * FROM Players").fetchall()
+        return self.db.execute("SELECT * FROM Players ORDER BY hs DESC").fetchall()
 
 
     def table_exists(self):
