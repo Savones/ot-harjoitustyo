@@ -15,6 +15,7 @@ HEIGHT = 600
 WIDTH = 600
 
 def main():
+    os.remove("player_database.db")
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
     database = Database()

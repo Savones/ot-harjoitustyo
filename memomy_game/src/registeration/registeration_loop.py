@@ -8,12 +8,12 @@ class RegisterationLoop:
     
     def start(self):
 
-        player_input = ""
-
         if self.database.table_exists() == False:
             self.database.create_table()
-
+        
+        player_input = ""
         self.display.draw_screen(1)
+
         running = True
 
         while running:
@@ -41,12 +41,16 @@ class RegisterationLoop:
                                 return player_input
                 else:
                     self.display.enter_button(False)
-                
-                if event.type == pygame.MOUSEBUTTONDOWN:
-                    self.create_account()
-                    self.start()
-                
-                
+
+                if self.check.if_hovered(pos, 170, 490, 260, 55):
+                    self.display.create_account_button(True)
+                    if event.type == pygame.MOUSEBUTTONDOWN:    
+                        self.create_account()
+                        player_input = ""
+                        self.display.draw_screen(1)
+                else:
+                    self.display.create_account_button(False)
+                    
                 if event.type == pygame.QUIT:
                     print("Player closed the game")
                     exit()

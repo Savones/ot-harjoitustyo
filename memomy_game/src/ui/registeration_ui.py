@@ -35,6 +35,7 @@ class RegisDisplay:
             x = 100
 
         self.display.fill(color1)
+        self.main.draw_box(color3, 65, 190, 470, 270)
         self.main.draw_box(color2, 75, 200, 450, 250)
         self.main.draw_box(color3, 270, 250, 220, 50)
 
@@ -76,6 +77,6 @@ class RegisDisplay:
             text_color = SALMON
             box_color = LIGHT_PINK
         
-        self.main.draw_box(box_color, 150, 490, 300, 60)
-        self.main.draw_text(text_color, 175, 508, 38, "CREATE ACCOUNT")
+        self.main.draw_box(box_color, 170, 490, 260, 55)
+        self.main.draw_text(text_color, 195, 508, 32, "CREATE ACCOUNT")
         pygame.display.update()
