@@ -1,8 +1,6 @@
 import pygame
 from ui.main_ui import MainUi
 
-HEIGHT = 600
-WIDTH = 600
 WHITE = (255, 255, 255)
 YELLOW = (255, 255, 153)
 DARK_VIOLET = (54, 29, 50)
@@ -18,15 +16,35 @@ class RegisDisplay:
         self.main = MainUi(self.display)
     
 
-    def draw_screen(self):
-        self.display.fill(BABY_PINK)
-        self.main.draw_box(VIOLET, 75, 200, 450, 250)
-        self.main.draw_box(LIGHT_PINK, 270, 250, 220, 50)
+    def draw_screen(self, option: int):
+        if option == 1:
+            color1 = BABY_PINK
+            color2 = VIOLET
+            color3 = LIGHT_PINK
+            color4 = VIOLET
+            text = "LOG IN"
+            font = 82
+            x = 200
+        else:
+            color1 = VIOLET
+            color2 = DARK_VIOLET
+            color3 = LIGHT_PINK
+            color4 = LIGHT_PINK
+            text = "CREATE ACCOUNT"
+            font = 62
+            x = 100
 
-        self.main.draw_text(VIOLET, 200, 100, 82, "LOG IN")
-        self.main.draw_text(LIGHT_PINK, 110, 265, 32, "USERNAME:")
+        self.display.fill(color1)
+        self.main.draw_box(color2, 75, 200, 450, 250)
+        self.main.draw_box(color3, 270, 250, 220, 50)
+
+        self.main.draw_text(color4, x, 100, font, text)
+        self.main.draw_text(color3, 110, 265, 32, "USERNAME:")
 
         self.enter_button(False)
+
+        if option == 1:
+            self.create_account_button(False)
 
         pygame.display.update()
     
@@ -49,6 +67,15 @@ class RegisDisplay:
         self.main.draw_text(text_color, 365, 357, 42, "ENTER")
         pygame.display.update()
 
-    
-    def username_unvalid(self):
-        print("Username not valid. Username has to have 1-6 characters.")
+
+    def create_account_button(self, hovered):
+        if not hovered:
+            text_color = LIGHT_PINK
+            box_color = SALMON
+        else:
+            text_color = SALMON
+            box_color = LIGHT_PINK
+        
+        self.main.draw_box(box_color, 150, 490, 300, 60)
+        self.main.draw_text(text_color, 175, 508, 38, "CREATE ACCOUNT")
+        pygame.display.update()

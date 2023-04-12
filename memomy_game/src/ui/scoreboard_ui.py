@@ -1,8 +1,6 @@
 import pygame
 from ui.main_ui import MainUi
 
-HEIGHT = 600
-WIDTH = 600
 WHITE = (255, 255, 255)
 DARK_VIOLET = (54, 29, 50)
 VIOLET = (84, 60, 82)

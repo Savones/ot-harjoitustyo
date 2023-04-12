@@ -1,6 +1,4 @@
 import pygame
-HEIGHT = 600
-WIDTH = 600
 
 class MainUi():
     def __init__(self, display):
