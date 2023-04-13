@@ -25,6 +25,7 @@ class RegisDisplay:
             text = "LOG IN"
             font = 82
             x = 200
+            y = 100
         else:
             color1 = VIOLET
             color2 = DARK_VIOLET
@@ -33,19 +34,22 @@ class RegisDisplay:
             text = "CREATE ACCOUNT"
             font = 62
             x = 100
+            y = 125
 
         self.display.fill(color1)
         self.main.draw_box(color3, 65, 190, 470, 270)
         self.main.draw_box(color2, 75, 200, 450, 250)
         self.main.draw_box(color3, 270, 250, 220, 50)
 
-        self.main.draw_text(color4, x, 100, font, text)
+        self.main.draw_text(color4, x, y, font, text)
         self.main.draw_text(color3, 110, 265, 32, "USERNAME:")
 
         self.enter_button(False)
 
         if option == 1:
             self.create_account_button(False)
+        else:
+            self.return_button(False)
 
         pygame.display.update()
     
@@ -79,4 +83,17 @@ class RegisDisplay:
         
         self.main.draw_box(box_color, 170, 490, 260, 55)
         self.main.draw_text(text_color, 195, 508, 32, "CREATE ACCOUNT")
+        pygame.display.update()
+    
+
+    def return_button(self, hovered: bool):
+        if not hovered:
+            text_color = LIGHT_PINK
+            box_color = SALMON
+        else:
+            text_color = SALMON
+            box_color = LIGHT_PINK
+        
+        self.main.draw_box(box_color, 450, 25, 120, 45)
+        self.main.draw_text(text_color, 468, 39, 28, "RETURN")
         pygame.display.update()

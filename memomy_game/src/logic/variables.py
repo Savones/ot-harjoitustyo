@@ -1,6 +1,6 @@
 import random
 
-class Pattern:
+class Variables:
     def __init__(self, player, database):
         self.pattern_list = []
         self.level = 0

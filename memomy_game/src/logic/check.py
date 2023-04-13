@@ -34,8 +34,8 @@ class Check:
         return found
     
 
-    def check_if_valid(self, username):
-        if len(username) >= 7 or len(username) <= 0:
+    def if_valid(self, username):
+        if len(username) >= 7 or len(username) <= 1:
             return False
         
         return True
@@ -47,5 +47,4 @@ class Check:
         else:
             return False
 
-        
     

@@ -2,8 +2,8 @@ import pygame
 
 class Loop:
 
-    def __init__(self, pattern, check, display, game_over_display, scoreboard_display):
-        self.pattern = pattern
+    def __init__(self, variables, check, display, game_over_display, scoreboard_display):
+        self.variables = variables
         self.check = check
         self.display = display
         self.game_over_display = game_over_display
@@ -14,23 +14,23 @@ class Loop:
     def start_game(self):
 
         self.display.draw_screen()
-        self.pattern.default()
+        self.variables.default()
 
         while True: 
-            self.pattern.add_random_press()
+            self.variables.add_random_press()
 
             round = self.round()
             if round == None:
                 exit()
             elif round == -1:
-                self.pattern.update_hs_in_db()
+                self.variables.update_hs_in_db()
                 self.game_over()
                 break
     
 
     def round(self):
 
-        self.display.draw_pattern(self.pattern.pattern_list, self.pattern.level, self.pattern.high_score)
+        self.display.draw_pattern(self.variables.pattern_list, self.variables.level, self.variables.high_score)
         clicks = 0
         running = True
 
@@ -44,7 +44,7 @@ class Loop:
                         continue
 
                     # once player hits the squere, returns -1 if wrong answer
-                    elif not self.check.check_click(pos, self.pattern.pattern_list[clicks]):
+                    elif not self.check.check_click(pos, self.variables.pattern_list[clicks]):
                         self.display.draw_click(pos)
                         return -1 
 
@@ -54,9 +54,9 @@ class Loop:
                         clicks += 1
                 
                 # goes to next level once player complites pattern without fail
-                if clicks >= len(self.pattern.pattern_list):
-                    self.pattern.level_up()
-                    self.pattern.change_high_score()
+                if clicks >= len(self.variables.pattern_list):
+                    self.variables.level_up()
+                    self.variables.change_high_score()
                     return 1
 
                 if event.type == pygame.QUIT:
