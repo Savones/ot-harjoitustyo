@@ -1,0 +1,1 @@
+![luokkakaavio](luokkakaavio.png)
