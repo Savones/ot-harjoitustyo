@@ -14,9 +14,14 @@
   - Jos ei osu mihinkään ruutuun, ei tapahdu mitään
 - Käyttäjä voi sulkea pelin
 
-## Viikko 4
+## Viikko 4 (+ loma)
 
-- Lisätty GameOverDisplay-luokka, joka huolehtii gameover graafisesta näkymästä
-- Testattu Check-luokka
+- Lisätty sisäänkirjautumisnäkymä, käyttäjän luomisnäkymä, gameover näkymä sekä scoreboard näkymä ui-kansioon
+- Lisätty tietokannasta huolehtiva Database-luokka
+- Pattern-luokka uudelleennimetty Variables-luokaksi
 
-- Kun käyttäjä häviää pelin, gameover-näkymä aukeaa, josta käyttäjä voi nappia painamalla aloittaa pelin alusta
+- Käyttäjä voi tehdä käyttäjän ja kirjautua sisään
+- Käyttäjä voi pelata uudelleen, kirjautua ulos tai siirtyä Scoreboard näkymään hävittyään pelin
+- Käyttäjien nimet ja highscore:t talletetaan paikalliseen tietokantaan, ja niitä voidaan tarkastella Scoreboard näkymässä
+
+- Suoritettu testejä check-, variables- ja database-luokille
