@@ -12,4 +12,5 @@ Päivä | Tunteja | Kuvaus
 7.4 | 3 | Koodin laadun parantamista
 11.4 | 2 | Tietokannan soveltamista
 12.4 | 6 | Koodausta
-Yht | 31 |
+13.4 | 2 | Tiedostojen järjestämistä ja uudelleennimeämistä
+Yht | 33 |
