@@ -14,13 +14,14 @@
   - Jos ei osu mihinkään ruutuun, ei tapahdu mitään
 - Käyttäjä voi sulkea pelin
 
-## Viikko 4 (+ loma)
+## Viikko 4 
 
-- Lisätty sisäänkirjautumisnäkymä, käyttäjän luomisnäkymä, gameover näkymä sekä scoreboard näkymä ui-kansioon
+- Lisätty sisäänkirjautumisnäkymä, käyttäjän luomisnäkymä, gameover näkymä sekä scoreboard näkymä
 - Lisätty tietokannasta huolehtiva Database-luokka
+- Lisätty sisäänkirjautumisesta huolehtiva RegisterationLoop-luokka
 - Pattern-luokka uudelleennimetty Variables-luokaksi
 
-- Käyttäjä voi tehdä käyttäjän ja kirjautua sisään
+- Käyttäjä voi tehdä käyttäjän ja kirjautua sisään (toistaiseksi vain käyttäjänimellä)
 - Käyttäjä voi pelata uudelleen, kirjautua ulos tai siirtyä Scoreboard näkymään hävittyään pelin
 - Käyttäjien nimet ja highscore:t talletetaan paikalliseen tietokantaan, ja niitä voidaan tarkastella Scoreboard näkymässä
 
