@@ -10,11 +10,11 @@ BABY_PINK = (237, 210, 203)
 LIGHT_PINK = (241, 232, 230)
 GREEN = (88, 179, 104)
 
+
 class RegisDisplay:
     def __init__(self, screen):
         self.display = screen
         self.main = MainUi(self.display)
-    
 
     def draw_screen(self, option: int):
         if option == 1:
@@ -52,13 +52,11 @@ class RegisDisplay:
             self.return_button(False)
 
         pygame.display.update()
-    
 
     def update_screen(self, text):
         self.main.draw_box(LIGHT_PINK, 270, 250, 220, 50)
         self.main.draw_text(DARK_VIOLET, 290, 265, 32, text)
         pygame.display.update()
-    
 
     def enter_button(self, hovered):
         if not hovered:
@@ -67,11 +65,10 @@ class RegisDisplay:
         else:
             text_color = SALMON
             box_color = LIGHT_PINK
-        
+
         self.main.draw_box(box_color, 340, 340, 150, 60)
         self.main.draw_text(text_color, 365, 357, 42, "ENTER")
         pygame.display.update()
-
 
     def create_account_button(self, hovered):
         if not hovered:
@@ -80,11 +77,10 @@ class RegisDisplay:
         else:
             text_color = SALMON
             box_color = LIGHT_PINK
-        
+
         self.main.draw_box(box_color, 170, 490, 260, 55)
         self.main.draw_text(text_color, 195, 508, 32, "CREATE ACCOUNT")
         pygame.display.update()
-    
 
     def return_button(self, hovered: bool):
         if not hovered:
@@ -93,7 +89,7 @@ class RegisDisplay:
         else:
             text_color = SALMON
             box_color = LIGHT_PINK
-        
+
         self.main.draw_box(box_color, 450, 25, 120, 45)
         self.main.draw_text(text_color, 468, 39, 28, "RETURN")
         pygame.display.update()

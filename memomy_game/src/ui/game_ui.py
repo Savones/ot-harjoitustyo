@@ -10,11 +10,11 @@ BABY_PINK = (237, 210, 203)
 LIGHT_PINK = (241, 232, 230)
 GREEN = (88, 179, 104)
 
+
 class Display:
     def __init__(self, screen):
         self.display = screen
         self.main = MainUi(self.display)
-
 
     def draw_screen(self):
         self.display.fill(VIOLET)
@@ -33,7 +33,6 @@ class Display:
         pygame.display.update()
         pygame.time.delay(1000)
 
-
     def draw_click(self, pos):
         x = 155
         y = 100
@@ -45,9 +44,8 @@ class Display:
                 x = 155
             else:
                 x += 100
-        
-        self.draw_flash(x, y, 100, SALMON)
 
+        self.draw_flash(x, y, 100, SALMON)
 
     def draw_pattern(self, pattern: list, level: int, high_score: int):
         self.draw_level(level)
@@ -64,7 +62,6 @@ class Display:
                 else:
                     x += 100
 
-
     def draw_flash(self, x, y, time, color):
         self.main.draw_box(color, x, y, 90, 90)
         pygame.display.update()
@@ -73,22 +70,13 @@ class Display:
         self.main.draw_box(LIGHT_PINK, x, y, 90, 90)
         pygame.display.update()
         pygame.time.delay(time)
-    
 
     def draw_level(self, level):
         self.main.draw_box(DARK_VIOLET, 125, 445, 165, 60)
         self.main.draw_text(BABY_PINK, 143, 464, 34, f"SCORE: {level}")
         pygame.display.update()
-    
 
     def draw_high_score(self, hs):
         self.main.draw_box(DARK_VIOLET, 305, 445, 165, 60)
         self.main.draw_text(YELLOW, 326, 464, 34, f"HS: {hs}")
         pygame.display.update()
-
-
-
-
-    
-
-

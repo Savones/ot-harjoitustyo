@@ -16,7 +16,6 @@ class ScoreboardDisplay:
         self.database = database
         self.player = player
 
-
     def draw_screen(self):
         self.display.fill((BABY_PINK))
         self.main.draw_box(LIGHT_PINK, 100, 200, 400, 350)
@@ -31,18 +30,15 @@ class ScoreboardDisplay:
 
         pygame.display.update()
 
-    
     def draw_grid(self):
         self.main.draw_box(BABY_PINK, 400, 200, 6, 350)
         self.main.draw_box(BABY_PINK, 200, 200, 6, 350)
-
 
         x = 100
         y = 200
         for _ in range(4):
             y += 70
             self.main.draw_box(BABY_PINK, x, y, 400, 6)
-    
 
     def draw_scoreboard(self):
         data = self.database.get_players_table()
@@ -61,7 +57,6 @@ class ScoreboardDisplay:
             self.main.draw_text(color, 250, y, 38, player[1])
             self.main.draw_text(VIOLET, 445, y, 40, str(player[2]))
 
-
     def return_button(self, hovered: bool):
         if not hovered:
             text_color = LIGHT_PINK
@@ -69,7 +64,7 @@ class ScoreboardDisplay:
         else:
             text_color = SALMON
             box_color = LIGHT_PINK
-        
+
         self.main.draw_box(box_color, 450, 25, 120, 45)
         self.main.draw_text(text_color, 468, 39, 28, "RETURN")
         pygame.display.update()

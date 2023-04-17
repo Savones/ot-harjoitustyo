@@ -1,50 +1,43 @@
 class Check:
 
     def check_click(self, player_input, correct_answer):
-        x = 155
-        y = 100
+        x_coord = 155
+        y_coord = 100
         for i in range(1, 10):
-            if (x + 90) >= player_input[0] >= x and (y + 90) >= player_input[1] >= y:
+            if (x_coord + 90) >= player_input[0] >= x_coord and (y_coord + 90) >= player_input[1] >= y_coord:
                 break
             if i % 3 == 0:
-                y += 100
-                x = 155
+                y_coord += 100
+                x_coord = 155
             else:
-                x += 100
-        
+                x_coord += 100
+
         if i == correct_answer:
             return True
-        else:
-            return False
-
+        return False
 
     def check_misclick(self, pos):
         found = False
-        x = 155
-        y = 100
+        x_coord = 155
+        y_coord = 100
         for i in range(1, 10):
-            if (x + 90) >= pos[0] >= x and (y + 90) >= pos[1] >= y:
+            if (x_coord + 90) >= pos[0] >= x_coord and (y_coord + 90) >= pos[1] >= y_coord:
                 found = True
                 break
             if i % 3 == 0:
-                y += 100
-                x = 155
+                y_coord += 100
+                x_coord = 155
             else:
-                x += 100
+                x_coord += 100
         return found
-    
 
     def if_valid(self, username):
         if len(username) >= 7 or len(username) <= 1:
             return False
-        
+
         return True
-    
 
-    def if_hovered(self, pos, x, y, width, height):
-        if (x + width) >= pos[0] >= x and (y + height) >= pos[1] >= y:
+    def if_hovered(self, pos, x_coord, y_coord, width, height):
+        if (x_coord + width) >= pos[0] >= x_coord and (y_coord + height) >= pos[1] >= y_coord:
             return True
-        else:
-            return False
-
-    
+        return False

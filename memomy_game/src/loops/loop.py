@@ -1,4 +1,6 @@
+import sys
 import pygame
+
 
 class Loop:
 
@@ -10,27 +12,24 @@ class Loop:
         self.scoreboard_display = scoreboard_display
         pygame.init()
 
-
     def start_game(self):
 
         self.display.draw_screen()
         self.variables.default()
 
-        while True: 
+        while True:
             self.variables.add_random_press()
 
             round = self.round()
-            if round == None:
-                exit()
-            elif round == -1:
+            if round == -1:
                 self.variables.update_hs_in_db()
                 self.game_over()
                 break
-    
 
     def round(self):
 
-        self.display.draw_pattern(self.variables.pattern_list, self.variables.level, self.variables.high_score)
+        self.display.draw_pattern(
+            self.variables.pattern_list, self.variables.level, self.variables.high_score)
         clicks = 0
         running = True
 
@@ -39,21 +38,17 @@ class Loop:
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     pos = pygame.mouse.get_pos()
 
-                    # continues if player doesn't hit a square
                     if not self.check.check_misclick(pos):
                         continue
 
-                    # once player hits the squere, returns -1 if wrong answer
                     elif not self.check.check_click(pos, self.variables.pattern_list[clicks]):
                         self.display.draw_click(pos)
-                        return -1 
+                        return -1
 
-                    # continues if hits the correct square
                     else:
                         self.display.draw_click(pos)
                         clicks += 1
-                
-                # goes to next level once player complites pattern without fail
+
                 if clicks >= len(self.variables.pattern_list):
                     self.variables.level_up()
                     self.variables.change_high_score()
@@ -61,8 +56,7 @@ class Loop:
 
                 if event.type == pygame.QUIT:
                     print("Player closed the game")
-                    running = False
-    
+                    sys.exit()
 
     def game_over(self):
 
@@ -76,38 +70,36 @@ class Loop:
 
                 # if "try again" box is clicked -> starts game again
                 if self.check.if_hovered(pos, 75, 405, 200, 60):
-                        self.game_over_display.try_again_button(True)
-                        if event.type == pygame.MOUSEBUTTONDOWN:
-                            self.start_game()
-                            return
+                    self.game_over_display.try_again_button(True)
+                    if event.type == pygame.MOUSEBUTTONDOWN:
+                        self.start_game()
+                        return
                 else:
                     self.game_over_display.try_again_button(False)
-                
+
                 # if "scoreboard" box is clicked
                 if self.check.if_hovered(pos, 325, 405, 200, 60):
-                        self.game_over_display.scoreboard_button(True)
-                        if event.type == pygame.MOUSEBUTTONDOWN:
-                            self.scoreboard()
-                            return
+                    self.game_over_display.scoreboard_button(True)
+                    if event.type == pygame.MOUSEBUTTONDOWN:
+                        self.scoreboard()
+                        return
                 else:
                     self.game_over_display.scoreboard_button(False)
 
                 # if "logout" clicked
                 if self.check.if_hovered(pos, 450, 25, 120, 45):
-                        self.game_over_display.log_out_button(True)
-                        if event.type == pygame.MOUSEBUTTONDOWN:
-                            return
+                    self.game_over_display.log_out_button(True)
+                    if event.type == pygame.MOUSEBUTTONDOWN:
+                        return
                 else:
                     self.game_over_display.log_out_button(False)
 
-
                 if event.type == pygame.QUIT:
-                        print("Player closed the game")
-                        exit()
-
+                    print("Player closed the game")
+                    sys.exit()
 
     def scoreboard(self):
-        
+
         self.scoreboard_display.draw_screen()
         running = True
 
@@ -118,13 +110,13 @@ class Loop:
 
                 # if "return" box is clicked -> starts game again
                 if self.check.if_hovered(pos, 450, 25, 120, 45):
-                        self.scoreboard_display.return_button(True)
-                        if event.type == pygame.MOUSEBUTTONDOWN:
-                            self.game_over()
-                            return
+                    self.scoreboard_display.return_button(True)
+                    if event.type == pygame.MOUSEBUTTONDOWN:
+                        self.game_over()
+                        return
                 else:
                     self.scoreboard_display.return_button(False)
 
                 if event.type == pygame.QUIT:
-                        print("Player closed the game")
-                        exit()
+                    print("Player closed the game")
+                    sys.exit()

@@ -2,17 +2,18 @@ import unittest
 import os
 from database.player_database import Database
 
+
 class TestDatabase(unittest.TestCase):
     def setUp(self):
         os.remove("player_database.db")
         self.database = Database()
-    
+
     # tests table exists
 
     def test_table_exists_returns_true(self):
         self.database.create_table()
         self.assertEqual(self.database.table_exists(), True)
-    
+
     def test_table_exists_returns_false(self):
         self.assertEqual(self.database.table_exists(), False)
 
