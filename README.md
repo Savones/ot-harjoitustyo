@@ -8,4 +8,4 @@
 
 - [Changelog](https://github.com/Savones/ot-harjoitustyo/blob/master/memomy_game/dokumentaatio/changelog.md)
 
-- [Arkkitehtuuri]()
+- [Arkkitehtuuri](https://github.com/Savones/ot-harjoitustyo/blob/master/memomy_game/dokumentaatio/arkkitehtuuri.md)
