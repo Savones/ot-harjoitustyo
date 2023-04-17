@@ -13,4 +13,5 @@ Päivä | Tunteja | Kuvaus
 11.4 | 2 | Tietokannan soveltamista
 12.4 | 6 | Koodausta
 13.4 | 2 | Tiedostojen järjestämistä ja uudelleennimeämistä
-Yht | 33 |
+17.4 | 5 | Luokkakaavion tekeminen, koodin laadun parannusta, lisättävän toiminnon kokeilua
+Yht | 38 |
