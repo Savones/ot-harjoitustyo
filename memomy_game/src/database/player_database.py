@@ -9,40 +9,39 @@ class Database:
 
     def create_table(self):
         self.database.execute(
-            "CREATE TABLE Players (id INTEGER PRIMARY KEY, name TEXT, hs INTEGER)")
+            "CREATE TABLE Players (id INTEGER PRIMARY KEY, name TEXT, high_score INTEGER)")
 
     def add_player(self, name, high_score):
         self.database.execute(
-            "INSERT INTO Players (name, hs) VALUES (?, ?)", [name, high_score])
+            "INSERT INTO Players (name, high_score) VALUES (?, ?)", [name, high_score])
 
     def reset_db(self):
         os.remove("player_database.db")
 
     def get_players_table(self):
-        return self.database.execute("SELECT * FROM Players ORDER BY hs DESC").fetchall()
+        return self.database.execute("SELECT * FROM Players ORDER BY high_score DESC").fetchall()
 
     def table_exists(self):
         try:
             self.database.execute("SELECT * FROM Players")
             return True
-        except:
+        except sqlite3.OperationalError:
             return False
 
     def player_exists(self, p_name):
         try:
             if p_name == self.database.execute("SELECT name FROM Players WHERE name = ?", [
-                                        p_name]).fetchone()[0]:
+                    p_name]).fetchone()[0]:
                 return True
             return False
         except TypeError:
             return False
 
     def get_high_score(self, p_name):
-        hs = self.database.execute("SELECT hs FROM Players WHERE name = ?", [
-                                p_name]).fetchone()[0]
-        return hs
-
+        high_score = self.database.execute("SELECT high_score FROM Players WHERE name = ?", [
+            p_name]).fetchone()[0]
+        return high_score
 
     def change_high_score(self, p_name, new_high_score):
         self.database.execute(
-            "UPDATE Players SET hs = ? WHERE name = ?", [new_high_score, p_name])
+            "UPDATE Players SET high_score = ? WHERE name = ?", [new_high_score, p_name])

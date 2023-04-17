@@ -41,13 +41,12 @@ class Loop:
                     if not self.check.check_misclick(pos):
                         continue
 
-                    elif not self.check.check_click(pos, self.variables.pattern_list[clicks]):
+                    if not self.check.check_click(pos, self.variables.pattern_list[clicks]):
                         self.display.draw_click(pos)
                         return -1
 
-                    else:
-                        self.display.draw_click(pos)
-                        clicks += 1
+                    self.display.draw_click(pos)
+                    clicks += 1
 
                 if clicks >= len(self.variables.pattern_list):
                     self.variables.level_up()
