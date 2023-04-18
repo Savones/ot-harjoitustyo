@@ -27,24 +27,8 @@ class RegisterationLoop:
 
                 pos = pygame.mouse.get_pos()
 
-                self.handle_mouse_movement(pos, event.type)
-
-                if self.check.if_hovered(pos, 340, 340, 150, 60):
-                    self.display.enter_button(True)
-                    if event.type == pygame.MOUSEBUTTONDOWN:
-                        if self.database.player_exists(self.input):
-                            return self.input
-                else:
-                    self.display.enter_button(False)
-
-                if self.check.if_hovered(pos, 170, 490, 260, 55):
-                    self.display.create_account_button(True)
-                    if event.type == pygame.MOUSEBUTTONDOWN:
-                        self.create_account()
-                        self.input = ""
-                        self.display.draw_screen(1)
-                else:
-                    self.display.create_account_button(False)
+                if self.handle_mouse_movement_login_display(pos, event):
+                    return self.input
 
                 if event.type == pygame.QUIT:
                     print("Player closed the game")
@@ -64,27 +48,48 @@ class RegisterationLoop:
 
                 pos = pygame.mouse.get_pos()
 
-                if self.check.if_hovered(pos, 340, 340, 150, 60):
-                    self.display.enter_button(True)
-                    if event.type == pygame.MOUSEBUTTONDOWN:
-                        if self.sign_up(self.input):
-                            return None
-                else:
-                    self.display.enter_button(False)
-
-                if self.check.if_hovered(pos, 450, 25, 120, 45):
-                    self.display.return_button(True)
-                    if event.type == pygame.MOUSEBUTTONDOWN:
-                        return None
-                else:
-                    self.display.return_button(False)
+                if self.handle_mouse_movement_create_display(pos, event):
+                    return None
 
                 if event.type == pygame.QUIT:
                     sys.exit()
         return None
 
-    def handle_mouse_movement(self, pos, event_type):
-        pass    
+    def handle_mouse_movement_login_display(self, pos, event):
+        return_value = False
+        if self.check.if_hovered(pos, 340, 340, 150, 60):
+            self.display.enter_button(True)
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                return_value = self.handle_return_pressed(1)
+        else:
+            self.display.enter_button(False)
+
+        if self.check.if_hovered(pos, 170, 490, 260, 55):
+            self.display.create_account_button(True)
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                self.create_account()
+                self.input = ""
+                self.display.draw_screen(1)
+        else:
+            self.display.create_account_button(False)
+        return return_value
+
+    def handle_mouse_movement_create_display(self, pos, event):
+        return_value = False
+        if self.check.if_hovered(pos, 340, 340, 150, 60):
+            self.display.enter_button(True)
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                return_value = self.handle_return_pressed(-1)
+        else:
+            self.display.enter_button(False)
+
+        if self.check.if_hovered(pos, 450, 25, 120, 45):
+            self.display.return_button(True)
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                return_value = True
+        else:
+            self.display.return_button(False)
+        return return_value
 
     def login(self, player_input):
         if self.database.player_exists(player_input):
