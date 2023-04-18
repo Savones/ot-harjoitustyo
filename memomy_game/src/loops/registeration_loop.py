@@ -93,9 +93,8 @@ class RegisterationLoop:
         elif not self.check.if_valid(player_input):
             print("Usename has to be 2-6 characters")
             return False
-        else:
-            self.database.add_player(player_input, 0)
-            return True
+        self.database.add_player(player_input, 0)
+        return True
 
     def handle_key_press(self, event, option: int):
         if event.key == pygame.K_BACKSPACE:
