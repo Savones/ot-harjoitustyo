@@ -4,7 +4,9 @@ class Check:
         x_coord = 155
         y_coord = 100
         for i in range(1, 10):
-            if (x_coord + 90) >= player_input[0] >= x_coord and (y_coord + 90) >= player_input[1] >= y_coord:
+            if (x_coord + 90) >= player_input[0] >= x_coord:
+                break
+            if (y_coord + 90) >= player_input[1] >= y_coord:
                 break
             if i % 3 == 0:
                 y_coord += 100

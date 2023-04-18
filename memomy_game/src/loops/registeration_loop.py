@@ -27,6 +27,8 @@ class RegisterationLoop:
 
                 pos = pygame.mouse.get_pos()
 
+                self.handle_mouse_movement(pos, event.type)
+
                 if self.check.if_hovered(pos, 340, 340, 150, 60):
                     self.display.enter_button(True)
                     if event.type == pygame.MOUSEBUTTONDOWN:
@@ -78,9 +80,11 @@ class RegisterationLoop:
                     self.display.return_button(False)
 
                 if event.type == pygame.QUIT:
-                    print("Player closed the game")
                     sys.exit()
         return None
+
+    def handle_mouse_movement(self, pos, event_type):
+        pass    
 
     def login(self, player_input):
         if self.database.player_exists(player_input):
