@@ -15,6 +15,7 @@ class Display:
     def __init__(self, screen):
         self.display = screen
         self.main = MainUi(self.display)
+        self.clock = pygame.time.Clock()
 
     def draw_screen(self):
         self.display.fill(VIOLET)
@@ -56,7 +57,8 @@ class Display:
             for i in range(1, 10):
                 if i == element:
                     self.draw_flash(x, y, 175, GREEN)
-                if i % 3 == 0:
+                    break
+                elif i % 3 == 0:
                     y += 100
                     x = 155
                 else:
