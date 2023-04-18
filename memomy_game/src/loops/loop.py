@@ -20,11 +20,12 @@ class Loop:
         while True:
             self.variables.add_random_press()
 
-            round = self.round()
-            if round == -1:
+            round_number = self.round()
+            if round_number == -1:
                 self.variables.update_hs_in_db()
                 self.game_over()
                 break
+        return None
 
     def round(self):
 
@@ -56,6 +57,7 @@ class Loop:
                 if event.type == pygame.QUIT:
                     print("Player closed the game")
                     sys.exit()
+        return None
 
     def game_over(self):
 
@@ -72,7 +74,7 @@ class Loop:
                     self.game_over_display.try_again_button(True)
                     if event.type == pygame.MOUSEBUTTONDOWN:
                         self.start_game()
-                        return
+                        return None
                 else:
                     self.game_over_display.try_again_button(False)
 
@@ -81,7 +83,7 @@ class Loop:
                     self.game_over_display.scoreboard_button(True)
                     if event.type == pygame.MOUSEBUTTONDOWN:
                         self.scoreboard()
-                        return
+                        return None
                 else:
                     self.game_over_display.scoreboard_button(False)
 
@@ -89,13 +91,14 @@ class Loop:
                 if self.check.if_hovered(pos, 450, 25, 120, 45):
                     self.game_over_display.log_out_button(True)
                     if event.type == pygame.MOUSEBUTTONDOWN:
-                        return
+                        return None
                 else:
                     self.game_over_display.log_out_button(False)
 
                 if event.type == pygame.QUIT:
                     print("Player closed the game")
                     sys.exit()
+        return None
 
     def scoreboard(self):
 
@@ -112,10 +115,11 @@ class Loop:
                     self.scoreboard_display.return_button(True)
                     if event.type == pygame.MOUSEBUTTONDOWN:
                         self.game_over()
-                        return
+                        return None
                 else:
                     self.scoreboard_display.return_button(False)
 
                 if event.type == pygame.QUIT:
                     print("Player closed the game")
                     sys.exit()
+        return None
