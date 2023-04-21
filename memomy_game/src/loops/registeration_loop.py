@@ -43,12 +43,19 @@ class RegisterationLoop:
 
     def create_account(self):
         self.display.draw_screen(-1)
+        name_entered = False
         running = True
         while running:
             for event in pygame.event.get():
 
                 if event.type == pygame.KEYDOWN:
-                    if self.events.handle_key_press(event, -1):
+                    if not name_entered and self.events.handle_key_press(event, -1):
+                        name_entered = True
+                        self.display.password_display(-1)
+                
+                    if name_entered:
+                        pygame.time.delay(1000)
+                        print("name entered")
                         return None
 
                 pos = pygame.mouse.get_pos()

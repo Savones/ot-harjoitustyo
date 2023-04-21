@@ -9,7 +9,7 @@ SALMON = (245, 89, 81)
 BABY_PINK = (237, 210, 203)
 LIGHT_PINK = (241, 232, 230)
 GREEN = (88, 179, 104)
-
+BLACK = (0, 0, 0)
 
 class RegisDisplay:
     def __init__(self, screen):
@@ -62,7 +62,7 @@ class RegisDisplay:
         if option == 1:
             color = DARK_VIOLET
         else:
-            color = VIOLET
+            color = BLACK
         self.main.draw_box(color, 75, 200, 450, 250)
         self.main.draw_box(LIGHT_PINK, 270, 250, 220, 50)
         self.main.draw_text(LIGHT_PINK, 110, 265, 32, "PASSWORD:")
