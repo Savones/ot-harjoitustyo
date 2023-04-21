@@ -1,4 +1,5 @@
 import pygame
+import bcrypt
 
 class LoginEvents:
 
@@ -59,8 +60,14 @@ class LoginEvents:
         if not self.check.if_valid(player_input):
             print("Usename has to be 2-6 characters")
             return False
-        self.database.add_player(player_input, 0)
+        
+        password = "testi321".encode()
+        hashed_password = self.hash_password(password)
+        self.database.add_player(player_input, hashed_password, 0)
         return True
+    
+    def hash_password(self, password):
+        return bcrypt.hashpw(password, bcrypt.gensalt())
 
     def handle_key_press(self, event, option: int):
         return_value = False

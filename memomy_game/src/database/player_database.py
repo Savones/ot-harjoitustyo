@@ -9,11 +9,11 @@ class Database:
 
     def create_table(self):
         self.database.execute(
-            "CREATE TABLE Players (id INTEGER PRIMARY KEY, name TEXT, high_score INTEGER)")
+            "CREATE TABLE Players (id INTEGER PRIMARY KEY, name TEXT, password TEXT, high_score INTEGER)")
 
-    def add_player(self, name, high_score):
+    def add_player(self, name, password, high_score):
         self.database.execute(
-            "INSERT INTO Players (name, high_score) VALUES (?, ?)", [name, high_score])
+            "INSERT INTO Players (name, password, high_score) VALUES (?, ?, ?)", [name, password, high_score])
 
     def reset_db(self):
         os.remove("player_database.db")
