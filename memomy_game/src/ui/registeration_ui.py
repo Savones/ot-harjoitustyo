@@ -57,6 +57,16 @@ class RegisDisplay:
         self.main.draw_box(LIGHT_PINK, 270, 250, 220, 50)
         self.main.draw_text(DARK_VIOLET, 290, 265, 32, text)
         pygame.display.update()
+    
+    def password_display(self, option):
+        if option == 1:
+            color = DARK_VIOLET
+        else:
+            color = VIOLET
+        self.main.draw_box(color, 75, 200, 450, 250)
+        self.main.draw_box(LIGHT_PINK, 270, 250, 220, 50)
+        self.main.draw_text(LIGHT_PINK, 110, 265, 32, "PASSWORD:")
+        pygame.display.update()
 
     def enter_button(self, hovered):
         if not hovered:

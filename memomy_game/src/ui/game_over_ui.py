@@ -18,10 +18,8 @@ class GameOverDisplay:
     def draw_screen(self):
         self.display.fill((BABY_PINK))
 
-        # Game over text
         self.main.draw_text(SALMON, 130, 210, 82, "GAME OVER")
 
-        # Draws buttons
         self.try_again_button(False)
         self.scoreboard_button(False)
         self.log_out_button(False)
