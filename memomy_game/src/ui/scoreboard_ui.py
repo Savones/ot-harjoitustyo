@@ -56,9 +56,6 @@ class ScoreboardDisplay:
             self.main.draw_text(VIOLET, 135, y, 40, f"{i + 1}.")
             self.main.draw_text(color, 250, y, 38, player[1])
             self.main.draw_text(VIOLET, 445, y, 40, str(player[3]))
-            
-            # näyttää salasanat toistaiseksi!
-            self.main.draw_text(VIOLET, 100, y - 200, 40, str(player[2]))
 
     def return_button(self, hovered: bool):
         if not hovered:

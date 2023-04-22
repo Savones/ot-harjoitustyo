@@ -16,12 +16,12 @@ class LoginEvents:
     def get_input(self):
         return self.username
 
-    def login_enter(self, pos, event):
+    def login_enter(self, pos, event, option):
         return_value = False
         if self.check.if_hovered(pos, 340, 340, 150, 60):
             self.display.enter_button(True)
             if event.type == pygame.MOUSEBUTTONDOWN:
-                return_value = self.return_pressed(1)
+                return_value = self.return_pressed(option)
         else:
             self.display.enter_button(False)
         return return_value
@@ -37,12 +37,12 @@ class LoginEvents:
             self.display.create_account_button(False)
         return return_value
 
-    def mouse_create_display(self, pos, event):
+    def mouse_create_display(self, pos, event, option):
         return_value = False
         if self.check.if_hovered(pos, 340, 340, 150, 60):
             self.display.enter_button(True)
             if event.type == pygame.MOUSEBUTTONDOWN:
-                return_value = self.return_pressed(-1)
+                return_value = self.return_pressed(option)
         else:
             self.display.enter_button(False)
 

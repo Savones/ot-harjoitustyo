@@ -15,9 +15,7 @@ class RegisterationLoop:
             self.database.create_table()
 
         self.display.draw_screen(1)
-
         name_entered = False
-
         running = True
 
         while running:
@@ -34,7 +32,12 @@ class RegisterationLoop:
 
                 pos = pygame.mouse.get_pos()
 
-                if self.events.login_enter(pos, event):
+                if not name_entered and self.events.login_enter(pos, event, 1):
+                    name_entered = True
+                    self.events.reset_input()
+                    self.display.password_display(1)
+                
+                elif name_entered and self.events.login_enter(pos, event, 2):
                     return self.events.get_input()
                 
                 if self.events.login_create_account(pos, event):
@@ -48,9 +51,11 @@ class RegisterationLoop:
         return None
 
     def create_account(self):
+
         self.display.draw_screen(-1)
         name_entered = False
         running = True
+
         while running:
             for event in pygame.event.get():
 
@@ -61,12 +66,18 @@ class RegisterationLoop:
                         self.display.password_display(-1)
                 
                     elif name_entered and self.events.handle_key_press(event, 0):
-                        print("account created")
+                        print("New account created")
                         return None
 
                 pos = pygame.mouse.get_pos()
 
-                if self.events.mouse_create_display(pos, event):
+                if not name_entered and self.events.mouse_create_display(pos, event, -1):
+                    name_entered = True
+                    self.events.reset_input()
+                    self.display.password_display(-1)
+                
+                elif name_entered and self.events.mouse_create_display(pos, event, 0):
+                    print("New account created")
                     return None
 
                 if event.type == pygame.QUIT:

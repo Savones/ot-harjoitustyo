@@ -52,7 +52,7 @@ class Check:
         hashed = self.database.get_hashed_password(username)
         password = password.encode()
         if bcrypt.checkpw(password, hashed):
-            print("oikein")
+            print("Password correct")
             return True
-        print("väärin")
+        print("Password incorrect")
         return False
