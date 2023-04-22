@@ -2,14 +2,14 @@ import pygame
 from ui.main_ui import MainUi
 
 WHITE = (255, 255, 255)
-YELLOW = (255, 255, 153)
+YELLOW = (255, 255, 224)
 DARK_VIOLET = (54, 29, 50)
 VIOLET = (84, 60, 82)
 SALMON = (245, 89, 81)
 BABY_PINK = (237, 210, 203)
 LIGHT_PINK = (241, 232, 230)
 GREEN = (88, 179, 104)
-SOFT_BLACK = (74, 29, 50)
+SOFT_BLACK = (39, 14, 35)
 
 class RegisDisplay:
     def __init__(self, screen):
@@ -37,7 +37,7 @@ class RegisDisplay:
             y = 125
 
         self.display.fill(color1)
-        self.main.draw_box(color3, 65, 190, 470, 270)
+        self.main.draw_box(YELLOW, 65, 190, 470, 270)
         self.main.draw_box(color2, 75, 200, 450, 250)
         self.main.draw_box(color3, 270, 250, 220, 50)
 

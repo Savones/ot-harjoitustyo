@@ -51,6 +51,7 @@ class Loop:
                 if clicks >= len(self.variables.pattern_list):
                     self.variables.level_up()
                     self.variables.change_high_score()
+                    self.display.draw_level_up_text()
                     return 1
 
                 if event.type == pygame.QUIT:

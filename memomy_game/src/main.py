@@ -16,7 +16,7 @@ WIDTH = 600
 
 
 def main():
-    os.remove("player_database.db")
+    # os.remove("player_database.db")
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
     database = Database()
@@ -45,3 +45,6 @@ main()
 # a quit button for the game ui
 # return button from password view
 # error messeges part of graphic ui
+
+# extras:
+# numbered mode

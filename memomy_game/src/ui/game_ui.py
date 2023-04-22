@@ -2,7 +2,7 @@ import pygame
 from ui.main_ui import MainUi
 
 WHITE = (255, 255, 255)
-YELLOW = (255, 255, 153)
+YELLOW = (255, 255, 224)
 DARK_VIOLET = (54, 29, 50)
 VIOLET = (84, 60, 82)
 SALMON = (245, 89, 81)
@@ -37,7 +37,6 @@ class Display:
         self.draw_high_score(high_score)
 
         pygame.display.update()
-        pygame.time.delay(1000)
 
     def draw_click(self, pos):
         x = 155
@@ -56,6 +55,7 @@ class Display:
     def draw_pattern(self, pattern: list, level: int, high_score: int):
         self.draw_level(level)
         self.draw_high_score(high_score)
+        pygame.time.delay(1000)
         for element in pattern:
             x = 155
             y = 100
@@ -86,4 +86,11 @@ class Display:
     def draw_high_score(self, hs):
         self.main.draw_box(DARK_VIOLET, 305, 445, 165, 60)
         self.main.draw_text(YELLOW, 326, 464, 34, f"HS: {hs}")
+        pygame.display.update()
+    
+    def draw_level_up_text(self):
+        self.main.draw_text(GREEN, 210, 535, 48, "CORRECT!")
+        pygame.display.update()
+        pygame.time.delay(750)
+        self.main.draw_box(VIOLET, 210, 530, 200, 60)
         pygame.display.update()

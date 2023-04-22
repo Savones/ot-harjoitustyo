@@ -80,8 +80,12 @@ class RegisterationLoop:
                     print("New account created")
                     return None
                 
-                if self.events.return_button(pos, event):
+                if not name_entered and self.events.return_button(pos, event):
                     return None
+                
+                elif name_entered and self.events.return_button(pos, event):
+                    name_entered = False
+                    self.display.draw_screen(-1)
 
                 if event.type == pygame.QUIT:
                     sys.exit()
