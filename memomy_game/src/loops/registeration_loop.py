@@ -86,6 +86,3 @@ class RegisterationLoop:
                 if event.type == pygame.QUIT:
                     sys.exit()
         return None
-
-
-# huom tällä hetkellä vain näppämillä käyttäjän teko onnistuu, ei hiirellä

@@ -37,5 +37,11 @@ def main():
                     game_over_display, scoreboard_display)
         loop.start_game()
 
-
 main()
+
+# to be added:
+# a countdown before the game starts
+# a method that makes sure database doesn't overflow
+# a quit button for the game ui
+# return button from password view
+# error messeges part of graphic ui

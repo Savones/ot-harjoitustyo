@@ -9,7 +9,7 @@ SALMON = (245, 89, 81)
 BABY_PINK = (237, 210, 203)
 LIGHT_PINK = (241, 232, 230)
 GREEN = (88, 179, 104)
-BLACK = (0, 0, 0)
+SOFT_BLACK = (74, 29, 50)
 
 class RegisDisplay:
     def __init__(self, screen):
@@ -57,9 +57,14 @@ class RegisDisplay:
         self.main.draw_box(LIGHT_PINK, 270, 250, 220, 50)
 
         if option == 2 or option == 0:
-            text = "*" * len(text)
+            if len(text) >= 20:
+                text = "*" * 20
+            else:
+                text = "*" * len(text)
             self.main.draw_text(DARK_VIOLET, 290, 265, 32, text)
         else:
+            if len(text) >= 12:
+                text = text[0:12]
             self.main.draw_text(DARK_VIOLET, 290, 265, 32, text)
         pygame.display.update()
     
@@ -67,7 +72,7 @@ class RegisDisplay:
         if option == 1:
             color = DARK_VIOLET
         else:
-            color = BLACK
+            color = SOFT_BLACK
         self.main.draw_box(color, 75, 200, 450, 250)
         self.main.draw_box(LIGHT_PINK, 270, 250, 220, 50)
         self.main.draw_text(LIGHT_PINK, 110, 265, 32, "PASSWORD:")

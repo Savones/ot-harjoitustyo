@@ -37,10 +37,14 @@ class Check:
                 x_coord += 100
         return found
 
-    def if_valid(self, username):
+    def valid_username(self, username):
         if len(username) >= 7 or len(username) <= 1:
             return False
+        return True
 
+    def valid_password(self, password):
+        if len(password) >= 20 or len(password) <= 4:
+            return False
         return True
 
     def if_hovered(self, pos, x_coord, y_coord, width, height):

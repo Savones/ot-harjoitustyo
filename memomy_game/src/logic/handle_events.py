@@ -67,7 +67,7 @@ class LoginEvents:
         if self.database.player_exists(player_input):
             print("Username already in use")
             return False
-        if not self.check.if_valid(player_input):
+        if not self.check.valid_username(player_input):
             print("Username has to be 2-6 characters")
             return False
         
@@ -75,6 +75,9 @@ class LoginEvents:
         return True
     
     def sign_up_password(self, password):
+        if not self.check.valid_password(password):
+            print("Password has to have 4-20 characters")
+            return False
         password = password.encode()
         hashed_password = self.hash_password(password)
         self.database.add_player(self.username, hashed_password, 0)
