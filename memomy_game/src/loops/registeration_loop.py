@@ -25,7 +25,11 @@ class RegisterationLoop:
 
                 if event.type == pygame.KEYDOWN:
                     if not name_entered and self.events.handle_key_press(event, 1):
-                        # self.display.password_display(1)
+                        name_entered = True
+                        self.events.reset_input()
+                        self.display.password_display(1)
+                    
+                    elif name_entered and self.events.handle_key_press(event, 2):
                         return self.events.get_input()
 
                 pos = pygame.mouse.get_pos()

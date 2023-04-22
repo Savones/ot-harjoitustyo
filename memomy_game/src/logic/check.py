@@ -49,7 +49,8 @@ class Check:
         return False
 
     def if_correct_password(self, username, password):
-        hashed = self.database.get_hashed_password()
+        hashed = self.database.get_hashed_password(username)
+        password = password.encode()
         if bcrypt.checkpw(password, hashed):
             print("oikein")
             return True

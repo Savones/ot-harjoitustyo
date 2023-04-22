@@ -14,7 +14,7 @@ class LoginEvents:
         self.input = ""
 
     def get_input(self):
-        return self.input
+        return self.username
 
     def login_enter(self, pos, event):
         return_value = False
@@ -56,6 +56,7 @@ class LoginEvents:
 
     def login(self, player_input):
         if self.database.player_exists(player_input):
+            self.username = player_input
             return True
         print("User not found")
         return False
@@ -97,5 +98,7 @@ class LoginEvents:
         if option == -1 and not self.sign_up_username(self.input):
             return False
         if option == 1 and not self.login(self.input):
+            return False
+        if option == 2 and not self.check.if_correct_password(self.username, self.input):
             return False
         return True
