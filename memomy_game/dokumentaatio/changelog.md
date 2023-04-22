@@ -26,3 +26,9 @@
 - Käyttäjien nimet ja highscore:t talletetaan paikalliseen tietokantaan, ja niitä voidaan tarkastella Scoreboard näkymässä
 
 - Suoritettu testejä check-, variables- ja database-luokille
+
+## Viikko 5
+
+- Lisätty LoginEvents-luokka, johon on siirretty kirjautumiseen liittyvä logiikka
+- Käyttäjä syöttää salasanan käyttäjän luodessaan
+- Käyttäjän täytyy syöttää käyttäjänimeen yhteensopiva salasana kirjautuakseen sisään
