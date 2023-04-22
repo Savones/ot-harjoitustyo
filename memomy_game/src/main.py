@@ -20,7 +20,7 @@ def main():
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
     database = Database()
-    check = Check()
+    check = Check(database)
 
     while True:
         regis_display = RegisDisplay(screen)

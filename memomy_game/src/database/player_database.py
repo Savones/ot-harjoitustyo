@@ -41,6 +41,9 @@ class Database:
         high_score = self.database.execute("SELECT high_score FROM Players WHERE name = ?", [
             p_name]).fetchone()[0]
         return high_score
+    
+    def get_hashed_password(self, username):
+        return self.database.execute("SELECT password FROM Players WHERE name = ?", [username]).fetchone()[0]
 
     def change_high_score(self, p_name, new_high_score):
         self.database.execute(

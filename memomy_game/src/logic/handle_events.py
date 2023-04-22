@@ -8,6 +8,13 @@ class LoginEvents:
         self.display = display
         self.database = database
         self.input = ""
+        self.username = ""
+    
+    def reset_input(self):
+        self.input = ""
+
+    def get_input(self):
+        return self.input
 
     def login_enter(self, pos, event):
         return_value = False
@@ -53,7 +60,7 @@ class LoginEvents:
         print("User not found")
         return False
 
-    def sign_up(self, player_input):
+    def sign_up_username(self, player_input):
         if self.database.player_exists(player_input):
             print("Username already in use")
             return False
@@ -61,9 +68,13 @@ class LoginEvents:
             print("Usename has to be 2-6 characters")
             return False
         
-        password = "testi321".encode()
+        self.username = player_input
+        return True
+    
+    def sign_up_password(self, password):
+        password = password.encode()
         hashed_password = self.hash_password(password)
-        self.database.add_player(player_input, hashed_password, 0)
+        self.database.add_player(self.username, hashed_password, 0)
         return True
     
     def hash_password(self, password):
@@ -81,14 +92,10 @@ class LoginEvents:
         return return_value
 
     def return_pressed(self, option):
-        if option == -1 and not self.sign_up(self.input):
+        if option == 0 and not self.sign_up_password(self.input):
+            return False
+        if option == -1 and not self.sign_up_username(self.input):
             return False
         if option == 1 and not self.login(self.input):
             return False
         return True
-
-    def reset_input(self):
-        self.input = ""
-
-    def get_input(self):
-        return self.input

@@ -16,13 +16,15 @@ class RegisterationLoop:
 
         self.display.draw_screen(1)
 
+        name_entered = False
+
         running = True
 
         while running:
             for event in pygame.event.get():
 
                 if event.type == pygame.KEYDOWN:
-                    if self.events.handle_key_press(event, 1):
+                    if not name_entered and self.events.handle_key_press(event, 1):
                         # self.display.password_display(1)
                         return self.events.get_input()
 
@@ -51,11 +53,11 @@ class RegisterationLoop:
                 if event.type == pygame.KEYDOWN:
                     if not name_entered and self.events.handle_key_press(event, -1):
                         name_entered = True
+                        self.events.reset_input()
                         self.display.password_display(-1)
                 
-                    if name_entered:
-                        pygame.time.delay(1000)
-                        print("name entered")
+                    elif name_entered and self.events.handle_key_press(event, 0):
+                        print("account created")
                         return None
 
                 pos = pygame.mouse.get_pos()
@@ -66,3 +68,6 @@ class RegisterationLoop:
                 if event.type == pygame.QUIT:
                     sys.exit()
         return None
+
+
+# huom tällä hetkellä vain näppämillä käyttäjän teko onnistuu, ei hiirellä

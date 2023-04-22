@@ -1,4 +1,9 @@
+import bcrypt
+
 class Check:
+
+    def __init__(self, database):
+        self.database = database
 
     def check_click(self, player_input, correct_answer):
         x_coord = 155
@@ -41,4 +46,12 @@ class Check:
     def if_hovered(self, pos, x_coord, y_coord, width, height):
         if (x_coord + width) >= pos[0] >= x_coord and (y_coord + height) >= pos[1] >= y_coord:
             return True
+        return False
+
+    def if_correct_password(self, username, password):
+        hashed = self.database.get_hashed_password()
+        if bcrypt.checkpw(password, hashed):
+            print("oikein")
+            return True
+        print("väärin")
         return False
