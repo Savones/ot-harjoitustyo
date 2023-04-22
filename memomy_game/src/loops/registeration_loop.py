@@ -22,13 +22,13 @@ class RegisterationLoop:
             for event in pygame.event.get():
 
                 if event.type == pygame.KEYDOWN:
-                    if not name_entered and self.events.handle_key_press(event, 1):
+                    if not name_entered and self.events.key_pressed(event, 1):
                         name_entered = True
                         self.events.reset_input()
                         self.display.password_display(1)
                     
-                    elif name_entered and self.events.handle_key_press(event, 2):
-                        return self.events.get_input()
+                    elif name_entered and self.events.key_pressed(event, 2):
+                        return self.events.get_username()
 
                 pos = pygame.mouse.get_pos()
 
@@ -38,7 +38,7 @@ class RegisterationLoop:
                     self.display.password_display(1)
                 
                 elif name_entered and self.events.login_enter(pos, event, 2):
-                    return self.events.get_input()
+                    return self.events.get_username()
                 
                 if self.events.login_create_account(pos, event):
                     self.create_account()
@@ -60,24 +60,27 @@ class RegisterationLoop:
             for event in pygame.event.get():
 
                 if event.type == pygame.KEYDOWN:
-                    if not name_entered and self.events.handle_key_press(event, -1):
+                    if not name_entered and self.events.key_pressed(event, -1):
                         name_entered = True
                         self.events.reset_input()
                         self.display.password_display(-1)
                 
-                    elif name_entered and self.events.handle_key_press(event, 0):
+                    elif name_entered and self.events.key_pressed(event, 0):
                         print("New account created")
                         return None
 
                 pos = pygame.mouse.get_pos()
 
-                if not name_entered and self.events.mouse_create_display(pos, event, -1):
+                if not name_entered and self.events.enter_button(pos, event, -1):
                     name_entered = True
                     self.events.reset_input()
                     self.display.password_display(-1)
                 
-                elif name_entered and self.events.mouse_create_display(pos, event, 0):
+                elif name_entered and self.events.enter_button(pos, event, 0):
                     print("New account created")
+                    return None
+                
+                if self.events.return_button(pos, event):
                     return None
 
                 if event.type == pygame.QUIT:

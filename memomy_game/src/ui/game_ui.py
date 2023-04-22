@@ -12,12 +12,13 @@ GREEN = (88, 179, 104)
 
 
 class Display:
-    def __init__(self, screen):
+    def __init__(self, screen, player):
         self.display = screen
+        self.player = player
         self.main = MainUi(self.display)
         self.clock = pygame.time.Clock()
 
-    def draw_screen(self):
+    def draw_screen(self, high_score):
         self.display.fill(VIOLET)
         self.main.draw_box(DARK_VIOLET, 125, 70, 350, 350)
 
@@ -30,6 +31,10 @@ class Display:
                 x = 155
             else:
                 x += 100
+        
+        self.main.draw_text(LIGHT_PINK, 25, 25, 42, self.player)
+        self.draw_level(0)
+        self.draw_high_score(high_score)
 
         pygame.display.update()
         pygame.time.delay(1000)

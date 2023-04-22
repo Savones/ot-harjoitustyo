@@ -14,7 +14,7 @@ class Loop:
 
     def start_game(self):
 
-        self.display.draw_screen()
+        self.display.draw_screen(self.variables.high_score)
         self.variables.default()
 
         while True:

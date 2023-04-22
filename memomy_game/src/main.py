@@ -29,7 +29,7 @@ def main():
         player = registeration_loop.start()
 
         variables = Variables(player, database)
-        display = Display(screen)
+        display = Display(screen, player)
         game_over_display = GameOverDisplay(screen)
         scoreboard_display = ScoreboardDisplay(screen, player, database)
 

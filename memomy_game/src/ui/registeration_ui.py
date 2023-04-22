@@ -53,9 +53,14 @@ class RegisDisplay:
 
         pygame.display.update()
 
-    def update_screen(self, text):
+    def update_screen(self, text, option):
         self.main.draw_box(LIGHT_PINK, 270, 250, 220, 50)
-        self.main.draw_text(DARK_VIOLET, 290, 265, 32, text)
+
+        if option == 2 or option == 0:
+            text = "*" * len(text)
+            self.main.draw_text(DARK_VIOLET, 290, 265, 32, text)
+        else:
+            self.main.draw_text(DARK_VIOLET, 290, 265, 32, text)
         pygame.display.update()
     
     def password_display(self, option):
