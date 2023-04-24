@@ -42,7 +42,7 @@ main()
 # to be added:
 # a method that makes sure database doesn't overflow
 # a quit button for the game ui
-# return button from password view (login left)
+# return button from password view (login left
 # error messeges part of graphic ui
 # method to make sure clicks during pattern showing dont count
 
