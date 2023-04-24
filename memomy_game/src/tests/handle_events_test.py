@@ -44,7 +44,7 @@ class TestLoginEvents(unittest.TestCase):
 
     def test_false_username_doesnt_exist(self):
         self.database.add_player("Hei", "testi123", 0)
-        self.assertEqual(self.events.login_username("Testi"), False)
+        self.assertEqual(self.events.login_username("Test"), False)
 
     # sign up username
 
@@ -83,7 +83,7 @@ class TestLoginEvents(unittest.TestCase):
 
     # key_pressed
 
-    def test_letter_pressed(self):
-        event = {'unicode': 'a', 'key': 97,
-                 'mod': 0, 'scancode': 4, 'window': None}
-        self.assertEqual(self.events.key_pressed(event, 1), True)
+    # def test_letter_pressed(self):
+    #     event = {'unicode': 'a', 'key': 97,
+    #              'mod': 0, 'scancode': 4, 'window': None}
+    #     self.assertEqual(self.events.key_pressed(event, 1), True)

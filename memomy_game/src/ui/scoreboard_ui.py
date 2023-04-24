@@ -49,13 +49,13 @@ class ScoreboardDisplay:
             if i >= 5:
                 continue
             y += 70
-            if player[1] == self.player:
+            if player[0] == self.player:
                 color = SALMON
             else:
                 color = VIOLET
             self.main.draw_text(VIOLET, 135, y, 40, f"{i + 1}.")
-            self.main.draw_text(color, 250, y, 38, player[1])
-            self.main.draw_text(VIOLET, 445, y, 40, str(player[3]))
+            self.main.draw_text(color, 250, y, 38, player[0])
+            self.main.draw_text(VIOLET, 445, y, 40, str(player[2]))
 
     def return_button(self, hovered: bool):
         if not hovered:

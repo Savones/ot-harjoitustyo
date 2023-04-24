@@ -9,7 +9,7 @@ class Database:
 
     def create_table(self):
         self.database.execute(
-            "CREATE TABLE Players (id INTEGER PRIMARY KEY, name TEXT, password TEXT, high_score INTEGER)"
+            "CREATE TABLE Players (name TEXT, password TEXT, high_score INTEGER)"
             )
 
     def add_player(self, name, password, high_score):

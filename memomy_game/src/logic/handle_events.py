@@ -89,6 +89,8 @@ class LoginEvents:
 
     def key_pressed(self, event, option: int):
         return_value = False
+        if event.type != pygame.KEYDOWN:
+            return return_value
         if event.key == pygame.K_BACKSPACE:
             self.input = self.input[0: -1]
         elif event.key == pygame.K_RETURN:

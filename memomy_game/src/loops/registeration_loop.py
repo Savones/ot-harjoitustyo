@@ -9,6 +9,7 @@ class RegisterationLoop:
         self.database = database
         self.display = display
         self.events = LoginEvents(check, display, database)
+        self.name_entered  = False
 
     def start(self):
 
@@ -16,35 +17,29 @@ class RegisterationLoop:
             self.database.create_table()
 
         self.display.draw_screen(1)
-        name_entered = False
         running = True
 
         while running:
             for event in pygame.event.get():
 
-                if event.type == pygame.KEYDOWN:
-                    if not name_entered and self.events.key_pressed(event, 1):
-                        name_entered = True
-                        self.events.reset_input()
-                        self.display.password_display(1)
+                if not self.name_entered  and self.events.key_pressed(event, 1):
+                    self.username_entered(1)
 
-                    elif name_entered and self.events.key_pressed(event, 2):
-                        return self.events.get_username()
+                elif self.name_entered and self.events.key_pressed(event, 2):
+                    return self.events.get_username()
 
                 pos = pygame.mouse.get_pos()
 
-                if not name_entered and self.events.login_enter(pos, event, 1):
-                    name_entered = True
-                    self.events.reset_input()
-                    self.display.password_display(1)
+                if not self.name_entered  and self.events.login_enter(pos, event, 1):
+                    self.username_entered(1)
 
-                elif name_entered and self.events.login_enter(pos, event, 2):
+                elif self.name_entered  and self.events.login_enter(pos, event, 2):
                     return self.events.get_username()
 
                 if self.events.login_create_account(pos, event):
                     self.create_account()
                     self.events.reset_input()
-                    name_entered = False
+                    self.name_entered  = False
                     self.display.draw_screen(1)
 
                 if event.type == pygame.QUIT:
@@ -55,40 +50,40 @@ class RegisterationLoop:
     def create_account(self):
 
         self.display.draw_screen(-1)
-        name_entered = False
+        self.name_entered  = False
         running = True
 
         while running:
             for event in pygame.event.get():
 
-                if event.type == pygame.KEYDOWN:
-                    if not name_entered and self.events.key_pressed(event, -1):
-                        name_entered = True
-                        self.events.reset_input()
-                        self.display.password_display(-1)
+                if not self.name_entered  and self.events.key_pressed(event, -1):
+                    self.username_entered(-1)
 
-                    elif name_entered and self.events.key_pressed(event, 0):
-                        print("New account created")
-                        return None
-
-                pos = pygame.mouse.get_pos()
-
-                if not name_entered and self.events.enter_button(pos, event, -1):
-                    name_entered = True
-                    self.events.reset_input()
-                    self.display.password_display(-1)
-
-                elif name_entered and self.events.enter_button(pos, event, 0):
+                elif self.name_entered  and self.events.key_pressed(event, 0):
                     print("New account created")
                     return None
 
-                if not name_entered and self.events.return_button(pos, event):
+                pos = pygame.mouse.get_pos()
+
+                if not self.name_entered  and self.events.enter_button(pos, event, -1):
+                    self.username_entered(-1)
+
+                elif self.name_entered  and self.events.enter_button(pos, event, 0):
+                    print("New account created")
                     return None
 
-                elif name_entered and self.events.return_button(pos, event):
-                    name_entered = False
+                if not self.name_entered  and self.events.return_button(pos, event):
+                    return None
+
+                if self.name_entered  and self.events.return_button(pos, event):
+                    self.name_entered  = False
                     self.display.draw_screen(-1)
 
                 if event.type == pygame.QUIT:
                     sys.exit()
         return None
+
+    def username_entered(self, option):
+        self.name_entered  = True
+        self.events.reset_input()
+        self.display.password_display(option)
