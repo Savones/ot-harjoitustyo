@@ -2,7 +2,7 @@
 
 Sovellus on peli, jota pelaamalla käyttäjä voi testata ja harjoittaa muistiaan. Käyttäjälle näytetään sarja ruutujen välähdyksiä, jonka käyttäjä yrittää toistaa oikeassa järjestyksessä. Sarja pitenee pelin edetessä ja väärästä painalluksesta käyttäjä häviää. Pelissä on rekisteröitymissysteemi, minkä avulla käyttäjä voi tarkastella omaa kehitystään, ja vertailla omaa suoritusta muiden paikallisten käyttäjien ennätyksiin.
 
-## Dokumetaatio
+## Dokumentaatio
 
 - [Työaikakirjanpito](https://github.com/Savones/ot-harjoitustyo/blob/master/memomy_game/dokumentaatio/tyoaikakirjanpito.md)
 
