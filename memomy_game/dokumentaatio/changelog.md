@@ -33,3 +33,4 @@
 
 - Käyttäjän täytyy syöttää salasanan käyttäjän luodessaan
 - Käyttäjän täytyy syöttää käyttäjänimeen yhteensopiva salasana kirjautuakseen sisään
+- Pelinäkymässä näkyy kirjautuneen pelaajan käyttäjänimi
