@@ -10,11 +10,11 @@ class Database:
     def create_table(self):
         self.database.execute(
             "CREATE TABLE Players (name TEXT, password TEXT, high_score INTEGER)"
-            )
+        )
 
     def add_player(self, name, password, high_score):
         self.database.execute(
-            "INSERT INTO Players (name, password, high_score) VALUES (?, ?, ?)", 
+            "INSERT INTO Players (name, password, high_score) VALUES (?, ?, ?)",
             [name, password, high_score])
 
     def reset_db(self):
@@ -33,7 +33,7 @@ class Database:
     def player_exists(self, p_name):
         try:
             if p_name == self.database.execute("SELECT name FROM Players WHERE name = ?", [
-                                                p_name]).fetchone()[0]:
+                    p_name]).fetchone()[0]:
                 return True
             return False
         except TypeError:

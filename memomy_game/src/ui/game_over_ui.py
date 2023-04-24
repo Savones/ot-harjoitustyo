@@ -34,7 +34,6 @@ class GameOverDisplay:
 
         self.main.draw_box(box_color, 75, 405, 200, 60)
         self.main.draw_text(text_color, 105, 423, 36, "TRY AGAIN")
-        pygame.display.update()
 
     def scoreboard_button(self, hovered: bool):
         if not hovered:
@@ -46,7 +45,6 @@ class GameOverDisplay:
 
         self.main.draw_box(box_color, 325, 405, 200, 60)
         self.main.draw_text(text_color, 340, 423, 36, "SCOREBOARD")
-        pygame.display.update()
 
     def log_out_button(self, hovered: bool):
         if not hovered:
@@ -58,4 +56,3 @@ class GameOverDisplay:
 
         self.main.draw_box(box_color, 450, 25, 120, 45)
         self.main.draw_text(text_color, 465, 39, 28, "LOG OUT")
-        pygame.display.update()

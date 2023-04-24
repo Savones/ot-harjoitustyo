@@ -67,4 +67,3 @@ class ScoreboardDisplay:
 
         self.main.draw_box(box_color, 450, 25, 120, 45)
         self.main.draw_text(text_color, 468, 39, 28, "RETURN")
-        pygame.display.update()

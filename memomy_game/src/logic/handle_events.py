@@ -17,16 +17,6 @@ class LoginEvents:
     def get_username(self):
         return self.username
 
-    def login_enter(self, pos, event, option):
-        return_value = False
-        if self.check.if_hovered(pos, 340, 340, 150, 60):
-            self.display.enter_button(True)
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                return_value = self.enter_pressed(option)
-        else:
-            self.display.enter_button(False)
-        return return_value
-
     def login_create_account(self, pos, event):
         return_value = False
         if self.check.if_hovered(pos, 170, 490, 260, 55):
