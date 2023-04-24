@@ -43,6 +43,7 @@ class RegisterationLoop:
                 if self.events.login_create_account(pos, event):
                     self.create_account()
                     self.events.reset_input()
+                    name_entered = False
                     self.display.draw_screen(1)
 
                 if event.type == pygame.QUIT:
