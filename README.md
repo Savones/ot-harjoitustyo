@@ -14,7 +14,7 @@ Sovellus on peli, jota pelaamalla käyttäjä voi testata ja harjoittaa muistiaa
 
 ### Pelin asennus
 
-Pelin riippuvuudet asenna komennolla:
+Pelin riippuvuudet voit asentaa komennolla:
 ```
 poetry install
 ```
