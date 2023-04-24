@@ -40,11 +40,13 @@ def main():
 main()
 
 # to be added:
-# a countdown before the game starts
 # a method that makes sure database doesn't overflow
 # a quit button for the game ui
-# return button from password view
+# return button from password view (login left)
 # error messeges part of graphic ui
+# method to make sure clicks during pattern showing dont count
 
 # extras:
+# a countdown before the game starts
+# hovering squares changes their color in game
 # numbered mode
