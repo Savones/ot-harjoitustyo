@@ -22,3 +22,17 @@ Kun riippuvuudet on asennettu, voit käynnistää pelin komennolla:
 ```
 poetry run invoke start
 ```
+## Komentoja
+
+Testaus
+```
+poetry run invoke test
+```
+Testikattavuusraportti
+```
+poetry run invoke coverage-report
+```
+Pylint
+```
+poetry run invoke lint
+```

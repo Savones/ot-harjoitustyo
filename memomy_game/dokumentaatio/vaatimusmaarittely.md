@@ -18,10 +18,10 @@ Sovelluksessa on vain käyttäjä-/pelaajarooli.
 ## Perustoiminnallisuus
 ### Ennen kirjautumista
 
-- Kirjautumis näkymästä nappia painamalla pääsee uuden tunnuksen luonti näkymään, jossa käyttäjätunnuksen voi luoda (1 -> 2) (tehty toistaiseksi ilman salasanaa)
+- Kirjautumis näkymästä nappia painamalla pääsee uuden tunnuksen luonti näkymään, jossa käyttäjätunnuksen voi luoda (1 -> 2) (tehty)
   - Käyttäjänimen oltava ainakin 2 merkkiä ja se ei saa olla jo käytössä 
 
-- Käyttäjä voi kirjautua sisään jo olemassa olevalle tilille (1 -> 3) (tehty toistaiseksi ilman salasanaa)
+- Käyttäjä voi kirjautua sisään jo olemassa olevalle tilille (1 -> 3) (tehty)
   - Käyttäjätunnuksen on oltava olemassa (oikea nimi ja salasana yhdistelmä)
 
 ### Kirjautumisen jälkeen

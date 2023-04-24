@@ -30,5 +30,7 @@
 ## Viikko 5
 
 - Lisätty LoginEvents-luokka, johon on siirretty kirjautumiseen liittyvä logiikka
-- Käyttäjä syöttää salasanan käyttäjän luodessaan
+
+- Käyttäjän täytyy syöttää salasanan käyttäjän luodessaan
 - Käyttäjän täytyy syöttää käyttäjänimeen yhteensopiva salasana kirjautuakseen sisään
+- Pelinäkymässä näkyy kirjautuneen pelaajan käyttäjänimi
