@@ -1,5 +1,6 @@
 import bcrypt
 
+
 class Check:
 
     def __init__(self, database):

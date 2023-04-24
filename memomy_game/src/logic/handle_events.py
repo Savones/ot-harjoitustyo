@@ -1,6 +1,7 @@
 import pygame
 import bcrypt
 
+
 class LoginEvents:
 
     def __init__(self, check, display, database):
@@ -9,7 +10,7 @@ class LoginEvents:
         self.database = database
         self.input = ""
         self.username = ""
-    
+
     def reset_input(self):
         self.input = ""
 
@@ -70,10 +71,10 @@ class LoginEvents:
         if not self.check.valid_username(player_input):
             print("Username has to be 2-6 characters")
             return False
-        
+
         self.username = player_input
         return True
-    
+
     def sign_up_password(self, password):
         if not self.check.valid_password(password):
             print("Password has to have 4-20 characters")
@@ -82,7 +83,7 @@ class LoginEvents:
         hashed_password = self.hash_password(password)
         self.database.add_player(self.username, hashed_password, 0)
         return True
-    
+
     def hash_password(self, password):
         return bcrypt.hashpw(password, bcrypt.gensalt())
 

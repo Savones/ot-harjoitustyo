@@ -11,6 +11,7 @@ LIGHT_PINK = (241, 232, 230)
 GREEN = (88, 179, 104)
 SOFT_BLACK = (39, 14, 35)
 
+
 class RegisDisplay:
     def __init__(self, screen):
         self.display = screen
@@ -67,7 +68,7 @@ class RegisDisplay:
                 text = text[0:12]
             self.main.draw_text(DARK_VIOLET, 290, 265, 32, text)
         pygame.display.update()
-    
+
     def password_display(self, option):
         if option == 1:
             color = DARK_VIOLET

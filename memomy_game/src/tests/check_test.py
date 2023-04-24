@@ -1,10 +1,12 @@
 import unittest
 from logic.check import Check
+from database.player_database import Database
 
 
 class TestPattern(unittest.TestCase):
     def setUp(self):
-        self.check = Check()
+        self.database = Database()
+        self.check = Check(self.database)
 
     # tests check_click method
 
@@ -42,11 +44,11 @@ class TestPattern(unittest.TestCase):
 
     # test if_valid
 
-    def test_returns_true_if_valid(self):
-        self.assertEqual(self.check.if_valid("Testi"), True)
+    def test_returns_true_username_valid(self):
+        self.assertEqual(self.check.valid_username("Testi"), True)
 
-    def test_returns_false_if_too_short(self):
-        self.assertEqual(self.check.if_valid("T"), False)
+    def test_returns_false_username_too_short(self):
+        self.assertEqual(self.check.valid_username("T"), False)
 
-    def test_returns_false_if_too_long(self):
-        self.assertEqual(self.check.if_valid("TestiTe"), False)
+    def test_returns_false_username_too_long(self):
+        self.assertEqual(self.check.valid_username("TestiTe"), False)

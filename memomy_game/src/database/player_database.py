@@ -9,11 +9,13 @@ class Database:
 
     def create_table(self):
         self.database.execute(
-            "CREATE TABLE Players (id INTEGER PRIMARY KEY, name TEXT, password TEXT, high_score INTEGER)")
+            "CREATE TABLE Players (id INTEGER PRIMARY KEY, name TEXT, password TEXT, high_score INTEGER)"
+            )
 
     def add_player(self, name, password, high_score):
         self.database.execute(
-            "INSERT INTO Players (name, password, high_score) VALUES (?, ?, ?)", [name, password, high_score])
+            "INSERT INTO Players (name, password, high_score) VALUES (?, ?, ?)", 
+            [name, password, high_score])
 
     def reset_db(self):
         os.remove("player_database.db")
@@ -31,7 +33,7 @@ class Database:
     def player_exists(self, p_name):
         try:
             if p_name == self.database.execute("SELECT name FROM Players WHERE name = ?", [
-                    p_name]).fetchone()[0]:
+                                                p_name]).fetchone()[0]:
                 return True
             return False
         except TypeError:
@@ -41,9 +43,10 @@ class Database:
         high_score = self.database.execute("SELECT high_score FROM Players WHERE name = ?", [
             p_name]).fetchone()[0]
         return high_score
-    
+
     def get_hashed_password(self, username):
-        return self.database.execute("SELECT password FROM Players WHERE name = ?", [username]).fetchone()[0]
+        return self.database.execute("SELECT password FROM Players WHERE name = ?", [username]
+                                     ).fetchone()[0]
 
     def change_high_score(self, p_name, new_high_score):
         self.database.execute(

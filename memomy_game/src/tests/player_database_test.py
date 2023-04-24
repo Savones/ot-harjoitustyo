@@ -21,13 +21,13 @@ class TestDatabase(unittest.TestCase):
 
     def test_add_player(self):
         self.database.create_table()
-        self.database.add_player("Testi", 0)
+        self.database.add_player("Testi", "Testi123", 0)
         self.assertEqual(self.database.player_exists("Testi"), True)
 
     # tests change hs
 
     def test_change_hs_when_player_exists(self):
         self.database.create_table()
-        self.database.add_player("Testi", 0)
+        self.database.add_player("Testi", "Testi123", 0)
         self.database.change_high_score("Testi", 5)
         self.assertEqual(self.database.get_high_score("Testi"), 5)

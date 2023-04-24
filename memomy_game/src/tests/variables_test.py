@@ -6,7 +6,7 @@ from database.player_database import Database
 class TestVariables(unittest.TestCase):
     def setUp(self):
         self.database = Database()
-        self.database.add_player("Milla", 0)
+        self.database.add_player("Milla", "testi123", 0)
         self.name = "Milla"
         self.pattern = Variables(self.name, self.database)
 

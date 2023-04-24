@@ -31,7 +31,7 @@ class Display:
                 x = 155
             else:
                 x += 100
-        
+
         self.main.draw_text(LIGHT_PINK, 25, 25, 42, self.player)
         self.draw_level(0)
         self.draw_high_score(high_score)
@@ -87,7 +87,7 @@ class Display:
         self.main.draw_box(DARK_VIOLET, 305, 445, 165, 60)
         self.main.draw_text(YELLOW, 326, 464, 34, f"HS: {hs}")
         pygame.display.update()
-    
+
     def draw_level_up_text(self):
         self.main.draw_text(GREEN, 210, 535, 48, "CORRECT!")
         pygame.display.update()

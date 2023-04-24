@@ -3,6 +3,7 @@ import pygame
 
 from logic.handle_events import LoginEvents
 
+
 class RegisterationLoop:
     def __init__(self, database, display, check):
         self.database = database
@@ -26,7 +27,7 @@ class RegisterationLoop:
                         name_entered = True
                         self.events.reset_input()
                         self.display.password_display(1)
-                    
+
                     elif name_entered and self.events.key_pressed(event, 2):
                         return self.events.get_username()
 
@@ -36,10 +37,10 @@ class RegisterationLoop:
                     name_entered = True
                     self.events.reset_input()
                     self.display.password_display(1)
-                
+
                 elif name_entered and self.events.login_enter(pos, event, 2):
                     return self.events.get_username()
-                
+
                 if self.events.login_create_account(pos, event):
                     self.create_account()
                     self.events.reset_input()
@@ -65,7 +66,7 @@ class RegisterationLoop:
                         name_entered = True
                         self.events.reset_input()
                         self.display.password_display(-1)
-                
+
                     elif name_entered and self.events.key_pressed(event, 0):
                         print("New account created")
                         return None
@@ -76,14 +77,14 @@ class RegisterationLoop:
                     name_entered = True
                     self.events.reset_input()
                     self.display.password_display(-1)
-                
+
                 elif name_entered and self.events.enter_button(pos, event, 0):
                     print("New account created")
                     return None
-                
+
                 if not name_entered and self.events.return_button(pos, event):
                     return None
-                
+
                 elif name_entered and self.events.return_button(pos, event):
                     name_entered = False
                     self.display.draw_screen(-1)
