@@ -8,6 +8,21 @@ class Variables:
         self.player = player
         self.database = database
         self.high_score = self.database.get_high_score(player)
+        self.squares = self.set_squares()
+
+    def set_squares(self):
+        squares = []
+        x = 155
+        y = 100
+        for i in range(1, 10):
+            squares.append((x, y))
+            if i % 3 == 0:
+                y += 100
+                x = 155
+            else:
+                x += 100
+        print(squares)
+        return squares
 
     def add_random_press(self):
         random_press = random.randint(1, 9)
