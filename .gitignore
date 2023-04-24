@@ -2,4 +2,4 @@
 __pycache__
 .coverage
 htmlcov
-/player_database.db
+/*.db
