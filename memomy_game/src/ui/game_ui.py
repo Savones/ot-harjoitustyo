@@ -24,7 +24,8 @@ class Display:
         self.main.draw_box(DARK_VIOLET, 125, 70, 350, 350)
 
         for square in self.squares:
-            self.main.draw_box(LIGHT_PINK, square[0], square[1], self.square_width, self.square_width)
+            self.main.draw_box(
+                LIGHT_PINK, square[0], square[1], self.square_width, self.square_width)
 
         self.main.draw_text(LIGHT_PINK, 25, 25, 42, self.player)
         self.draw_level(0)
@@ -32,10 +33,10 @@ class Display:
 
         pygame.display.update()
 
-    def draw_click(self, pos):    
+    def draw_click(self, pos):
         for square in self.squares:
             if (square[0] + self.square_width) >= pos[0] >= square[0] and (
-                square[1] + self.square_width) >= pos[1] >= square[1]:
+                    square[1] + self.square_width) >= pos[1] >= square[1]:
                 break
 
         self.draw_flash(square[0], square[1], 100, SALMON)
@@ -46,7 +47,8 @@ class Display:
         pygame.time.delay(1000)
 
         for element in pattern:
-            self.draw_flash(self.squares[element - 1][0], self.squares[element - 1][1], 175, GREEN)
+            self.draw_flash(
+                self.squares[element - 1][0], self.squares[element - 1][1], 175, GREEN)
 
     def draw_flash(self, x, y, time, color):
         self.main.draw_box(color, x, y, 90, 90)

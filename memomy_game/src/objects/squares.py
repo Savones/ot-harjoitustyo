@@ -6,13 +6,13 @@ class Squares:
 
     def set_squares(self):
         squares = []
-        x = 155
-        y = 100
+        x_coord = 155
+        y_coord = 100
         for i in range(1, 10):
-            squares.append((x, y))
+            squares.append((x_coord, y_coord))
             if i % 3 == 0:
-                y += 100
-                x = 155
+                y_coord += 100
+                x_coord = 155
             else:
-                x += 100
+                x_coord += 100
         return squares
