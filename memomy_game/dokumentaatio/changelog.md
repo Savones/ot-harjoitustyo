@@ -30,6 +30,7 @@
 ## Viikko 5
 
 - Lisätty LoginEvents-luokka, johon on siirretty kirjautumiseen liittyvä logiikka
+- Lisätty ja sovellettu Squares-luokka, jossa pelin ruudut määritellään
 
 - Käyttäjän täytyy syöttää salasanan käyttäjän luodessaan
 - Käyttäjän täytyy syöttää käyttäjänimeen yhteensopiva salasana kirjautuakseen sisään
