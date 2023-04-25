@@ -3,7 +3,7 @@ import bcrypt
 
 class Check:
 
-    def __init__(self, database):
+    def __init__(self, database, squares):
         self.database = database
 
     def check_click(self, player_input, correct_answer):

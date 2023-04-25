@@ -12,25 +12,20 @@ GREEN = (88, 179, 104)
 
 
 class Display:
-    def __init__(self, screen, player):
+    def __init__(self, screen, player, squares):
         self.display = screen
         self.player = player
         self.main = MainUi(self.display)
-        self.clock = pygame.time.Clock()
+        self.squares = squares
+        self.square_width = self.squares.square_width
+        self.squares = self.squares.squares
 
     def draw_screen(self, high_score):
         self.display.fill(VIOLET)
         self.main.draw_box(DARK_VIOLET, 125, 70, 350, 350)
 
-        x = 155
-        y = 100
-        for i in range(1, 10):
-            self.main.draw_box(LIGHT_PINK, x, y, 90, 90)
-            if i % 3 == 0:
-                y += 100
-                x = 155
-            else:
-                x += 100
+        for square in self.squares:
+            self.main.draw_box(LIGHT_PINK, square[0], square[1], self.square_width, self.square_width)
 
         self.main.draw_text(LIGHT_PINK, 25, 25, 42, self.player)
         self.draw_level(0)
@@ -38,36 +33,21 @@ class Display:
 
         pygame.display.update()
 
-    def draw_click(self, pos):
-        x = 155
-        y = 100
-        for i in range(1, 10):
-            if (x + 90) >= pos[0] >= x and (y + 90) >= pos[1] >= y:
+    def draw_click(self, pos):    
+        for square in self.squares:
+            if (square[0] + self.square_width) >= pos[0] >= square[0] and (
+                square[1] + self.square_width) >= pos[1] >= square[1]:
                 break
-            if i % 3 == 0:
-                y += 100
-                x = 155
-            else:
-                x += 100
 
-        self.draw_flash(x, y, 100, SALMON)
+        self.draw_flash(square[0], square[1], 100, SALMON)
 
     def draw_pattern(self, pattern: list, level: int, high_score: int):
         self.draw_level(level)
         self.draw_high_score(high_score)
         pygame.time.delay(1000)
+
         for element in pattern:
-            x = 155
-            y = 100
-            for i in range(1, 10):
-                if i == element:
-                    self.draw_flash(x, y, 175, GREEN)
-                    break
-                elif i % 3 == 0:
-                    y += 100
-                    x = 155
-                else:
-                    x += 100
+            self.draw_flash(self.squares[element - 1][0], self.squares[element - 1][1], 175, GREEN)
 
     def draw_flash(self, x, y, time, color):
         self.main.draw_box(color, x, y, 90, 90)

@@ -10,6 +10,7 @@ from ui.scoreboard_ui import ScoreboardDisplay
 from ui.game_ui import Display
 from ui.registeration_ui import RegisDisplay
 from database.player_database import Database
+from objects.squares import Squares
 
 HEIGHT = 600
 WIDTH = 600
@@ -19,8 +20,9 @@ def main():
     os.remove("player_database.db")
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
+    squares = Squares()
     database = Database()
-    check = Check(database)
+    check = Check(database, squares)
 
     while True:
         regis_display = RegisDisplay(screen)
@@ -29,7 +31,7 @@ def main():
         player = registeration_loop.start()
 
         variables = Variables(player, database)
-        display = Display(screen, player)
+        display = Display(screen, player, squares)
         game_over_display = GameOverDisplay(screen)
         scoreboard_display = ScoreboardDisplay(screen, player, database)
 
