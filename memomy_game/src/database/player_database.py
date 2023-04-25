@@ -17,9 +17,6 @@ class Database:
             "INSERT INTO Players (name, password, high_score) VALUES (?, ?, ?)",
             [name, password, high_score])
 
-    def reset_db(self):
-        os.remove("player_database.db")
-
     def get_players_table(self):
         return self.database.execute("SELECT * FROM Players ORDER BY high_score DESC").fetchall()
 

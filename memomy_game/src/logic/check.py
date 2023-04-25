@@ -9,8 +9,8 @@ class Check:
         self.square_width = squares.square_width
 
     def check_click(self, player_input, correct_answer):
-        correct_x = self.squares[correct_answer - 1][0]
-        correct_y = self.squares[correct_answer - 1][1]
+        correct_x = self.squares[correct_answer][0]
+        correct_y = self.squares[correct_answer][1]
 
         if (correct_x + self.square_width) >= player_input[0] >= correct_x:
             if (correct_y + self.square_width) >= player_input[1] >= correct_y:

@@ -10,7 +10,7 @@ class Variables:
         self.high_score = self.database.get_high_score(player)
 
     def add_random_press(self):
-        random_press = random.randint(1, 9)
+        random_press = random.randint(0, 8)
         self.pattern_list.append(random_press)
 
     def level_up(self):

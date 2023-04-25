@@ -48,7 +48,7 @@ class Display:
 
         for element in pattern:
             self.draw_flash(
-                self.squares[element - 1][0], self.squares[element - 1][1], 175, GREEN)
+                self.squares[element][0], self.squares[element][1], 175, GREEN)
 
     def draw_flash(self, x, y, time, color):
         self.main.draw_box(color, x, y, 90, 90)

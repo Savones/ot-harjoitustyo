@@ -5,13 +5,15 @@ from logic.check import Check
 from ui.registeration_ui import RegisDisplay
 from database.player_database import Database
 from logic.handle_events import LoginEvents
+from objects.squares import Squares
 
 
 class TestLoginEvents(unittest.TestCase):
     def setUp(self):
         screen = pygame.display.set_mode((1, 1))
         self.database = Database()
-        self.check = Check(self.database)
+        self.squares = Squares()
+        self.check = Check(self.database, self.squares)
         self.display = RegisDisplay(screen)
         self.events = LoginEvents(self.check, self.display, self.database)
 

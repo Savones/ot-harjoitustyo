@@ -22,7 +22,7 @@ class TestVariables(unittest.TestCase):
 
     def test_picked_square_exists(self):
         self.pattern.add_random_press()
-        self.assertTrue(1 <= self.pattern.pattern_list[0] <= 9)
+        self.assertTrue(0 <= self.pattern.pattern_list[0] <= 8)
 
     def test_adds_one_press(self):
         self.pattern.add_random_press()
@@ -49,9 +49,9 @@ class TestVariables(unittest.TestCase):
     # tests change_high_score method
 
     def test_hs_change_when_greater_level(self):
-        self.pattern.level_up()
+        self.pattern.level = 20
         self.pattern.change_high_score()
-        self.assertEqual(self.pattern.high_score, 1)
+        self.assertEqual(self.pattern.high_score, 20)
 
     def test_hs_not_change_when_lower_level(self):
         self.pattern.high_score = 10
@@ -60,8 +60,7 @@ class TestVariables(unittest.TestCase):
 
     # tests update_hs_in_db method
 
-    # def test_changes_hs_in_db(self):
-    #     self.pattern.level_up()
-    #     self.pattern.change_high_score()
-    #     self.pattern.update_hs_in_db()
-    #     self.assertEqual(self.pattern.high_score, 10)
+    def test_changes_hs_in_db(self):
+        self.pattern.high_score = 10
+        self.pattern.update_hs_in_db()
+        self.assertEqual(self.pattern.high_score, 10)
