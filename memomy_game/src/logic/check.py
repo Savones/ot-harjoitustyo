@@ -5,38 +5,24 @@ class Check:
 
     def __init__(self, database, squares):
         self.database = database
+        self.squares = squares.squares
+        self.square_width = squares.square_width
 
     def check_click(self, player_input, correct_answer):
-        x_coord = 155
-        y_coord = 100
-        for i in range(1, 10):
-            if (x_coord + 90) >= player_input[0] >= x_coord:
-                if (y_coord + 90) >= player_input[1] >= y_coord:
-                    break
-            if i % 3 == 0:
-                y_coord += 100
-                x_coord = 155
-            else:
-                x_coord += 100
+        correct_x = self.squares[correct_answer - 1][0]
+        correct_y = self.squares[correct_answer - 1][1]
 
-        if i == correct_answer:
-            return True
+        if (correct_x + self.square_width) >= player_input[0] >= correct_x:
+                if (correct_y + self.square_width) >= player_input[1] >= correct_y:
+                    return True
         return False
 
     def check_misclick(self, pos):
-        found = False
-        x_coord = 155
-        y_coord = 100
-        for i in range(1, 10):
-            if (x_coord + 90) >= pos[0] >= x_coord and (y_coord + 90) >= pos[1] >= y_coord:
-                found = True
-                break
-            if i % 3 == 0:
-                y_coord += 100
-                x_coord = 155
-            else:
-                x_coord += 100
-        return found
+        for square in self.squares:
+            if (square[0] + self.square_width) >= pos[0] >= square[0]:
+                if (square[1] + self.square_width) >= pos[1] >= square[1]:
+                    return True
+        return False
 
     def valid_username(self, username):
         if len(username) >= 7 or len(username) <= 1:

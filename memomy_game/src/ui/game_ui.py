@@ -16,9 +16,8 @@ class Display:
         self.display = screen
         self.player = player
         self.main = MainUi(self.display)
-        self.squares = squares
-        self.square_width = self.squares.square_width
-        self.squares = self.squares.squares
+        self.square_width = squares.square_width
+        self.squares = squares.squares
 
     def draw_screen(self, high_score):
         self.display.fill(VIOLET)
