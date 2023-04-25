@@ -16,4 +16,6 @@ Päivä | Tunteja | Kuvaus
 17.4 | 5 | Luokkakaavion tekeminen, koodin laadun parannusta, lisättävän toiminnon kokeilua
 21.4 | 2 | Luokan lisäys, sen koodausta ja koodin siistimistä
 22.4 | 5 | Uuden toiminnallisuuden lisäys
-Yht | 45 |
+24.4 | 4 | Luokan lisäys, koodin muokkaamista ja laadun parannusta
+25.4 | 2 | Testausta
+Yht | 51 |
