@@ -2,4 +2,4 @@
 __pycache__
 .coverage
 htmlcov
-memory_game/*.db
+memomy_game/*.db
