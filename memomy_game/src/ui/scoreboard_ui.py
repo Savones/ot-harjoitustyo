@@ -19,15 +19,10 @@ class ScoreboardDisplay:
     def draw_screen(self):
         self.display.fill((BABY_PINK))
         self.main.draw_box(LIGHT_PINK, 100, 200, 400, 350)
-
         self.main.draw_text(VIOLET, 140, 120, 64, "SCOREBOARD")
-
         self.draw_grid()
-
         self.draw_scoreboard()
-
         self.return_button(False)
-
         pygame.display.update()
 
     def draw_grid(self):

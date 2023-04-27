@@ -30,7 +30,7 @@ class Check:
         return True
 
     def valid_password(self, password):
-        if len(password) >= 20 or len(password) <= 4:
+        if len(password) > 20 or len(password) < 4:
             return False
         return True
 
