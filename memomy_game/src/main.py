@@ -18,7 +18,7 @@ WIDTH = 600
 
 
 def main():
-    # os.remove("player_database.db")
+    os.remove("player_database.db")
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
     game_buttons = Makebuttons(0).buttons
@@ -26,14 +26,18 @@ def main():
     scoreboard_buttons = Makebuttons(2).buttons
     buttons = [game_buttons, game_over_buttons, scoreboard_buttons]
 
+    login_buttons = Makebuttons(3).buttons
+    sign_up_buttons = Makebuttons(4).buttons
+    regis_buttons = [login_buttons, sign_up_buttons]
+
     squares = Squares()
     database = Database()
     check = Check(database, squares)
 
     while True:
-        regis_display = RegisDisplay(screen)
+        regis_display = RegisDisplay(screen, regis_buttons)
 
-        registeration_loop = RegisterationLoop(database, regis_display, check)
+        registeration_loop = RegisterationLoop(database, regis_display, check, regis_buttons)
         player = registeration_loop.start()
 
         variables = Variables(player, database)

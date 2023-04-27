@@ -13,8 +13,9 @@ SOFT_BLACK = (39, 14, 35)
 
 
 class RegisDisplay:
-    def __init__(self, screen):
+    def __init__(self, screen, buttons):
         self.display = screen
+        self.buttons = buttons[0]
         self.main = MainUi(self.display)
 
     def draw_screen(self, option: int):
@@ -45,12 +46,12 @@ class RegisDisplay:
         self.main.draw_text(color4, x, y, font, text)
         self.main.draw_text(color3, 110, 265, 32, "USERNAME:")
 
-        self.enter_button(False)
+        self.draw_button(False, self.buttons[0])
 
         if option == 1:
-            self.create_account_button(False)
+            self.draw_button(False, self.buttons[1])
         else:
-            self.return_button(False)
+            self.draw_button(False, self.buttons[2])
 
         pygame.display.update()
 
@@ -79,38 +80,6 @@ class RegisDisplay:
         self.main.draw_text(LIGHT_PINK, 110, 265, 32, "PASSWORD:")
         pygame.display.update()
 
-    def enter_button(self, hovered):
-        if not hovered:
-            text_color = LIGHT_PINK
-            box_color = SALMON
-        else:
-            text_color = SALMON
-            box_color = LIGHT_PINK
-
-        self.main.draw_box(box_color, 340, 340, 150, 60)
-        self.main.draw_text(text_color, 365, 357, 42, "ENTER")
-        pygame.display.update()
-
-    def create_account_button(self, hovered):
-        if not hovered:
-            text_color = LIGHT_PINK
-            box_color = SALMON
-        else:
-            text_color = SALMON
-            box_color = LIGHT_PINK
-
-        self.main.draw_box(box_color, 170, 490, 260, 55)
-        self.main.draw_text(text_color, 195, 508, 32, "CREATE ACCOUNT")
-        pygame.display.update()
-
-    def return_button(self, hovered: bool):
-        if not hovered:
-            text_color = LIGHT_PINK
-            box_color = SALMON
-        else:
-            text_color = SALMON
-            box_color = LIGHT_PINK
-
-        self.main.draw_box(box_color, 450, 25, 120, 45)
-        self.main.draw_text(text_color, 468, 39, 28, "RETURN")
+    def draw_button(self, hovered, button):
+        self.main.draw_button(hovered, button)
         pygame.display.update()

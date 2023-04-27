@@ -4,7 +4,9 @@ import bcrypt
 
 class LoginEvents:
 
-    def __init__(self, check, display, database):
+    def __init__(self, check, display, database, buttons):
+        self.login_buttons = buttons[0]
+        self.sign_up_buttons = buttons[1]
         self.check = check
         self.display = display
         self.database = database
@@ -19,32 +21,35 @@ class LoginEvents:
 
     def login_create_account(self, pos, event):
         return_value = False
-        if self.check.if_hovered(pos, 170, 490, 260, 55):
-            self.display.create_account_button(True)
+        button = self.login_buttons[1]
+        if button.if_hovered(pos):
+            self.display.draw_button(True, button)
             if event.type == pygame.MOUSEBUTTONDOWN:
                 self.reset_input()
                 return_value = True
         else:
-            self.display.create_account_button(False)
+            self.display.draw_button(False, button)
         return return_value
 
     def enter_button(self, pos, event, option):
         return_value = False
-        if self.check.if_hovered(pos, 340, 340, 150, 60):
-            self.display.enter_button(True)
+        button = self.login_buttons[0]
+        if button.if_hovered(pos):
+            self.display.draw_button(True, button)
             if event.type == pygame.MOUSEBUTTONDOWN:
                 return_value = self.enter_pressed(option)
         else:
-            self.display.enter_button(False)
+            self.display.draw_button(False, button)
         return return_value
 
     def return_button(self, pos, event):
-        if self.check.if_hovered(pos, 450, 25, 120, 45):
-            self.display.return_button(True)
+        button = self.login_buttons[2]
+        if button.if_hovered(pos):
+            self.display.draw_button(True, button)
             if event.type == pygame.MOUSEBUTTONDOWN:
                 return True
         else:
-            self.display.return_button(False)
+            self.display.draw_button(False, button)
         return False
 
     def login_username(self, player_input):

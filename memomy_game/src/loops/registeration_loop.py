@@ -5,10 +5,12 @@ from logic.handle_events import LoginEvents
 
 
 class RegisterationLoop:
-    def __init__(self, database, display, check):
+    def __init__(self, database, display, check, buttons):
+        self.login_buttons = buttons[0]
+        self.sign_up_buttons = buttons[1]
         self.database = database
         self.display = display
-        self.events = LoginEvents(check, display, database)
+        self.events = LoginEvents(check, display, database, buttons)
         self.name_entered = False
         self.running = True
 

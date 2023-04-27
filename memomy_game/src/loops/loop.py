@@ -96,7 +96,7 @@ class Loop:
                         self.game_over()
                         return None
                 else:
-                    self.scoreboard_display.draw_button(True, self.scoreboard_buttons[0])
+                    self.scoreboard_display.draw_button(False, self.scoreboard_buttons[0])
 
                 self.closed_game(event)
                 pygame.display.update()

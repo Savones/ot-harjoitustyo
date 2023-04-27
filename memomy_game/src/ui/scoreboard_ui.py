@@ -1,7 +1,6 @@
 import pygame
 from ui.main_ui import MainUi
 
-WHITE = (255, 255, 255)
 DARK_VIOLET = (54, 29, 50)
 VIOLET = (84, 60, 82)
 SALMON = (245, 89, 81)
