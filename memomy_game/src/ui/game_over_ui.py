@@ -1,5 +1,5 @@
-import pygame
 from ui.main_ui import MainUi
+from objects.buttons import Button
 
 HEIGHT = 600
 WIDTH = 600
