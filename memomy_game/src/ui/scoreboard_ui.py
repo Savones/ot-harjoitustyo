@@ -10,8 +10,9 @@ LIGHT_PINK = (241, 232, 230)
 
 
 class ScoreboardDisplay:
-    def __init__(self, screen, player, database):
+    def __init__(self, screen, player, database, buttons):
         self.display = screen
+        self.buttons = buttons
         self.main = MainUi(self.display)
         self.database = database
         self.player = player
@@ -22,7 +23,7 @@ class ScoreboardDisplay:
         self.main.draw_text(VIOLET, 140, 120, 64, "SCOREBOARD")
         self.draw_grid()
         self.draw_scoreboard()
-        self.return_button(False)
+        self.draw_button(False, self.buttons[0])
         pygame.display.update()
 
     def draw_grid(self):
@@ -52,13 +53,5 @@ class ScoreboardDisplay:
             self.main.draw_text(color, 250, y, 38, player[0])
             self.main.draw_text(VIOLET, 445, y, 40, str(player[2]))
 
-    def return_button(self, hovered: bool):
-        if not hovered:
-            text_color = LIGHT_PINK
-            box_color = SALMON
-        else:
-            text_color = SALMON
-            box_color = LIGHT_PINK
-
-        self.main.draw_box(box_color, 450, 25, 120, 45)
-        self.main.draw_text(text_color, 468, 39, 28, "RETURN")
+    def draw_button(self, hovered: bool, button):
+        self.main.draw_button(hovered, button)

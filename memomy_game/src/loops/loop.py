@@ -10,7 +10,8 @@ class Loop:
         self.display = display
         self.game_over_display = game_over_display
         self.scoreboard_display = scoreboard_display
-        self.buttons = buttons
+        self.game_over_buttons = buttons[1]
+        self.scoreboard_buttons = buttons[2]
         self.running = True
         pygame.init()
 
@@ -67,17 +68,14 @@ class Loop:
 
                 pos = pygame.mouse.get_pos()
 
-                self.game_over_display.try_again_button(False)
-                self.game_over_display.scoreboard_button(False)
-                self.game_over_display.log_out_button(False)
-
-                for button in self.buttons:
+                for button in self.game_over_buttons:
                     if button.if_hovered(pos):
-                        self.change_button_color(button.name)
+                        self.game_over_display.draw_button(True, button)
                         if event.type == pygame.MOUSEBUTTONDOWN:
                             self.button_pressed(button.name)
                             return None
-                        break
+                    else:
+                        self.game_over_display.draw_button(False, button)
 
                 self.closed_game(event)
                 pygame.display.update()
@@ -91,13 +89,14 @@ class Loop:
             for event in pygame.event.get():
 
                 pos = pygame.mouse.get_pos()
-                self.scoreboard_display.return_button(False)
 
-                if self.check.if_hovered(pos, 450, 25, 120, 45):
-                    self.scoreboard_display.return_button(True)
+                if self.scoreboard_buttons[0].if_hovered(pos):
+                    self.scoreboard_display.draw_button(True, self.scoreboard_buttons[0])
                     if event.type == pygame.MOUSEBUTTONDOWN:
                         self.game_over()
                         return None
+                else:
+                    self.scoreboard_display.draw_button(True, self.scoreboard_buttons[0])
 
                 self.closed_game(event)
                 pygame.display.update()
@@ -107,14 +106,6 @@ class Loop:
         if event.type == pygame.QUIT:
             print("Player closed the game")
             sys.exit()
-    
-    def change_button_color(self, button):
-        if button == "TRY AGAIN":
-            self.game_over_display.try_again_button(True)
-        elif button == "SCOREBOARD":
-            self.game_over_display.scoreboard_button(True)
-        else:
-            self.game_over_display.log_out_button(True)
     
     def button_pressed(self, button):
         if button == "TRY AGAIN":

@@ -1,5 +1,4 @@
 from ui.main_ui import MainUi
-from objects.buttons import Button
 
 HEIGHT = 600
 WIDTH = 600
@@ -11,8 +10,9 @@ LIGHT_PINK = (241, 232, 230)
 
 
 class GameOverDisplay:
-    def __init__(self, screen):
+    def __init__(self, screen, buttons):
         self.display = screen
+        self.buttons = buttons
         self.main = MainUi(self.display)
 
     def draw_screen(self):
@@ -20,39 +20,8 @@ class GameOverDisplay:
 
         self.main.draw_text(SALMON, 130, 210, 82, "GAME OVER")
 
-        self.try_again_button(False)
-        self.scoreboard_button(False)
-        self.log_out_button(False)
+        for button in self.buttons:
+            self.draw_button(False, button)
 
-    def try_again_button(self, hovered: bool):
-        if not hovered:
-            text_color = LIGHT_PINK
-            box_color = VIOLET
-        else:
-            text_color = VIOLET
-            box_color = LIGHT_PINK
-
-        self.main.draw_box(box_color, 75, 405, 200, 60)
-        self.main.draw_text(text_color, 105, 423, 36, "TRY AGAIN")
-
-    def scoreboard_button(self, hovered: bool):
-        if not hovered:
-            text_color = LIGHT_PINK
-            box_color = VIOLET
-        else:
-            text_color = VIOLET
-            box_color = LIGHT_PINK
-
-        self.main.draw_box(box_color, 325, 405, 200, 60)
-        self.main.draw_text(text_color, 340, 423, 36, "SCOREBOARD")
-
-    def log_out_button(self, hovered: bool):
-        if not hovered:
-            text_color = LIGHT_PINK
-            box_color = DARK_VIOLET
-        else:
-            text_color = DARK_VIOLET
-            box_color = LIGHT_PINK
-
-        self.main.draw_box(box_color, 450, 25, 120, 45)
-        self.main.draw_text(text_color, 465, 39, 28, "LOG OUT")
+    def draw_button(self, hovered: bool, button):
+        self.main.draw_button(hovered, button)

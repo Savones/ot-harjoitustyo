@@ -21,7 +21,11 @@ def main():
     # os.remove("player_database.db")
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
-    buttons = Makebuttons().buttons
+    game_buttons = Makebuttons(0).buttons
+    game_over_buttons = Makebuttons(1).buttons
+    scoreboard_buttons = Makebuttons(2).buttons
+    buttons = [game_buttons, game_over_buttons, scoreboard_buttons]
+
     squares = Squares()
     database = Database()
     check = Check(database, squares)
@@ -34,8 +38,8 @@ def main():
 
         variables = Variables(player, database)
         display = Display(screen, player, squares)
-        game_over_display = GameOverDisplay(screen)
-        scoreboard_display = ScoreboardDisplay(screen, player, database)
+        game_over_display = GameOverDisplay(screen, game_over_buttons)
+        scoreboard_display = ScoreboardDisplay(screen, player, database, scoreboard_buttons)
 
         loop = Loop(variables, check, display,
                     game_over_display, scoreboard_display, buttons)
