@@ -3,6 +3,17 @@ import pygame
 
 
 class Loop:
+    """A class that runs the game after logging in
+
+    Attributes:
+        variables: an object for Variables class
+        check: an object for Check class
+        display: an object for Display class (game UI)
+        game_over_display: an object for GameOverDisplay class (game over UI)
+        scoreboard_display: an object for ScoreboardDisplay class (scoreboard UI)
+        database: an object for the Database class (handles database logic)
+        buttons: a list of buttons for differents UI views
+    """
 
     def __init__(self, variables, check, display, game_over_display, scoreboard_display, buttons):
         self.variables = variables

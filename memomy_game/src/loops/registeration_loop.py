@@ -5,6 +5,15 @@ from logic.handle_events import LoginEvents
 
 
 class RegisterationLoop:
+    """A class that runs the game before logging in
+
+    Attributes:
+        database: an object for the Database class (handles database logic)
+        display: an object for RegisDisplay class (registration UI)
+        check: an object for Check class
+        buttons: a list of buttons for differents UI views
+    """
+
     def __init__(self, database, display, check, buttons):
         self.login_buttons = buttons[0]
         self.sign_up_buttons = buttons[1]

@@ -3,6 +3,7 @@ import pygame
 
 from logic.variables import Variables
 from logic.check import Check
+from logic.make_buttons import Makebuttons
 from loops.loop import Loop
 from loops.registeration_loop import RegisterationLoop
 from ui.game_over_ui import GameOverDisplay
@@ -11,24 +12,17 @@ from ui.game_ui import Display
 from ui.registeration_ui import RegisDisplay
 from database.player_database import Database
 from objects.squares import Squares
-from logic.make_buttons import Makebuttons
 
 HEIGHT = 600
 WIDTH = 600
 
 
 def main():
-    os.remove("player_database.db")
+    # os.remove("player_database.db")
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
-    game_buttons = Makebuttons(0).buttons
-    game_over_buttons = Makebuttons(1).buttons
-    scoreboard_buttons = Makebuttons(2).buttons
-    buttons = [game_buttons, game_over_buttons, scoreboard_buttons]
-
-    login_buttons = Makebuttons(3).buttons
-    sign_up_buttons = Makebuttons(4).buttons
-    regis_buttons = [login_buttons, sign_up_buttons]
+    game_buttons = [Makebuttons(0).buttons, Makebuttons(1).buttons, Makebuttons(2).buttons]
+    regis_buttons = [Makebuttons(3).buttons, Makebuttons(4).buttons]
 
     squares = Squares()
     database = Database()
@@ -42,11 +36,11 @@ def main():
 
         variables = Variables(player, database)
         display = Display(screen, player, squares)
-        game_over_display = GameOverDisplay(screen, game_over_buttons)
-        scoreboard_display = ScoreboardDisplay(screen, player, database, scoreboard_buttons)
+        game_over_display = GameOverDisplay(screen, game_buttons[1])
+        scoreboard_display = ScoreboardDisplay(screen, player, database, game_buttons[2])
 
         loop = Loop(variables, check, display,
-                    game_over_display, scoreboard_display, buttons)
+                    game_over_display, scoreboard_display, game_buttons)
         loop.start_game()
 
 

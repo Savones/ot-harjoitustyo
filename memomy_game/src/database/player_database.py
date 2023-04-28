@@ -1,8 +1,10 @@
-import os
 import sqlite3
 
 
 class Database:
+    """A class that changes and gets information from the database
+    """
+
     def __init__(self):
         self.database = sqlite3.connect("player_database.db")
         self.database.isolation_level = None
