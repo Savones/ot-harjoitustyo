@@ -23,8 +23,6 @@ class Makebuttons():
                 self.buttons = self.scoreboard_buttons()
             case 3:
                 self.buttons = self.login_buttons()
-            case 4:
-                self.buttons = self.sign_up_buttons()
     
     def game_over_buttons(self):
         try_again = Button("TRY AGAIN", 75, 405, 200, 60, 105, 423, 36, (LIGHT_PINK, VIOLET))
@@ -41,8 +39,3 @@ class Makebuttons():
         create = Button("CREATE ACCOUNT", 170, 490, 260, 55, 195, 508, 32, (LIGHT_PINK, SALMON))
         go_back = self.scoreboard_buttons()[0]
         return [enter, create, go_back]
-    
-    def sign_up_buttons(self):
-        enter = self.login_buttons()[0]
-        go_back = self.login_buttons()[2]
-        return [enter, go_back]

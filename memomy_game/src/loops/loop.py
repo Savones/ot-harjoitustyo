@@ -9,22 +9,31 @@ class Loop:
         variables: an object for Variables class
         check: an object for Check class
         display: an object for Display class (game UI)
+        settings_display: an object for SettingsDisplay class (settings UI)
         game_over_display: an object for GameOverDisplay class (game over UI)
         scoreboard_display: an object for ScoreboardDisplay class (scoreboard UI)
         database: an object for the Database class (handles database logic)
         buttons: a list of buttons for differents UI views
     """
 
-    def __init__(self, variables, check, display, game_over_display, scoreboard_display, buttons):
+    def __init__(self, variables, check, display, settings_display, game_over_display, scoreboard_display, buttons):
         self.variables = variables
         self.check = check
         self.display = display
+        self.settings_display = settings_display
         self.game_over_display = game_over_display
         self.scoreboard_display = scoreboard_display
         self.game_over_buttons = buttons[1]
         self.scoreboard_buttons = buttons[2]
         self.running = True
         pygame.init()
+    
+    def start(self):
+        while self.running:
+            for event in pygame.event.get():
+                self.closed_game(event)
+        return None
+
 
     def start_game(self):
 

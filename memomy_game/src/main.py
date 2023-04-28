@@ -9,6 +9,7 @@ from loops.registeration_loop import RegisterationLoop
 from ui.game_over_ui import GameOverDisplay
 from ui.scoreboard_ui import ScoreboardDisplay
 from ui.game_ui import Display
+from ui.settings_ui import SettingsDisplay
 from ui.registeration_ui import RegisDisplay
 from database.player_database import Database
 from objects.squares import Squares
@@ -22,27 +23,26 @@ def main():
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
     game_buttons = [Makebuttons(0).buttons, Makebuttons(1).buttons, Makebuttons(2).buttons]
-    regis_buttons = [Makebuttons(3).buttons, Makebuttons(4).buttons]
+    regis_buttons = Makebuttons(3).buttons
 
     squares = Squares()
     database = Database()
     check = Check(database, squares)
+    regis_display = RegisDisplay(screen, regis_buttons)
+    registeration_loop = RegisterationLoop(database, regis_display, check, regis_buttons)
+    game_over_display = GameOverDisplay(screen, game_buttons[1])
+    settings_display = SettingsDisplay(screen)
 
     while True:
-        regis_display = RegisDisplay(screen, regis_buttons)
-
-        registeration_loop = RegisterationLoop(database, regis_display, check, regis_buttons)
         player = registeration_loop.start()
 
         variables = Variables(player, database)
         display = Display(screen, player, squares)
-        game_over_display = GameOverDisplay(screen, game_buttons[1])
         scoreboard_display = ScoreboardDisplay(screen, player, database, game_buttons[2])
 
-        loop = Loop(variables, check, display,
+        loop = Loop(variables, check, display, settings_display,
                     game_over_display, scoreboard_display, game_buttons)
-        loop.start_game()
-
+        loop.start()
 
 main()
 

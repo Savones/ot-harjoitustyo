@@ -13,8 +13,7 @@ class LoginEvents:
     """
 
     def __init__(self, check, display, database, buttons):
-        self.login_buttons = buttons[0]
-        self.sign_up_buttons = buttons[1]
+        self.buttons = buttons
         self.check = check
         self.display = display
         self.database = database
@@ -29,7 +28,7 @@ class LoginEvents:
 
     def login_create_account(self, pos, event):
         return_value = False
-        button = self.login_buttons[1]
+        button = self.buttons[1]
         if button.if_hovered(pos):
             self.display.draw_button(True, button)
             if event.type == pygame.MOUSEBUTTONDOWN:
@@ -41,7 +40,7 @@ class LoginEvents:
 
     def enter_button(self, pos, event, option):
         return_value = False
-        button = self.login_buttons[0]
+        button = self.buttons[0]
         if button.if_hovered(pos):
             self.display.draw_button(True, button)
             if event.type == pygame.MOUSEBUTTONDOWN:
@@ -51,7 +50,7 @@ class LoginEvents:
         return return_value
 
     def return_button(self, pos, event):
-        button = self.login_buttons[2]
+        button = self.buttons[2]
         if button.if_hovered(pos):
             self.display.draw_button(True, button)
             if event.type == pygame.MOUSEBUTTONDOWN:

@@ -15,7 +15,7 @@ SOFT_BLACK = (39, 14, 35)
 class RegisDisplay:
     def __init__(self, screen, buttons):
         self.display = screen
-        self.buttons = buttons[0]
+        self.buttons = buttons
         self.main = MainUi(self.display)
 
     def draw_screen(self, option: int):
