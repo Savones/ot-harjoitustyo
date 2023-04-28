@@ -41,14 +41,14 @@ class Display:
 
         self.draw_flash(square[0], square[1], 100, SALMON)
 
-    def draw_pattern(self, pattern: list, level: int, high_score: int):
+    def draw_pattern(self, pattern: list, level: int, high_score: int, difficulty):
         self.draw_level(level)
         self.draw_high_score(high_score)
         pygame.time.delay(1000)
 
         for element in pattern:
             self.draw_flash(
-                self.squares[element][0], self.squares[element][1], 175, GREEN)
+                self.squares[element][0], self.squares[element][1], difficulty.speed, GREEN)
 
     def draw_flash(self, x, y, time, color):
         self.main.draw_box(color, x, y, 90, 90)

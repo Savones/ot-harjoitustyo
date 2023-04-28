@@ -22,7 +22,8 @@ def main():
     # os.remove("player_database.db")
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
-    game_buttons = [Makebuttons(0).buttons, Makebuttons(1).buttons, Makebuttons(2).buttons]
+    game_buttons = [Makebuttons(0).buttons, Makebuttons(1).buttons, Makebuttons(2).buttons, 
+                    Makebuttons(4).buttons]
     regis_buttons = Makebuttons(3).buttons
 
     squares = Squares()
@@ -31,7 +32,7 @@ def main():
     regis_display = RegisDisplay(screen, regis_buttons)
     registeration_loop = RegisterationLoop(database, regis_display, check, regis_buttons)
     game_over_display = GameOverDisplay(screen, game_buttons[1])
-    settings_display = SettingsDisplay(screen)
+    settings_display = SettingsDisplay(screen, game_buttons[3])
 
     while True:
         player = registeration_loop.start()
@@ -42,7 +43,7 @@ def main():
 
         loop = Loop(variables, check, display, settings_display,
                     game_over_display, scoreboard_display, game_buttons)
-        loop.start()
+        loop.start_game()
 
 main()
 

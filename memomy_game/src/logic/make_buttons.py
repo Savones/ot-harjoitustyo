@@ -23,6 +23,8 @@ class Makebuttons():
                 self.buttons = self.scoreboard_buttons()
             case 3:
                 self.buttons = self.login_buttons()
+            case 4:
+                self.buttons = self.settings_buttons()
     
     def game_over_buttons(self):
         try_again = Button("TRY AGAIN", 75, 405, 200, 60, 105, 423, 36, (LIGHT_PINK, VIOLET))
@@ -39,3 +41,10 @@ class Makebuttons():
         create = Button("CREATE ACCOUNT", 170, 490, 260, 55, 195, 508, 32, (LIGHT_PINK, SALMON))
         go_back = self.scoreboard_buttons()[0]
         return [enter, create, go_back]
+
+    def settings_buttons(self):
+        easy = Button("EASY", 75, 100, 200, 60, 75, 100, 36, (LIGHT_PINK, VIOLET))
+        medium = Button("MEDIUM", 75, 200, 200, 60, 75, 200, 36, (LIGHT_PINK, VIOLET))
+        hard = Button("HARD", 75, 300, 200, 60, 75, 300, 36, (LIGHT_PINK, VIOLET))
+        enter = Button("ENTER", 75, 400, 200, 60, 75, 400, 36, (LIGHT_PINK, VIOLET))
+        return [easy, medium, hard, enter, self.scoreboard_buttons()[0]]

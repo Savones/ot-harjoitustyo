@@ -1,5 +1,6 @@
 import sys
 import pygame
+from objects.difficulties import Difficulties
 
 
 class Loop:
@@ -25,17 +26,34 @@ class Loop:
         self.scoreboard_display = scoreboard_display
         self.game_over_buttons = buttons[1]
         self.scoreboard_buttons = buttons[2]
+        self.settings_buttons = buttons[3]
         self.running = True
         pygame.init()
     
-    def start(self):
+    def settings(self):
+        self.settings_display.draw_screen()
+
         while self.running:
             for event in pygame.event.get():
+
+                pos = pygame.mouse.get_pos()
+
+                for button in self.settings_buttons:
+                    if button.if_hovered(pos):
+                        self.settings_display.draw_button(True, button)
+                        if event.type == pygame.MOUSEBUTTONDOWN and button.name == "ENTER":
+                            return choice
+                        elif event.type == pygame.MOUSEBUTTONDOWN:
+                            choice = Difficulties(button.name)
+                    else:
+                        self.settings_display.draw_button(False, button)
+
                 self.closed_game(event)
-        return None
 
 
     def start_game(self):
+
+        difficulty = self.settings()
 
         self.display.draw_screen(self.variables.high_score)
         self.variables.default()
@@ -43,16 +61,16 @@ class Loop:
         while True:
             self.variables.add_random_press()
 
-            round_number = self.round()
+            round_number = self.round(difficulty)
             if round_number == -1:
                 self.variables.update_hs_in_db()
                 self.game_over()
                 break
 
-    def round(self):
+    def round(self, difficulty):
 
         self.display.draw_pattern(
-            self.variables.pattern_list, self.variables.level, self.variables.high_score)
+            self.variables.pattern_list, self.variables.level, self.variables.high_score, difficulty)
         clicks = 0
 
         while self.running:

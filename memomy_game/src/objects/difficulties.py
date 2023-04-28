@@ -1,13 +1,19 @@
 
 class Difficulties:
     def __init__(self, difficulty):
-        self.difficulty = difficulty
+        if difficulty == "EASY":
+            speed = self.easy()
+        elif difficulty == "MEDIUM":
+            speed = self.medium()
+        else:
+            speed = self.hard()
+        self.speed = speed
 
     def easy(self):
-        pass
+        return 300
 
     def medium(self):
-        pass
+        return 175
 
     def hard(self):
-        pass
+        return 100
