@@ -18,4 +18,6 @@ Päivä | Tunteja | Kuvaus
 22.4 | 5 | Uuden toiminnallisuuden lisäys
 24.4 | 4 | Luokan lisäys, koodin muokkaamista ja laadun parannusta
 25.4 | 2 | Testausta
-Yht | 51 |
+26.4 | 2 | Luokan lisäys ja sen sovellusta
+27.4 | 3 | Luokkien lisäystä ja niiden sovellusta
+Yht | 56 |
