@@ -7,6 +7,12 @@ BABY_PINK = (237, 210, 203)
 LIGHT_PINK = (241, 232, 230)
 
 class Makebuttons():
+    """A class that creates a list of buttons for a display
+
+    Attributes:
+        display: for which ui view the buttons are for
+    """
+    
     def __init__(self, display):
         match display:
             case 0:

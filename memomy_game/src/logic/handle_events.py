@@ -3,6 +3,14 @@ import bcrypt
 
 
 class LoginEvents:
+    """A class that handles events for registration (buttons pressed, mouse movement)
+
+    Attributes:
+        check: an object for Check class
+        display: an object for RegisDisplay class (login/sign up UI)
+        database: an object for the Database class (handles database logic)
+        buttons: a list of buttons for registration UI
+    """
 
     def __init__(self, check, display, database, buttons):
         self.login_buttons = buttons[0]
