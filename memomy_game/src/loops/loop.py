@@ -50,7 +50,7 @@ class Loop:
                                 continue
                             return Difficulties(choice.name)
                         
-                        elif event.type == pygame.MOUSEBUTTONDOWN and button.name == "RETURN":
+                        elif event.type == pygame.MOUSEBUTTONDOWN and button.name == "LOG OUT":
                             return None
                         
                         elif event.type == pygame.MOUSEBUTTONDOWN:
