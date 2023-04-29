@@ -39,7 +39,7 @@ class RegisDisplay:
             y = 125
 
         self.display.fill(color1)
-        self.main.draw_box(YELLOW, 65, 190, 470, 270)
+        self.main.draw_box(WHITE, 65, 190, 470, 270)
         self.main.draw_box(color2, 75, 200, 450, 250)
         self.main.draw_box(color3, 270, 250, 220, 50)
 

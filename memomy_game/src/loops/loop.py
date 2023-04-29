@@ -42,11 +42,18 @@ class Loop:
                     if button.if_hovered(pos):
                         self.settings_display.draw_button(True, button)
 
-                        if event.type == pygame.MOUSEBUTTONDOWN and button.name == "ENTER":
-                            choice.pressed = False
+                        if event.type == pygame.MOUSEBUTTONDOWN and button.name == "START GAME":
+                            try:
+                                choice.pressed = False
+                            except:
+                                print("Please choose a difficulty.")
+                                continue
                             return Difficulties(choice.name)
                         
-                        elif event.type == pygame.MOUSEBUTTONDOWN and button.name != "RETURN":
+                        elif event.type == pygame.MOUSEBUTTONDOWN and button.name == "RETURN":
+                            return None
+                        
+                        elif event.type == pygame.MOUSEBUTTONDOWN:
                             try:
                                 choice.pressed = False
                             except:
@@ -64,6 +71,8 @@ class Loop:
     def start_game(self):
 
         difficulty = self.settings()
+        if difficulty is None:
+            return None
 
         self.display.draw_screen(self.variables.high_score, difficulty.name)
         self.variables.default()

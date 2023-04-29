@@ -29,12 +29,12 @@ def main():
     squares = Squares()
     database = Database()
     check = Check(database, squares)
-    regis_display = RegisDisplay(screen, regis_buttons)
-    registeration_loop = RegisterationLoop(database, regis_display, check, regis_buttons)
     game_over_display = GameOverDisplay(screen, game_buttons[1])
     settings_display = SettingsDisplay(screen, game_buttons[3])
 
     while True:
+        regis_display = RegisDisplay(screen, regis_buttons)
+        registeration_loop = RegisterationLoop(database, regis_display, check, regis_buttons)
         player = registeration_loop.start()
 
         variables = Variables(player, database)
