@@ -43,8 +43,9 @@ class Makebuttons():
         return [enter, create, go_back]
 
     def settings_buttons(self):
-        easy = Button("EASY", 75, 100, 200, 60, 75, 100, 36, (LIGHT_PINK, VIOLET))
-        medium = Button("MEDIUM", 75, 200, 200, 60, 75, 200, 36, (LIGHT_PINK, VIOLET))
-        hard = Button("HARD", 75, 300, 200, 60, 75, 300, 36, (LIGHT_PINK, VIOLET))
-        enter = Button("ENTER", 75, 400, 200, 60, 75, 400, 36, (LIGHT_PINK, VIOLET))
+        easy = Button("EASY", 200, 175, 200, 60, 258, 193, 40, (LIGHT_PINK, VIOLET))
+        medium = Button("MEDIUM", 200, 275, 200, 60, 245, 293, 40, (LIGHT_PINK, VIOLET))
+        hard = Button("HARD", 200, 375, 200, 60, 258, 393, 40, (LIGHT_PINK, VIOLET))
+
+        enter = Button("ENTER", 225, 475, 150, 60, 257, 493, 36, (LIGHT_PINK, VIOLET))
         return [easy, medium, hard, enter, self.scoreboard_buttons()[0]]

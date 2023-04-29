@@ -30,6 +30,7 @@ class Button:
         self.text_y = text_y
         self.font = font
         self.colors = colors
+        self.pressed = False
 
     def if_hovered(self, pos):
         """Checks if mouse is hovering a button

@@ -19,7 +19,7 @@ class Display:
         self.square_width = squares.square_width
         self.squares = squares.squares
 
-    def draw_screen(self, high_score):
+    def draw_screen(self, high_score, difficulty):
         self.display.fill(VIOLET)
         self.main.draw_box(DARK_VIOLET, 125, 70, 350, 350)
 
@@ -28,6 +28,7 @@ class Display:
                 LIGHT_PINK, square[0], square[1], self.square_width, self.square_width)
 
         self.main.draw_text(LIGHT_PINK, 25, 25, 42, self.player)
+        self.main.draw_text(SALMON, 450, 25, 42, difficulty)
         self.draw_level(0)
         self.draw_high_score(high_score)
 

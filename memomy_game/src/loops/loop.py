@@ -41,21 +41,31 @@ class Loop:
                 for button in self.settings_buttons:
                     if button.if_hovered(pos):
                         self.settings_display.draw_button(True, button)
+
                         if event.type == pygame.MOUSEBUTTONDOWN and button.name == "ENTER":
-                            return choice
-                        elif event.type == pygame.MOUSEBUTTONDOWN:
-                            choice = Difficulties(button.name)
-                    else:
+                            choice.pressed = False
+                            return Difficulties(choice.name)
+                        
+                        elif event.type == pygame.MOUSEBUTTONDOWN and button.name != "RETURN":
+                            try:
+                                choice.pressed = False
+                            except:
+                                pass
+                            choice = button
+                            button.pressed = True
+
+                    elif not button.pressed:
                         self.settings_display.draw_button(False, button)
 
                 self.closed_game(event)
+                pygame.display.update()
 
 
     def start_game(self):
 
         difficulty = self.settings()
 
-        self.display.draw_screen(self.variables.high_score)
+        self.display.draw_screen(self.variables.high_score, difficulty.name)
         self.variables.default()
 
         while True:
