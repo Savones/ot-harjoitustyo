@@ -40,5 +40,5 @@ Sovelluksessa on vain käyttäjä-/pelaajarooli.
 
 ## Laajennusideoita 
 
-- Pelaaja voi valita vaikeustason (esim. ruutujen määrän tai montako uutta ruudun painallusta per tason nousu)
+- Pelaaja voi valita vaikeustason (esim. ruutujen määrän tai montako uutta ruudun painallusta per tason nousu) (osittain tehty)
 - Salasanan luomisessa rajoitteita (tarpeeksi monta merkkiä, löydytävä isoja ja pieniä kirjaimia sekä erikoismerkkejä)
