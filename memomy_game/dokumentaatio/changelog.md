@@ -35,3 +35,12 @@
 - Käyttäjän täytyy syöttää salasanan käyttäjän luodessaan
 - Käyttäjän täytyy syöttää käyttäjänimeen yhteensopiva salasana kirjautuakseen sisään
 - Pelinäkymässä näkyy kirjautuneen pelaajan käyttäjänimi
+
+## Viikko 6
+
+- Lisätty Difficulties-luokka, jossa on määritelty eri vaikeustasojen väliset erot
+- Lisätty MakeButtons ja Buttons-luokat, joilla painikkeiden määrittely ja hyödyntäminen on eroteltu muusta koodista
+- Lisätty SettingsDisplay-luokka, josta löytyy uuden asetusnäkymän koodi
+
+- Kun käyttäjä aloittaa uuden pelin, hän valitsee uudestä asetusnäkymästä vaikeustason, jolla peliä haluaa pelata
+  - Toistaiseksi vaikeustason muutos muuttaa ainoastaan sarjan ruutujen välähdysnopeutta
