@@ -23,5 +23,7 @@ class MainUi():
             text_color = button.colors[1]
             box_color = button.colors[0]
 
-        self.draw_box(box_color, button.x_coord, button.y_coord, button.width, button.height)
-        self.draw_text(text_color, button.text_x, button.text_y, button.font, button.name)
+        self.draw_box(box_color, button.x_coord, button.y_coord,
+                      button.width, button.height)
+        self.draw_text(text_color, button.text_x,
+                       button.text_y, button.font, button.name)

@@ -37,7 +37,7 @@ class Button:
 
         Args:
             pos: users mouse position (x, y)
-        
+
         Returns:
             True if button is hovered, else returns False
         """

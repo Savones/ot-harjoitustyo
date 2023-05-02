@@ -6,6 +6,7 @@ from ui.registeration_ui import RegisDisplay
 from database.player_database import Database
 from logic.handle_events import LoginEvents
 from objects.squares import Squares
+from logic.make_buttons import Makebuttons
 
 
 class TestLoginEvents(unittest.TestCase):
@@ -13,9 +14,11 @@ class TestLoginEvents(unittest.TestCase):
         screen = pygame.display.set_mode((1, 1))
         self.database = Database()
         self.squares = Squares()
+        self.buttons = Makebuttons(3)
         self.check = Check(self.database, self.squares)
-        self.display = RegisDisplay(screen)
-        self.events = LoginEvents(self.check, self.display, self.database)
+        self.display = RegisDisplay(screen, self.buttons)
+        self.events = LoginEvents(
+            self.check, self.display, self.database, self.buttons)
 
     # tests __init__ construct
 

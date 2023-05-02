@@ -15,7 +15,7 @@ class Variables:
         Attributes:
             Listed above
         """
-        
+
         self.pattern_list = []
         self.level = 0
         self.player = player

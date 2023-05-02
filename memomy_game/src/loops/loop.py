@@ -29,7 +29,7 @@ class Loop:
         self.settings_buttons = buttons[3]
         self.running = True
         pygame.init()
-    
+
     def settings(self):
         self.settings_display.draw_screen()
 
@@ -49,10 +49,10 @@ class Loop:
                                 print("Please choose a difficulty.")
                                 continue
                             return Difficulties(choice.name)
-                        
+
                         elif event.type == pygame.MOUSEBUTTONDOWN and button.name == "LOG OUT":
                             return None
-                        
+
                         elif event.type == pygame.MOUSEBUTTONDOWN:
                             try:
                                 choice.pressed = False
@@ -66,7 +66,6 @@ class Loop:
 
                 self.closed_game(event)
                 pygame.display.update()
-
 
     def start_game(self):
 
@@ -148,12 +147,14 @@ class Loop:
                 pos = pygame.mouse.get_pos()
 
                 if self.scoreboard_buttons[0].if_hovered(pos):
-                    self.scoreboard_display.draw_button(True, self.scoreboard_buttons[0])
+                    self.scoreboard_display.draw_button(
+                        True, self.scoreboard_buttons[0])
                     if event.type == pygame.MOUSEBUTTONDOWN:
                         self.game_over()
                         return None
                 else:
-                    self.scoreboard_display.draw_button(False, self.scoreboard_buttons[0])
+                    self.scoreboard_display.draw_button(
+                        False, self.scoreboard_buttons[0])
 
                 self.closed_game(event)
                 pygame.display.update()
@@ -163,7 +164,7 @@ class Loop:
         if event.type == pygame.QUIT:
             print("Player closed the game")
             sys.exit()
-    
+
     def button_pressed(self, button):
         if button == "TRY AGAIN":
             self.start_game()

@@ -26,7 +26,7 @@ class Check:
         Args:
             pos: the players clicks coordinates (x, y)
             correct_answer: which square should be clicked (numbered 0-8)
-        
+
         Returns:
             True if players click is inside the correct squares area, otherwise False
         """
@@ -44,7 +44,7 @@ class Check:
 
         Args:
             pos: the players clicks coordinates (x, y)
-        
+
         Returns:
             True if players clicked inside one of the squares area, otherwise False
         """
@@ -60,7 +60,7 @@ class Check:
 
         Args:
             username: users input when creating an account
-        
+
         Returns:
             True if username is valid, otherwise False
         """
@@ -74,7 +74,7 @@ class Check:
 
         Args:
             password: users input when creating an account and username already entered
-        
+
         Returns:
             True if password is valid, otherwise False
         """
@@ -92,7 +92,7 @@ class Check:
             y_coord: the top y-coordinate of the area being checked
             width: the width of the area
             height: the height of the area
-        
+
         Returns:
             True if the mouse hovers the area, otherwise False
         """
@@ -107,7 +107,7 @@ class Check:
         Args:
             username: the username the user entered when logging in
             password: the password the user entered when logging in
-        
+
         Returns:
             True if password matches, otherwise False
         """

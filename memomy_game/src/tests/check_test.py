@@ -20,7 +20,7 @@ class TestPattern(unittest.TestCase):
     def test_returns_false_x_click_incorrect(self):
         pos = (100, 100)
         self.assertEqual(self.check.check_click(pos, 2), False)
-    
+
     def test_returns_false_y_click_incorrect(self):
         pos = (155, 90)
         self.assertEqual(self.check.check_click(pos, 0), False)
@@ -34,7 +34,7 @@ class TestPattern(unittest.TestCase):
     def test_return_false_x_missclick(self):
         pos = (100, 110)
         self.assertEqual(self.check.check_misclick(pos), False)
-    
+
     def test_return_false_y_missclick(self):
         pos = (155, 90)
         self.assertEqual(self.check.check_misclick(pos), False)
@@ -64,10 +64,10 @@ class TestPattern(unittest.TestCase):
 
     def test_returns_true_password_valid(self):
         self.assertEqual(self.check.valid_password("Testi"), True)
-    
+
     def test_returns_false_password_invalid(self):
         self.assertEqual(self.check.valid_password("Tes"), False)
-    
+
     # correct password
 
     def test_returns_true_password_correct(self):
@@ -75,9 +75,10 @@ class TestPattern(unittest.TestCase):
         hashed_password = bcrypt.hashpw(password, bcrypt.gensalt())
         self.database.add_player("Moi", hashed_password, 0)
         self.assertEqual(self.check.if_correct_password("Moi", "testi"), True)
-    
+
     def test_returns_false_password_incorrect(self):
         password = "testi".encode()
         hashed_password = bcrypt.hashpw(password, bcrypt.gensalt())
         self.database.add_player("Moi", hashed_password, 0)
-        self.assertEqual(self.check.if_correct_password("Moi", "testi123"), False)
+        self.assertEqual(self.check.if_correct_password(
+            "Moi", "testi123"), False)

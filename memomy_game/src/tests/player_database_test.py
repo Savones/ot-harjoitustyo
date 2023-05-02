@@ -31,13 +31,14 @@ class TestDatabase(unittest.TestCase):
         self.database.add_player("Testi", "Testi123", 0)
         self.database.change_high_score("Testi", 5)
         self.assertEqual(self.database.get_high_score("Testi"), 5)
-    
+
     # get players table
 
     def test_return_table(self):
         self.database.create_table()
         self.database.add_player("Testi", "Testi123", 0)
-        self.assertEqual(self.database.get_players_table(), [('Testi', 'Testi123', 0)])
+        self.assertEqual(self.database.get_players_table(),
+                         [('Testi', 'Testi123', 0)])
 
     # player exists
 
@@ -45,8 +46,7 @@ class TestDatabase(unittest.TestCase):
         self.database.create_table()
         self.database.add_player("Testi", "Testi123", 0)
         self.assertEqual(self.database.player_exists("Testi"), True)
-    
+
     def test_return_false_doesnt_exist(self):
         self.database.create_table()
         self.assertEqual(self.database.player_exists("Moi"), False)
-    
