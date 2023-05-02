@@ -4,7 +4,7 @@ Peliä pelaamalla käyttäjä voi testata ja harjoittaa muistiaan. Käyttäjäll
 
 ## Releases
 
-- Viikko6 release
+- [Viikko6 release](https://github.com/Savones/ot-harjoitustyo/releases/tag/viikko6)
 - [Viikko5 release](https://github.com/Savones/ot-harjoitustyo/releases/tag/viikko5)
 
 ## Dokumentaatio
