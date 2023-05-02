@@ -9,6 +9,7 @@ poetry install
 Kun riippuvuudet on asennettu, voit käynnistää pelin komennolla:
 ```
 poetry run invoke start
+```
 
 ## Käyttäjän luominen
 
