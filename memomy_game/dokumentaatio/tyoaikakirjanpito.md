@@ -20,4 +20,7 @@ Päivä | Tunteja | Kuvaus
 25.4 | 2 | Testausta
 26.4 | 2 | Luokan lisäys ja sen sovellusta
 27.4 | 3 | Luokkien lisäystä ja niiden sovellusta
-Yht | 56 |
+28.4 | 3 | DOCSTRING dokumentointia ja laadun parannusta
+29.4 | 3 | Luokkien ja toiminallisuuden lisäystä
+2.5 | 3 | Dokumentaatiota
+Yht | 65 |
