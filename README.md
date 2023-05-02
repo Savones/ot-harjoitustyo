@@ -4,9 +4,12 @@ Peliä pelaamalla käyttäjä voi testata ja harjoittaa muistiaan. Käyttäjäll
 
 ## Releases
 
+- Viikko6 release
 - [Viikko5 release](https://github.com/Savones/ot-harjoitustyo/releases/tag/viikko5)
 
 ## Dokumentaatio
+
+- [Käyttöohje](https://github.com/Savones/ot-harjoitustyo/blob/master/memomy_game/dokumentaatio/kayttoohje.md)
 
 - [Työaikakirjanpito](https://github.com/Savones/ot-harjoitustyo/blob/master/memomy_game/dokumentaatio/tyoaikakirjanpito.md)
 
