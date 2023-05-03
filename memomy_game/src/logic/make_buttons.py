@@ -39,7 +39,13 @@ class Makebuttons():
     def scoreboard_buttons(self):
         go_back = Button("RETURN", 450, 25, 120, 45, 468,
                          39, 28, (LIGHT_PINK, SALMON))
-        return [go_back]
+        easy = Button("EASY", 30, 25, 120, 45, 50,
+                         39, 28, (LIGHT_PINK, VIOLET))
+        medium = Button("MEDIUM", 150, 25, 120, 45, 170,
+                         39, 28, (LIGHT_PINK, VIOLET))
+        hard = Button("HARD", 270, 25, 120, 45, 290,
+                         39, 28, (LIGHT_PINK, VIOLET))
+        return [go_back, easy, medium, hard]
 
     def login_buttons(self):
         enter = Button("ENTER", 340, 340, 150, 60, 365,

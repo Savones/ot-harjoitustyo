@@ -22,7 +22,8 @@ class ScoreboardDisplay:
         self.main.draw_text(VIOLET, 140, 120, 64, "SCOREBOARD")
         self.draw_grid()
         self.draw_scoreboard()
-        self.draw_button(False, self.buttons[0])
+        for button in self.buttons:
+            self.draw_button(False, button)
         pygame.display.update()
 
     def draw_grid(self):

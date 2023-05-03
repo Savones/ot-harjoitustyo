@@ -17,13 +17,13 @@ class Loop:
         buttons: a list of buttons for differents UI views
     """
 
-    def __init__(self, variables, check, display, settings_display, game_over_display, scoreboard_display, buttons):
+    def __init__(self, variables, check, displays, buttons):
         self.variables = variables
         self.check = check
-        self.display = display
-        self.settings_display = settings_display
-        self.game_over_display = game_over_display
-        self.scoreboard_display = scoreboard_display
+        self.display = displays[0]
+        self.settings_display = displays[1]
+        self.game_over_display = displays[2]
+        self.scoreboard_display = displays[3]
         self.game_over_buttons = buttons[1]
         self.scoreboard_buttons = buttons[2]
         self.settings_buttons = buttons[3]
@@ -77,7 +77,8 @@ class Loop:
         self.variables.default()
 
         while True:
-            self.variables.add_random_press()
+            for _ in range(difficulty.addition):
+                self.variables.add_random_press()
 
             round_number = self.round(difficulty)
             if round_number == -1:
@@ -146,15 +147,15 @@ class Loop:
 
                 pos = pygame.mouse.get_pos()
 
-                if self.scoreboard_buttons[0].if_hovered(pos):
-                    self.scoreboard_display.draw_button(
-                        True, self.scoreboard_buttons[0])
-                    if event.type == pygame.MOUSEBUTTONDOWN:
-                        self.game_over()
-                        return None
-                else:
-                    self.scoreboard_display.draw_button(
-                        False, self.scoreboard_buttons[0])
+                for button in self.scoreboard_buttons:
+                    if button.if_hovered(pos):
+                        self.scoreboard_display.draw_button(True, button)
+                        if event.type == pygame.MOUSEBUTTONDOWN:
+                            self.button_pressed(button.name)
+                            return None
+                    else:
+                        self.scoreboard_display.draw_button(
+                            False, button)
 
                 self.closed_game(event)
                 pygame.display.update()
@@ -170,4 +171,6 @@ class Loop:
             self.start_game()
         elif button == "SCOREBOARD":
             self.scoreboard()
+        elif button == "RETURN":
+            self.game_over()
         return None

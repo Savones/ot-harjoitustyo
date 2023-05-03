@@ -29,8 +29,6 @@ def main():
     squares = Squares()
     database = Database()
     check = Check(database, squares)
-    game_over_display = GameOverDisplay(screen, game_buttons[1])
-    settings_display = SettingsDisplay(screen, game_buttons[3])
 
     while True:
         regis_display = RegisDisplay(screen, regis_buttons)
@@ -39,12 +37,11 @@ def main():
         player = registeration_loop.start()
 
         variables = Variables(player, database)
-        display = Display(screen, player, squares)
-        scoreboard_display = ScoreboardDisplay(
-            screen, player, database, game_buttons[2])
+        displays = [Display(screen, player, squares), SettingsDisplay(screen, game_buttons[3]),
+                    GameOverDisplay(screen, game_buttons[1]), 
+                    ScoreboardDisplay(screen, player, database, game_buttons[2])]
 
-        loop = Loop(variables, check, display, settings_display,
-                    game_over_display, scoreboard_display, game_buttons)
+        loop = Loop(variables, check, displays, game_buttons)
         loop.start_game()
 
 
@@ -64,6 +61,3 @@ main()
 # hovering squares changes their color in game
 # numbered mode
 
-# switch case
-# buttons
-# squares
