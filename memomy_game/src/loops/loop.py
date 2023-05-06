@@ -140,7 +140,7 @@ class Loop:
 
     def scoreboard(self):
 
-        self.scoreboard_display.draw_screen()
+        self.scoreboard_display.draw_screen(Difficulties("MEDIUM"))
 
         while self.running:
             for event in pygame.event.get():

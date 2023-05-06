@@ -16,12 +16,12 @@ class ScoreboardDisplay:
         self.database = database
         self.player = player
 
-    def draw_screen(self):
+    def draw_screen(self, difficulty):
         self.display.fill((BABY_PINK))
         self.main.draw_box(LIGHT_PINK, 100, 200, 400, 350)
         self.main.draw_text(VIOLET, 140, 120, 64, "SCOREBOARD")
         self.draw_grid()
-        self.draw_scoreboard()
+        self.draw_scoreboard(difficulty)
         for button in self.buttons:
             self.draw_button(False, button)
         pygame.display.update()
@@ -36,8 +36,8 @@ class ScoreboardDisplay:
             y += 70
             self.main.draw_box(BABY_PINK, x, y, 400, 6)
 
-    def draw_scoreboard(self):
-        data = self.database.get_players_table()
+    def draw_scoreboard(self, difficulty):
+        data = self.database.get_players_table(difficulty.name)
 
         y = 155
 
@@ -51,7 +51,7 @@ class ScoreboardDisplay:
                 color = VIOLET
             self.main.draw_text(VIOLET, 135, y, 40, f"{i + 1}.")
             self.main.draw_text(color, 250, y, 38, player[0])
-            self.main.draw_text(VIOLET, 445, y, 40, str(player[2]))
+            self.main.draw_text(VIOLET, 445, y, 40, str(player[difficulty.column]))
 
     def draw_button(self, hovered: bool, button):
         self.main.draw_button(hovered, button)

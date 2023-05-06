@@ -13,14 +13,20 @@ class Database:
         self.database.execute(
             "CREATE TABLE Players (name TEXT, password TEXT, high_score INTEGER)"
         )
+        self.database.execute(
+            "CREATE TABLE Scores (name TEXT, easy INTEGER, medium INTEGER, hard INTEGER)"
+        )
 
     def add_player(self, name, password, high_score):
         self.database.execute(
             "INSERT INTO Players (name, password, high_score) VALUES (?, ?, ?)",
             [name, password, high_score])
+        self.database.execute(
+            "INSERT INTO Scores (name, easy, medium, hard) VALUES (?, 1, 2, 3)",
+            [name])
 
-    def get_players_table(self):
-        return self.database.execute("SELECT * FROM Players ORDER BY high_score DESC").fetchall()
+    def get_players_table(self, difficulty):
+        return self.database.execute("SELECT * FROM Scores ORDER BY (%s) DESC" % (difficulty)).fetchall()
 
     def table_exists(self):
         try:
