@@ -140,7 +140,7 @@ class Loop:
 
     def scoreboard(self):
 
-        self.scoreboard_display.draw_screen(Difficulties("MEDIUM"))
+        self.scoreboard_display.draw_screen(Difficulties("EASY"))
 
         while self.running:
             for event in pygame.event.get():
@@ -150,9 +150,12 @@ class Loop:
                 for button in self.scoreboard_buttons:
                     if button.if_hovered(pos):
                         self.scoreboard_display.draw_button(True, button)
-                        if event.type == pygame.MOUSEBUTTONDOWN:
+                        if event.type == pygame.MOUSEBUTTONDOWN and button.name == "RETURN":
                             self.button_pressed(button.name)
                             return None
+                        elif event.type == pygame.MOUSEBUTTONDOWN:
+                            self.update_scoreboard(button.name)
+                            continue
                     else:
                         self.scoreboard_display.draw_button(
                             False, button)
@@ -160,6 +163,9 @@ class Loop:
                 self.closed_game(event)
                 pygame.display.update()
         return None
+    
+    def update_scoreboard(self, difficulty):
+        self.scoreboard_display.draw_screen(Difficulties(difficulty))
 
     def closed_game(self, event):
         if event.type == pygame.QUIT:
@@ -173,4 +179,6 @@ class Loop:
             self.scoreboard()
         elif button == "RETURN":
             self.game_over()
+        elif button == "EASY":
+            return 
         return None
