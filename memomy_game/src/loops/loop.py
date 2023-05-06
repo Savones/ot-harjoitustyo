@@ -139,7 +139,9 @@ class Loop:
 
     def scoreboard(self):
 
+        self.scoreboard_buttons[1].pressed = True
         self.scoreboard_display.draw_screen(Difficulties("EASY"))
+        self.scoreboard_display.draw_button(True, self.scoreboard_buttons[1])
 
         while self.running:
             for event in pygame.event.get():
@@ -153,9 +155,15 @@ class Loop:
                             self.button_pressed(button.name)
                             return None
                         elif event.type == pygame.MOUSEBUTTONDOWN:
-                            self.update_scoreboard(button.name)
-                            continue
-                    else:
+                            try:
+                                if choice.name != button.name:
+                                    choice.pressed = False
+                            except:
+                                pass
+                            self.update_scoreboard(button)
+                            button.pressed = True
+                            choice = button
+                    elif not button.pressed:
                         self.scoreboard_display.draw_button(
                             False, button)
 
@@ -163,8 +171,8 @@ class Loop:
                 pygame.display.update()
         return None
     
-    def update_scoreboard(self, difficulty):
-        self.scoreboard_display.draw_screen(Difficulties(difficulty))
+    def update_scoreboard(self, button):
+        self.scoreboard_display.draw_screen(Difficulties(button.name))
 
     def closed_game(self, event):
         if event.type == pygame.QUIT:
