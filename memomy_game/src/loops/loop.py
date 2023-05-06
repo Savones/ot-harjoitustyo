@@ -86,14 +86,21 @@ class Loop:
                 break
 
     def round(self, difficulty):
+        pygame.event.set_blocked(pygame.MOUSEBUTTONDOWN)
 
         self.display.draw_pattern(
-            self.variables.pattern_list, self.variables.level, self.variables.high_score(difficulty), difficulty)
+            self.variables.pattern_list, self.variables.level,
+            self.variables.high_score(difficulty), difficulty)
+        
+        pygame.event.set_allowed(pygame.MOUSEBUTTONDOWN)
         clicks = 0
+
+        print(self.variables.pattern_list)
 
         while self.running:
             for event in pygame.event.get():
                 if event.type == pygame.MOUSEBUTTONDOWN:
+                    print("click")
                     pos = pygame.mouse.get_pos()
 
                     if not self.check.check_misclick(pos):

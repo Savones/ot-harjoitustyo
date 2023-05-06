@@ -2,27 +2,27 @@
 class Difficulties:
     def __init__(self, difficulty):
         self.name = difficulty
+        self.speed = 0
+        self. addition = 0
+        self.column = 0
         if difficulty == "EASY":
-            speed = self.easy()[0]
-            addition = self.easy()[1]
-            column = 1
+            self.easy()
         elif difficulty == "MEDIUM":
-            speed = self.medium()[0]
-            addition = self.medium()[1]
-            column = 2
+            self.medium()
         else:
-            speed = self.hard()[0]
-            addition = self.hard()[1]
-            column = 3
-        self.speed = speed
-        self.addition = addition
-        self.column = column
+            self.hard()
 
     def easy(self):
-        return (200, 1)
+        self.speed = 200
+        self.addition = 1
+        self.column = 1
 
     def medium(self):
-        return (175, 2)
+        self.speed = 175
+        self.addition = 2
+        self.column = 2
 
     def hard(self):
-        return (150, 3)
+        self.speed = 150
+        self.addition = 3
+        self.column = 3
