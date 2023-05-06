@@ -19,7 +19,7 @@ WIDTH = 600
 
 
 def main():
-    os.remove("player_database.db")
+    # os.remove("player_database.db")
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
     game_buttons = [Makebuttons(0).buttons, Makebuttons(1).buttons, Makebuttons(2).buttons,
