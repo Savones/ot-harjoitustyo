@@ -73,7 +73,7 @@ class Loop:
         if difficulty is None:
             return None
 
-        self.display.draw_screen(self.variables.high_score, difficulty.name)
+        self.display.draw_screen(self.variables.high_score(difficulty), difficulty.name)
         self.variables.default()
 
         while True:
@@ -82,14 +82,13 @@ class Loop:
 
             round_number = self.round(difficulty)
             if round_number == -1:
-                self.variables.update_hs_in_db()
                 self.game_over()
                 break
 
     def round(self, difficulty):
 
         self.display.draw_pattern(
-            self.variables.pattern_list, self.variables.level, self.variables.high_score, difficulty)
+            self.variables.pattern_list, self.variables.level, self.variables.high_score(difficulty), difficulty)
         clicks = 0
 
         while self.running:
@@ -109,7 +108,7 @@ class Loop:
 
                 if clicks >= len(self.variables.pattern_list):
                     self.variables.level_up()
-                    self.variables.change_high_score()
+                    self.variables.change_high_score(difficulty)
                     self.display.draw_level_up_text()
                     return 1
 

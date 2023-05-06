@@ -22,7 +22,7 @@ class Database:
             "INSERT INTO Players (name, password, high_score) VALUES (?, ?, ?)",
             [name, password, high_score])
         self.database.execute(
-            "INSERT INTO Scores (name, easy, medium, hard) VALUES (?, 1, 2, 3)",
+            "INSERT INTO Scores (name, easy, medium, hard) VALUES (?, 0, 0, 0)",
             [name])
 
     def get_players_table(self, difficulty):
@@ -44,8 +44,8 @@ class Database:
         except TypeError:
             return False
 
-    def get_high_score(self, p_name):
-        high_score = self.database.execute("SELECT high_score FROM Players WHERE name = ?", [
+    def get_high_score(self, p_name, difficulty):
+        high_score = self.database.execute("SELECT (%s) FROM Scores WHERE name = ?" % (difficulty.name), [
             p_name]).fetchone()[0]
         return high_score
 
@@ -53,6 +53,6 @@ class Database:
         return self.database.execute("SELECT password FROM Players WHERE name = ?", [username]
                                      ).fetchone()[0]
 
-    def change_high_score(self, p_name, new_high_score):
+    def change_high_score(self, p_name, new_high_score, difficulty):
         self.database.execute(
-            "UPDATE Players SET high_score = ? WHERE name = ?", [new_high_score, p_name])
+            "UPDATE Scores SET (%s) = ? WHERE name = ?" % (difficulty.name), [new_high_score, p_name])

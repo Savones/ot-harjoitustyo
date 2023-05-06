@@ -20,7 +20,7 @@ class Variables:
         self.level = 0
         self.player = player
         self.database = database
-        self.high_score = self.database.get_high_score(player)
+        # self.high_score = self.database.get_high_score(player)
 
     def add_random_press(self):
         """Adds a new random square hit to the pattern after a round
@@ -28,6 +28,9 @@ class Variables:
 
         random_press = random.randint(0, 8)
         self.pattern_list.append(random_press)
+    
+    def high_score(self, difficulty):
+        return self.database.get_high_score(self.player, difficulty)
 
     def level_up(self):
         """Increases level by one after a round
@@ -35,18 +38,12 @@ class Variables:
 
         self.level += 1
 
-    def change_high_score(self):
+    def change_high_score(self, difficulty):
         """If level is higher than high score, changes high score to the level
         """
 
-        if self.level > self.high_score:
-            self.high_score = self.level
-
-    def update_hs_in_db(self):
-        """Changes the players high score in database when game is over 
-        """
-
-        self.database.change_high_score(self.player, self.high_score)
+        if self.level > self.high_score(difficulty):
+            self.database.change_high_score(self.player, self.level, difficulty)
 
     def default(self):
         """Sets level to zero and empties the pattern list when new game starts 
