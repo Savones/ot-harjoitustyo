@@ -13,12 +13,12 @@ class Difficulties:
             self.hard()
 
     def easy(self):
-        self.speed = 200
+        self.speed = 300
         self.addition = 1
         self.column = 1
 
     def medium(self):
-        self.speed = 175
+        self.speed = 200
         self.addition = 2
         self.column = 2
 

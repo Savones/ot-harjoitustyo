@@ -87,17 +87,22 @@ class Loop:
 
     def round(self, difficulty):
 
-        self.display.draw_pattern(
-            self.variables.pattern_list, self.variables.level,
-            self.variables.high_score(difficulty), difficulty)
+        pattern_drawn = False
         
         clicks = 0
 
         print(self.variables.pattern_list)
 
-        pygame.event.clear(pygame.MOUSEBUTTONDOWN)
-
         while self.running:
+
+            if not pattern_drawn:
+                pygame.event.pump()
+                pattern_drawn = self.display.draw_pattern(
+                    self.variables.pattern_list, self.variables.level,
+                    self.variables.high_score(difficulty), difficulty)
+                pygame.event.clear(pygame.MOUSEBUTTONDOWN)
+                continue
+
             for event in pygame.event.get():
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     pos = pygame.mouse.get_pos()

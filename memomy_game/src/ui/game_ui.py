@@ -18,6 +18,7 @@ class Display:
         self.main = MainUi(self.display)
         self.square_width = squares.square_width
         self.squares = squares.squares
+        self.press = 0
 
     def draw_screen(self, high_score, difficulty):
         self.display.fill(VIOLET)
@@ -43,22 +44,28 @@ class Display:
         self.draw_flash(square[0], square[1], 100, SALMON)
 
     def draw_pattern(self, pattern: list, level: int, high_score: int, difficulty):
-        self.draw_level(level)
-        self.draw_high_score(high_score)
-        pygame.time.delay(1000)
+        if self.press == 0:
+            self.draw_level(level)
+            self.draw_high_score(high_score)
+            pygame.time.wait(1000)
 
-        for element in pattern:
-            self.draw_flash(
-                self.squares[element][0], self.squares[element][1], difficulty.speed, GREEN)
+        self.draw_flash(
+            self.squares[pattern[self.press]][0], self.squares[pattern[self.press]][1], difficulty.speed, GREEN)
+        
+        if self.press == len(pattern) - 1:
+            self.press = 0
+            return True
+        self.press += 1
+        return False
 
     def draw_flash(self, x, y, time, color):
         self.main.draw_box(color, x, y, 90, 90)
         pygame.display.update()
-        pygame.time.delay(time)
+        pygame.time.wait(time)
 
         self.main.draw_box(LIGHT_PINK, x, y, 90, 90)
         pygame.display.update()
-        pygame.time.delay(time)
+        pygame.time.wait(time + 100)
 
     def draw_level(self, level):
         self.main.draw_box(DARK_VIOLET, 125, 445, 165, 60)

@@ -37,7 +37,7 @@ class Check:
         if (correct_x + self.square_width) >= pos[0] >= correct_x:
             if (correct_y + self.square_width) >= pos[1] >= correct_y:
                 return True
-        return True
+        return False
 
     def check_misclick(self, pos):
         """Checks if player hit any square
