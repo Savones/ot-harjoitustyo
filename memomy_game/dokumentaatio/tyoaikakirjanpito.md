@@ -23,4 +23,7 @@ Päivä | Tunteja | Kuvaus
 28.4 | 3 | DOCSTRING dokumentointia ja laadun parannusta
 29.4 | 3 | Luokkien ja toiminallisuuden lisäystä
 2.5 | 3 | Dokumentaatiota
-Yht | 65 |
+3.5 | 2 | Koodausta
+6.5 | 3 | Uuden toiminnallisuuden lisäys ja testausta
+8.5 | 2 | Bugien korjausta
+Yht | 72 |
