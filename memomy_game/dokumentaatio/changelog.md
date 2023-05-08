@@ -44,3 +44,9 @@
 
 - Kun käyttäjä aloittaa uuden pelin, hän valitsee uudestä asetusnäkymästä vaikeustason, jolla peliä haluaa pelata
   - Toistaiseksi vaikeustason muutos muuttaa ainoastaan sarjan ruutujen välähdysnopeutta
+
+## Viikko 7
+
+- Käyttäjän valitsema vaikeustaso muuttaa nopeuden lisäksi sitä, kuinka monta uutta ruutua sarjaan lisätään joka kierroksella
+  - Easy + 1, Medium +2, Hard +3
+- Scoreboard näkymässä voi valita vaikeustason, jonka ennätystaulun käyttäjä haluaa esille
