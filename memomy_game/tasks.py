@@ -5,6 +5,10 @@ def start(ctx):
     ctx.run("python3 src/main.py", pty=True)
 
 @task
+def build(ctx):
+    ctx.run("python3 src/database/create_database.py", pty=True)
+
+@task(build)
 def test(ctx):
     ctx.run("pytest src", pty=True)
 

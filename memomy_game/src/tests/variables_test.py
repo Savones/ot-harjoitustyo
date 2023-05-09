@@ -1,6 +1,7 @@
 import unittest
 from logic.variables import Variables
 from database.player_database import Database
+from objects.difficulties import Difficulties
 
 
 class TestVariables(unittest.TestCase):
@@ -49,18 +50,13 @@ class TestVariables(unittest.TestCase):
     # tests change_high_score method
 
     def test_hs_change_when_greater_level(self):
+        difficulty = Difficulties("MEDIUM")
         self.pattern.level = 20
-        self.pattern.change_high_score()
-        self.assertEqual(self.pattern.high_score, 20)
+        self.pattern.change_high_score(difficulty)
+        self.assertEqual(self.pattern.high_score(difficulty), 20)
 
     def test_hs_not_change_when_lower_level(self):
-        self.pattern.high_score = 10
-        self.pattern.change_high_score()
-        self.assertEqual(self.pattern.high_score, 10)
-
-    # tests update_hs_in_db method
-
-    def test_changes_hs_in_db(self):
-        self.pattern.high_score = 10
-        self.pattern.update_hs_in_db()
-        self.assertEqual(self.pattern.high_score, 10)
+        difficulty = Difficulties("MEDIUM")
+        self.pattern.level = 5
+        self.pattern.change_high_score(difficulty)
+        self.assertNotEqual(self.pattern.high_score(difficulty), 5)
