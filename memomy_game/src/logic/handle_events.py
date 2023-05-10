@@ -83,7 +83,7 @@ class LoginEvents:
             return False
         password = password.encode()
         hashed_password = self.hash_password(password)
-        self.database.add_player(self.username, hashed_password, 0)
+        self.database.add_player(self.username, hashed_password)
         return True
 
     def hash_password(self, password):

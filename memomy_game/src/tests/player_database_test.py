@@ -53,3 +53,4 @@ class TestDatabase(unittest.TestCase):
     def test_return_false_doesnt_exist(self):
         self.database.create_table()
         self.assertEqual(self.database.player_exists("Moi"), False)
+        os.remove("player_database.db")
