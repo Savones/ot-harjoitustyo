@@ -5,7 +5,7 @@ class Difficulties:
     Attributes:
         difficulty: The chosen game difficulty
     """
-        
+
     def __init__(self, difficulty):
         """The classes constructor which sets the difficulties values
 
@@ -35,7 +35,7 @@ class Difficulties:
     def medium(self):
         """Initializes the classes variables for medium difficulty
         """
-        
+
         self.speed = 200
         self.addition = 2
         self.column = 2
@@ -43,7 +43,7 @@ class Difficulties:
     def hard(self):
         """Initializes the classes variables for hard difficulty
         """
-        
+
         self.speed = 150
         self.addition = 3
         self.column = 3

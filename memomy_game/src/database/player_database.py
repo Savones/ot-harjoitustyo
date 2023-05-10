@@ -43,11 +43,11 @@ class Database:
 
         Args:
             difficulty: given game difficulty level
-        
+
         Returns:
             A list of players and their highscores on given difficulty in rank order
         """
-        
+
         return self.database.execute("SELECT * FROM Scores ORDER BY (%s) DESC" % (difficulty)).fetchall()
 
     def table_exists(self):
@@ -67,7 +67,7 @@ class Database:
 
         Args:
             player: the players username
-        
+
         Returns:
             True if username is found, False if not found or table Player not existing
         """
@@ -85,7 +85,7 @@ class Database:
         Args:
             player: the players username
             difficulty: the given game difficulty
-        
+
         Returns:
             The players highscore on the difficulty
         """
@@ -99,7 +99,7 @@ class Database:
 
         Args:
             username: the players username
-        
+
         Returns:
             The players hashed password
         """

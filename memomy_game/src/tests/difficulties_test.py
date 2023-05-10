@@ -11,7 +11,7 @@ class TestDifficulties(unittest.TestCase):
     def test_easy(self):
         self.assertEqual(self.easy.speed, 300)
         self.assertEqual(self.easy.name, "EASY")
-    
+
     def test_medium(self):
         self.assertEqual(self.medium.speed, 200)
         self.assertEqual(self.medium.name, "MEDIUM")

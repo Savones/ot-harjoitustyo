@@ -15,6 +15,12 @@ class RegisterationLoop:
     """
 
     def __init__(self, database, display, check, buttons):
+        """The classes constructor which initializes the classes variables
+
+        Attributes:
+            Listed above
+        """
+
         self.login_buttons = buttons[0]
         self.sign_up_buttons = buttons[1]
         self.database = database
@@ -23,7 +29,12 @@ class RegisterationLoop:
         self.name_entered = False
         self.running = True
 
-    def start(self):
+    def start_log_in(self):
+        """Handles the pygame events in the log-in display
+
+        Returns:
+            The players username once logging in has been successfull
+        """
 
         if self.database.table_exists() is False:
             self.database.create_table()
@@ -59,6 +70,11 @@ class RegisterationLoop:
         return None
 
     def create_account(self):
+        """Handles the pygame events in the sign-up display
+
+        Returns:
+            None once an account was created
+        """
 
         self.display.draw_screen(-1)
         self.name_entered = False
@@ -94,6 +110,16 @@ class RegisterationLoop:
         return None
 
     def username_entered(self, option):
+        """Changes to password view once username has been entered
+
+        Args:
+            option: tells whether the password view is for log-in or sign-up
+
+        Returns:
+            None
+        """
+
         self.name_entered = True
         self.events.reset_input()
         self.display.password_display(option)
+        return None

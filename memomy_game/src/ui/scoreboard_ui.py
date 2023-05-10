@@ -51,7 +51,8 @@ class ScoreboardDisplay:
                 color = VIOLET
             self.main.draw_text(VIOLET, 135, y, 40, f"{i + 1}.")
             self.main.draw_text(color, 250, y, 38, player[0])
-            self.main.draw_text(VIOLET, 445, y, 40, str(player[difficulty.column]))
+            self.main.draw_text(VIOLET, 445, y, 40,
+                                str(player[difficulty.column]))
 
     def draw_button(self, hovered: bool, button):
         self.main.draw_button(hovered, button)

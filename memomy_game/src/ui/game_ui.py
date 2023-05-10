@@ -51,7 +51,7 @@ class Display:
 
         self.draw_flash(
             self.squares[pattern[self.press]][0], self.squares[pattern[self.press]][1], difficulty.speed, GREEN)
-        
+
         if self.press == len(pattern) - 1:
             self.press = 0
             return True

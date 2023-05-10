@@ -13,12 +13,12 @@ class LoginEvents:
     """
 
     def __init__(self, check, display, database, buttons):
-        """The classes constructor which initializes the classed variables
+        """The classes constructor which initializes the classes variables
 
         Attributes:
             Listed above
         """
-        
+
         self.buttons = buttons
         self.check = check
         self.display = display
@@ -29,9 +29,9 @@ class LoginEvents:
     def reset_input(self):
         """Resets the users input to an empty string
         """
-        
+
         self.input = ""
-    
+
     def button_actions(self, pos, event, option, button_number):
         """Checks if a button is clicked
            and handles the click and mouse hovering
@@ -41,7 +41,7 @@ class LoginEvents:
             event: the current pygame event
             option: int that dictates actions taken when enter pressed
             button_number: tells which button is being checked on the button list
-            
+
         Returns:
             True if the button is clicked, False if it isn't
         """
@@ -67,7 +67,7 @@ class LoginEvents:
 
         Attributes:
             player_input: the players username input
-            
+
         Returns:
             True if the players username exists in the database
             False if it doesn't
@@ -85,7 +85,7 @@ class LoginEvents:
 
         Attributes:
             player_input: the players username input
-            
+
         Returns:
             True if the username is allowed, False if it isn't
         """
@@ -106,7 +106,7 @@ class LoginEvents:
 
         Attributes:
             password: the players password input
-            
+
         Returns:
             True if the password was accepted and player was added
             False if password not allowed
@@ -125,7 +125,7 @@ class LoginEvents:
 
         Attributes:
             password: the players password input
-            
+
         Returns:
             The crypted password
         """
@@ -138,7 +138,7 @@ class LoginEvents:
         Attributes:
             event: the current pygame event
             option: tells whether key-press is in log in or sign up display
-            
+
         Returns:
             True if pressing enter was successfull (entering username/password)
             False in other all cases
@@ -163,7 +163,7 @@ class LoginEvents:
         Attributes:
             option: tells whether the display is log in or sign up
                     and whether username was already given
-            
+
         Returns:
             True if the actions were successfull
             False if something went wrong (wrong password etc.)

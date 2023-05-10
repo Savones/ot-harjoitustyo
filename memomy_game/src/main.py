@@ -34,11 +34,11 @@ def main():
         regis_display = RegisDisplay(screen, regis_buttons)
         registeration_loop = RegisterationLoop(
             database, regis_display, check, regis_buttons)
-        player = registeration_loop.start()
+        player = registeration_loop.start_log_in()
 
         variables = Variables(player, database)
         displays = [Display(screen, player, squares), SettingsDisplay(screen, game_buttons[3]),
-                    GameOverDisplay(screen, game_buttons[1]), 
+                    GameOverDisplay(screen, game_buttons[1]),
                     ScoreboardDisplay(screen, player, database, game_buttons[2])]
 
         loop = Loop(variables, check, displays, game_buttons)
@@ -60,4 +60,3 @@ main()
 # a countdown before the game starts
 # hovering squares changes their color in game
 # numbered mode
-

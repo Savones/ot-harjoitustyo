@@ -73,7 +73,8 @@ class Loop:
         if difficulty is None:
             return None
 
-        self.display.draw_screen(self.variables.high_score(difficulty), difficulty.name)
+        self.display.draw_screen(
+            self.variables.high_score(difficulty), difficulty.name)
         self.variables.default()
 
         while True:
@@ -181,7 +182,7 @@ class Loop:
                 self.closed_game(event)
                 pygame.display.update()
         return None
-    
+
     def update_scoreboard(self, button):
         self.scoreboard_display.draw_screen(Difficulties(button.name))
 
@@ -198,5 +199,5 @@ class Loop:
         elif button == "RETURN":
             self.game_over()
         elif button == "EASY":
-            return 
+            return
         return None

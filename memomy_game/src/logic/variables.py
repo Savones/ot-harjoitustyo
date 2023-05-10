@@ -28,7 +28,7 @@ class Variables:
 
         random_press = random.randint(0, 8)
         self.pattern_list.append(random_press)
-    
+
     def high_score(self, difficulty):
         return self.database.get_high_score(self.player, difficulty)
 
@@ -43,7 +43,8 @@ class Variables:
         """
 
         if self.level > self.high_score(difficulty):
-            self.database.change_high_score(self.player, self.level, difficulty)
+            self.database.change_high_score(
+                self.player, self.level, difficulty)
 
     def default(self):
         """Sets level to zero and empties the pattern list when new game starts 
