@@ -37,17 +37,17 @@ class RegisterationLoop:
                     self.username_entered(1)
 
                 elif self.name_entered and self.events.key_pressed(event, 2):
-                    return self.events.get_username()
+                    return self.events.username
 
                 pos = pygame.mouse.get_pos()
 
-                if not self.name_entered and self.events.enter_button(pos, event, 1):
+                if not self.name_entered and self.events.buttons(pos, event, 1, 0):
                     self.username_entered(1)
 
-                elif self.name_entered and self.events.enter_button(pos, event, 2):
-                    return self.events.get_username()
+                elif self.name_entered and self.events.buttons(pos, event, 2, 0):
+                    return self.events.username
 
-                if self.events.login_create_account(pos, event):
+                if self.events.buttons(pos, event, 0, 1):
                     self.create_account()
                     self.events.reset_input()
                     self.name_entered = False
@@ -75,17 +75,17 @@ class RegisterationLoop:
 
                 pos = pygame.mouse.get_pos()
 
-                if not self.name_entered and self.events.enter_button(pos, event, -1):
+                if not self.name_entered and self.events.buttons(pos, event, -1, 0):
                     self.username_entered(-1)
 
-                elif self.name_entered and self.events.enter_button(pos, event, 0):
+                elif self.name_entered and self.events.buttons(pos, event, 0, 0):
                     print("New account created")
                     return None
 
-                if not self.name_entered and self.events.return_button(pos, event):
+                if not self.name_entered and self.events.buttons(pos, event, 0, 2):
                     return None
 
-                if self.name_entered and self.events.return_button(pos, event):
+                if self.name_entered and self.events.buttons(pos, event, 0, 2):
                     self.name_entered = False
                     self.display.draw_screen(-1)
 

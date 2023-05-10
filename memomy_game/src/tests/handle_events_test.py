@@ -39,7 +39,7 @@ class TestLoginEvents(unittest.TestCase):
 
     def test_get_right_username(self):
         self.events.username = "Testi"
-        self.assertEqual(self.events.get_username(), "Testi")
+        self.assertEqual(self.events.username, "Testi")
 
     # login_username
 
