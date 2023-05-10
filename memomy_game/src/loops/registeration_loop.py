@@ -41,13 +41,13 @@ class RegisterationLoop:
 
                 pos = pygame.mouse.get_pos()
 
-                if not self.name_entered and self.events.buttons(pos, event, 1, 0):
+                if not self.name_entered and self.events.button_actions(pos, event, 1, 0):
                     self.username_entered(1)
 
-                elif self.name_entered and self.events.buttons(pos, event, 2, 0):
+                elif self.name_entered and self.events.button_actions(pos, event, 2, 0):
                     return self.events.username
 
-                if self.events.buttons(pos, event, 0, 1):
+                if self.events.button_actions(pos, event, 0, 1):
                     self.create_account()
                     self.events.reset_input()
                     self.name_entered = False
@@ -75,17 +75,17 @@ class RegisterationLoop:
 
                 pos = pygame.mouse.get_pos()
 
-                if not self.name_entered and self.events.buttons(pos, event, -1, 0):
+                if not self.name_entered and self.events.button_actions(pos, event, -1, 0):
                     self.username_entered(-1)
 
-                elif self.name_entered and self.events.buttons(pos, event, 0, 0):
+                elif self.name_entered and self.events.button_actions(pos, event, 0, 0):
                     print("New account created")
                     return None
 
-                if not self.name_entered and self.events.buttons(pos, event, 0, 2):
+                if not self.name_entered and self.events.button_actions(pos, event, 0, 2):
                     return None
 
-                if self.name_entered and self.events.buttons(pos, event, 0, 2):
+                if self.name_entered and self.events.button_actions(pos, event, 0, 2):
                     self.name_entered = False
                     self.display.draw_screen(-1)
 

@@ -32,7 +32,7 @@ class LoginEvents:
         
         self.input = ""
     
-    def buttons(self, pos, event, option, button_number):
+    def button_actions(self, pos, event, option, button_number):
         """Checks if a button is clicked
            and handles the click and mouse hovering
 
