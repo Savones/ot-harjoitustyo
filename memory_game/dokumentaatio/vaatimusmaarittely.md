@@ -2,7 +2,7 @@
 
 
 ## Sovelluksen idea
-Sovellus on muistipeli, jota pelaamalla käyttäjä voi testata ja harjoittaa muistiaan. Käyttäjälle näytetään ruutujen väläytys sarja, jonka käyttäjä yrittää toistaa oikeassa järjestyksessä. Sarja pitenee pelin edetessä ja väärästä painalluksesta käyttäjä häviää. Pelissä on rekisteröitymissysteemi, minkä avulla käyttäjä voi tarkastella omaa kehitystää, ja vertailla omaa suoritusta muiden käyttäjien ennätyksiin.
+Sovellus on muistipeli, jota pelaamalla käyttäjä voi testata ja harjoittaa muistiaan. Käyttäjälle näytetään ruutujen väläytys sarja, jonka käyttäjä yrittää toistaa oikeassa järjestyksessä. Sarja pitenee pelin edetessä ja väärästä painalluksesta käyttäjä häviää. Pelissä on kolme vaikeustasoa. Vaikeustason valinta vaikuttaa välähdysnopeuteen sekä siihen, kuinka monta uutta painallusta jokaisen kierroksen jälkeen tulee lisää. Pelissä on rekisteröitymissysteemi, minkä avulla käyttäjä voi tarkastella omaa kehitystään, ja vertailla omaa suoritusta muiden käyttäjien ennätyksiin.
 
 
 ## Käyttäjät
@@ -47,5 +47,5 @@ Sovelluksessa on vain käyttäjä-/pelaajarooli.
 
 ## Laajennusideoita 
 
-- Pelaaja voi valita vaikeustason (esim. ruutujen määrän tai montako uutta ruudun painallusta per tason nousu) (osittain tehty)
-- Salasanan luomisessa rajoitteita (tarpeeksi monta merkkiä, löydytävä isoja ja pieniä kirjaimia sekä erikoismerkkejä)
+- Vaikeustasojen eroavaisuuksia voisi laajentaa, esimerkiksi ruutujen määrä voisi olla suurempi vaikeammalla tasolla.
+- Peliin voisi sisällyttää useita eri muistipelejä, esimerkiksi numerosarjan muistamista testaavan pelin.
