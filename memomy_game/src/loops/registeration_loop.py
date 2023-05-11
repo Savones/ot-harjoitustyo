@@ -17,7 +17,7 @@ class RegisterationLoop:
     def __init__(self, database, display, check, buttons):
         """The classes constructor which initializes the classes variables
 
-        Attributes:
+        Args:
             Listed above
         """
 
@@ -122,4 +122,3 @@ class RegisterationLoop:
         self.name_entered = True
         self.events.reset_input()
         self.display.password_display(option)
-        return None

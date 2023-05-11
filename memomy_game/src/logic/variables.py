@@ -32,11 +32,12 @@ class Variables:
     def high_score(self, difficulty):
         return self.database.get_high_score(self.player, difficulty)
 
-    def level_up(self):
-        """Increases level by one after a round
+    def level_up(self, difficulty):
+        """Increases level by one after a round and calls for highscore change
         """
 
         self.level += 1
+        self.change_high_score(difficulty)
 
     def change_high_score(self, difficulty):
         """If level is higher than high score, changes high score to the level

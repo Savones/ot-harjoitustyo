@@ -1,4 +1,3 @@
-import os
 import pygame
 
 from logic.variables import Variables

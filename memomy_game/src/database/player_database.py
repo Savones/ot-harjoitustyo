@@ -48,7 +48,8 @@ class Database:
             A list of players and their highscores on given difficulty in rank order
         """
 
-        return self.database.execute("SELECT * FROM Scores ORDER BY (%s) DESC" % (difficulty)).fetchall()
+        return self.database.execute(
+            f"SELECT * FROM Scores ORDER BY {difficulty} DESC").fetchall()
 
     def table_exists(self):
         """Checks if the Players table exists in the database
@@ -73,7 +74,7 @@ class Database:
         """
         try:
             if player == self.database.execute("SELECT name FROM Players WHERE name = ?", [
-                    player]).fetchone()[0]:
+                                                player]).fetchone()[0]:
                 return True
             return False
         except TypeError:
@@ -90,8 +91,9 @@ class Database:
             The players highscore on the difficulty
         """
 
-        high_score = self.database.execute("SELECT (%s) FROM Scores WHERE name = ?" % (difficulty.name), [
-            player]).fetchone()[0]
+        high_score = self.database.execute(
+            f"SELECT {difficulty.name} FROM Scores WHERE name = ?", [
+                                    player]).fetchone()[0]
         return high_score
 
     def get_hashed_password(self, username):
@@ -103,8 +105,9 @@ class Database:
         Returns:
             The players hashed password
         """
-        return self.database.execute("SELECT password FROM Players WHERE name = ?", [username]
-                                     ).fetchone()[0]
+        return self.database.execute(
+            "SELECT password FROM Players WHERE name = ?", [username]
+        ).fetchone()[0]
 
     def change_high_score(self, player, new_high_score, difficulty):
         """Updates the players highscore on a given difficulty to the Scores table
@@ -116,4 +119,5 @@ class Database:
         """
 
         self.database.execute(
-            "UPDATE Scores SET (%s) = ? WHERE name = ?" % (difficulty.name), [new_high_score, player])
+            f"UPDATE Scores SET {difficulty.name} = ? WHERE name = ?", [
+                            new_high_score, player])

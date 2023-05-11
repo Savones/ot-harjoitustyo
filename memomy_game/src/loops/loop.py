@@ -4,20 +4,22 @@ from objects.difficulties import Difficulties
 
 
 class Loop:
-    """A class that runs the game after logging in
+    """A class that handles events after logging in
 
     Attributes:
         variables: an object for Variables class
         check: an object for Check class
-        display: an object for Display class (game UI)
-        settings_display: an object for SettingsDisplay class (settings UI)
-        game_over_display: an object for GameOverDisplay class (game over UI)
-        scoreboard_display: an object for ScoreboardDisplay class (scoreboard UI)
-        database: an object for the Database class (handles database logic)
+        displays: a list of different display class objects
         buttons: a list of buttons for differents UI views
     """
 
     def __init__(self, variables, check, displays, buttons):
+        """The classes constructor which initializes the classes variables
+
+        Args:
+            Listed above
+        """
+
         self.variables = variables
         self.check = check
         self.display = displays[0]
@@ -30,44 +32,13 @@ class Loop:
         self.running = True
         pygame.init()
 
-    def settings(self):
-        self.settings_display.draw_screen()
-
-        while self.running:
-            for event in pygame.event.get():
-
-                pos = pygame.mouse.get_pos()
-
-                for button in self.settings_buttons:
-                    if button.if_hovered(pos):
-                        self.settings_display.draw_button(True, button)
-
-                        if event.type == pygame.MOUSEBUTTONDOWN and button.name == "START GAME":
-                            try:
-                                choice.pressed = False
-                            except:
-                                print("Please choose a difficulty.")
-                                continue
-                            return Difficulties(choice.name)
-
-                        elif event.type == pygame.MOUSEBUTTONDOWN and button.name == "LOG OUT":
-                            return None
-
-                        elif event.type == pygame.MOUSEBUTTONDOWN:
-                            try:
-                                choice.pressed = False
-                            except:
-                                pass
-                            choice = button
-                            button.pressed = True
-
-                    elif not button.pressed:
-                        self.settings_display.draw_button(False, button)
-
-                self.closed_game(event)
-                pygame.display.update()
-
     def start_game(self):
+        """Starts a new game for the logged in player: player
+           chooses difficulty, then game loop starts
+
+        Returns:
+            None if player logs out in difficulty view
+        """
 
         difficulty = self.settings()
         if difficulty is None:
@@ -86,12 +57,62 @@ class Loop:
                 self.game_over()
                 break
 
+    def settings(self):
+        """Handles events in the settings view
+
+        Returns:
+            None if player logs out
+            Difficulties object if the player chooses a difficulty
+        """
+
+        self.settings_display.draw_screen()
+
+        while self.running:
+            for event in pygame.event.get():
+
+                pos = pygame.mouse.get_pos()
+
+                for button in self.settings_buttons:
+                    if button.if_hovered(pos):
+                        self.settings_display.draw_button(True, button)
+
+                        if event.type == pygame.MOUSEBUTTONDOWN and button.name == "START GAME":
+                            try:
+                                choice.pressed = False
+                                return Difficulties(choice.name)
+                            except UnboundLocalError:
+                                print("Please choose a difficulty.")
+
+                        elif event.type == pygame.MOUSEBUTTONDOWN and button.name == "LOG OUT":
+                            return None
+
+                        elif event.type == pygame.MOUSEBUTTONDOWN:
+                            try:
+                                choice.pressed = False
+                            except UnboundLocalError:
+                                pass
+                            choice = button
+                            button.pressed = True
+
+                    elif not button.pressed:
+                        self.settings_display.draw_button(False, button)
+
+                self.closed_game(event)
+                pygame.display.update()
+
     def round(self, difficulty):
+        """Handles events in a round of a game
+
+        Args:
+            difficulty: the players chosen difficulty for the game
+
+        Returns:
+            -1 if the player clicks the wrong square and game ends
+            1 if the player got the pattern right and moves to next round
+        """
 
         pattern_drawn = False
         clicks = 0
-
-        print(self.variables.pattern_list)
 
         while self.running:
 
@@ -120,14 +141,18 @@ class Loop:
                     clicks += 1
 
                 if clicks >= len(self.variables.pattern_list):
-                    self.variables.level_up()
-                    self.variables.change_high_score(difficulty)
-                    self.display.draw_level_up_text()
+                    self.variables.level_up(difficulty)
+                    self.display.draw_level_up_text("CORRECT!")
                     return 1
 
         return None
 
     def game_over(self):
+        """Handles events in the game over view
+
+        Returns:
+            None when a button is pressed
+        """
 
         self.game_over_display.draw_screen()
 
@@ -150,6 +175,11 @@ class Loop:
         return None
 
     def scoreboard(self):
+        """Handles events in the scoreboard view
+
+        Returns:
+            None when return is pressed
+        """
 
         self.scoreboard_buttons[1].pressed = True
         self.scoreboard_display.draw_screen(Difficulties("EASY"))
@@ -166,7 +196,7 @@ class Loop:
                         if event.type == pygame.MOUSEBUTTONDOWN and button.name == "RETURN":
                             self.button_pressed(button.name)
                             return None
-                        elif event.type == pygame.MOUSEBUTTONDOWN:
+                        if event.type == pygame.MOUSEBUTTONDOWN:
                             try:
                                 if choice.name != button.name:
                                     choice.pressed = False
@@ -184,20 +214,39 @@ class Loop:
         return None
 
     def update_scoreboard(self, button):
+        """Updates the scoreboard view depending on the difficulty chosen
+
+        Args:
+            button: the difficulty button the player clicked
+        """
+
         self.scoreboard_display.draw_screen(Difficulties(button.name))
 
     def closed_game(self, event):
+        """Closes the program if player exists the game
+
+        Args:
+            event: the current pygame event
+        """
+        
         if event.type == pygame.QUIT:
             print("Player closed the game")
             sys.exit()
 
     def button_pressed(self, button):
+        """Does an action depending on the button clicked
+
+        Args:
+            button: the button the player clicked
+        
+        Returns:
+            None
+        """
+
         if button == "TRY AGAIN":
             self.start_game()
         elif button == "SCOREBOARD":
             self.scoreboard()
         elif button == "RETURN":
             self.game_over()
-        elif button == "EASY":
-            return
         return None

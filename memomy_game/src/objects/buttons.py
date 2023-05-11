@@ -14,7 +14,7 @@ class Button:
         colors: The buttons two colors
     """
 
-    def __init__(self, name, x_coord, y_coord, width, height, text_x, text_y, font, colors):
+    def __init__(self, name, box_coordinates, text_x, text_y, font, colors):
         """The classes constructor which creates a button
 
         Args:
@@ -22,10 +22,10 @@ class Button:
         """
 
         self.name = name
-        self.x_coord = x_coord
-        self.y_coord = y_coord
-        self.width = width
-        self.height = height
+        self.x_coord = box_coordinates[0]
+        self.y_coord = box_coordinates[1]
+        self.width = box_coordinates[2]
+        self.height = box_coordinates[3]
         self.text_x = text_x
         self.text_y = text_y
         self.font = font
@@ -42,6 +42,7 @@ class Button:
             True if button is hovered, else returns False
         """
 
-        if (self.x_coord + self.width) >= pos[0] >= self.x_coord and (self.y_coord + self.height) >= pos[1] >= self.y_coord:
-            return True
+        if self.x_coord + self.width >= pos[0] >= self.x_coord:
+            if self.y_coord + self.height >= pos[1] >= self.y_coord:
+                return True
         return False

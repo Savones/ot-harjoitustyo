@@ -54,6 +54,7 @@ class Display:
 
         if self.press == len(pattern) - 1:
             self.press = 0
+            self.draw_level_up_text("YOUR TURN!")
             return True
         self.press += 1
         return False
@@ -77,9 +78,15 @@ class Display:
         self.main.draw_text(YELLOW, 326, 464, 34, f"HS: {hs}")
         pygame.display.update()
 
-    def draw_level_up_text(self):
-        self.main.draw_text(GREEN, 210, 535, 48, "CORRECT!")
+    def draw_level_up_text(self, text):
+        if text == "CORRECT!":
+            x_coord = 215
+            color = GREEN
+        else:
+            x_coord = 200
+            color = BABY_PINK
+        self.main.draw_text(color, x_coord, 535, 48, text)
         pygame.display.update()
-        pygame.time.delay(750)
-        self.main.draw_box(VIOLET, 210, 530, 200, 60)
+        pygame.time.delay(1000)
+        self.main.draw_box(VIOLET, 100, 530, 400, 60)
         pygame.display.update()

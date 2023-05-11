@@ -28,43 +28,43 @@ class Makebuttons():
                 self.buttons = self.settings_buttons()
 
     def game_over_buttons(self):
-        try_again = Button("TRY AGAIN", 75, 405, 200, 60,
+        try_again = Button("TRY AGAIN", (75, 405, 200, 60),
                            105, 423, 36, (LIGHT_PINK, VIOLET))
-        scoreboard = Button("SCOREBOARD", 325, 405, 200, 60,
+        scoreboard = Button("SCOREBOARD", (325, 405, 200, 60),
                             340, 423, 36, (LIGHT_PINK, VIOLET))
-        log_out = Button("LOG OUT", 450, 25, 120, 45, 465,
+        log_out = Button("LOG OUT", (450, 25, 120, 45), 465,
                          39, 28, (LIGHT_PINK, DARK_VIOLET))
         return [try_again, scoreboard, log_out]
 
     def scoreboard_buttons(self):
-        go_back = Button("RETURN", 450, 25, 120, 45, 468,
+        go_back = Button("RETURN", (450, 25, 120, 45), 468,
                          39, 28, (LIGHT_PINK, SALMON))
-        easy = Button("EASY", 30, 30, 110, 40, 60,
+        easy = Button("EASY", (30, 30, 110, 40), 60,
                       41, 26, (LIGHT_PINK, DARK_VIOLET))
-        medium = Button("MEDIUM", 150, 30, 110, 40, 170,
+        medium = Button("MEDIUM", (150, 30, 110, 40), 170,
                         41, 26, (LIGHT_PINK, DARK_VIOLET))
-        hard = Button("HARD", 270, 30, 110, 40, 300,
+        hard = Button("HARD", (270, 30, 110, 40), 300,
                       41, 26, (LIGHT_PINK, DARK_VIOLET))
         return [go_back, easy, medium, hard]
 
     def login_buttons(self):
-        enter = Button("ENTER", 340, 340, 150, 60, 365,
+        enter = Button("ENTER", (340, 340, 150, 60), 365,
                        357, 42, (LIGHT_PINK, SALMON))
-        create = Button("CREATE ACCOUNT", 170, 490, 260, 55,
+        create = Button("CREATE ACCOUNT", (170, 490, 260, 55),
                         195, 508, 32, (LIGHT_PINK, SALMON))
         go_back = self.scoreboard_buttons()[0]
         return [enter, create, go_back]
 
     def settings_buttons(self):
-        easy = Button("EASY", 200, 215, 200, 60, 258,
+        easy = Button("EASY", (200, 215, 200, 60), 258,
                       233, 40, (LIGHT_PINK, VIOLET))
-        medium = Button("MEDIUM", 200, 295, 200, 60, 245,
+        medium = Button("MEDIUM", (200, 295, 200, 60), 245,
                         313, 40, (LIGHT_PINK, VIOLET))
-        hard = Button("HARD", 200, 375, 200, 60, 258,
+        hard = Button("HARD", (200, 375, 200, 60), 258,
                       393, 40, (LIGHT_PINK, VIOLET))
 
-        enter = Button("START GAME", 175, 475, 250, 80,
+        enter = Button("START GAME", (175, 475, 250, 80),
                        198, 500, 46, (LIGHT_PINK, SALMON))
-        log_out = Button("LOG OUT", 450, 25, 120, 45, 465,
+        log_out = Button("LOG OUT", (450, 25, 120, 45), 465,
                          39, 28, (LIGHT_PINK, DARK_VIOLET))
         return [easy, medium, hard, enter, log_out]
