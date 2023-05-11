@@ -11,32 +11,39 @@ Sovelluksessa on vain käyttäjä-/pelaajarooli.
 ## Käyttöliittymä
 - Kirjautumisnäkymä (1)
 - Uuden tunnuksen luonti näkymä (2)
-- Pelin aloitus näkymä (3)
+- Pelin aloitus näkymä (vaikeustason valinta) (3)
 - Itse pelin näkymä (4)
-- Leaderboard näkymä (5)
+- Pelin häviämis näkymä (5)
+- Tulostaulu näkymä (6)
 
 ## Perustoiminnallisuus
 ### Ennen kirjautumista
 
-- Kirjautumis näkymästä nappia painamalla pääsee uuden tunnuksen luonti näkymään, jossa käyttäjätunnuksen voi luoda (1 -> 2) (tehty)
-  - Käyttäjänimen oltava ainakin 2 merkkiä ja se ei saa olla jo käytössä 
+- Kirjautumis näkymästä pääsee uuden tunnuksen luonti näkymään, jossa käyttäjätunnuksen voi luoda (1 -> 2)
+  - Käyttäjänimen oltava 1-7 merkkiä ja se ei saa olla jo käytössä
+  - Salasanan täytyy olla 5-19 merkkiä
+  - Tunnuksen luonti näkymästä voi palata luomatta käyttäjää return napista (2 -> 1)
+  - Tunnuksen luonti näkymästä siirtyy kirjautumisnäkymään, kun salasanan on syöttänyt enteristä (2 -> 1)
 
-- Käyttäjä voi kirjautua sisään jo olemassa olevalle tilille (1 -> 3) (tehty)
+- Käyttäjä voi kirjautua sisään jo olemassa olevalle tilille (1 -> 3)
   - Käyttäjätunnuksen on oltava olemassa (oikea nimi ja salasana yhdistelmä)
 
 ### Kirjautumisen jälkeen
 
-- Käyttäjä voi aloittaa uuden pelin (3 -> 4) (tehty)
-  - Käyttäjä voi pelata peliä (4) (tehty)
-    - Peli näyttää painallussarjan, jonka käyttäjä toistaa painamalla ruutuja oikeassa järjestyksessä
-    - Jokaisen oikean toiston jälkeen pelaaja nousee seuraavalle tasolle, jolloin pelaajalle näytetään uudestaan sama sarja +1 uusi painallus
-  - Käyttäjä voi lopettaa pelin (4 -> 3) (tehty)
-  -  Kun käyttäjä häviää palataan pelin aloitus näkymään (4 -> 3)
+- Käyttäjä voi valita vaikeustason ja aloittaa pelin (3 -> 4)
+- Käyttäjä voi kirjautua ulos (3 -> 1)
 
-- Käyttäjä voi siirtyä leaderboard näkymään (3 -> 5) (tehty)
-  - Käyttäjä voi palata napista pelinaloitusnäkymään (5 -> 3)
+- Käyttäjä voi pelata peliä (4)
+  - Peli näyttää painallussarjan, jonka käyttäjä toistaa painamalla ruutuja oikeassa järjestyksessä
+  - Jokaisen oikean toiston jälkeen pelaaja nousee seuraavalle tasolle, jolloin pelaajalle näytetään uudestaan sama sarja, mutta pidempänä
 
-- Käyttäjä voi kirjautua ulos (3 -> 1) (tehty)
+- Kun käyttäjä häviää, eli painaa väärää ruutua, näkymä vaihtuu pelin häviämis näkymään (4 -> 5)
+  - Käyttäjä voi aloittaa pelin alusta siirtymällä aloitus näkymään (5 -> 3)
+  - Käyttäjä voi siirtyä tulostaulunäkymään (5 -> 6)
+  - Käyttäjä voi kirjautua ulos (5 -> 1)
+
+- Tulostaulu näkymässä käyttäjä voi valita, minkä vaikeustason tulostaulun haluaa esille (6)
+- Käyttäjä voi palata pelin häviämis näkymään (6 -> 5)
 
 ## Laajennusideoita 
 
