@@ -1,4 +1,4 @@
-from database.player_database import Database
+from player_database import Database
 
 
 def create_database():

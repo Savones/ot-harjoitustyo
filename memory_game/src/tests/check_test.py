@@ -73,12 +73,12 @@ class TestPattern(unittest.TestCase):
     def test_returns_true_password_correct(self):
         password = "testi".encode()
         hashed_password = bcrypt.hashpw(password, bcrypt.gensalt())
-        self.database.add_player("Moi", hashed_password, 0)
+        self.database.add_player("Moi", hashed_password)
         self.assertEqual(self.check.if_correct_password("Moi", "testi"), True)
 
     def test_returns_false_password_incorrect(self):
         password = "testi".encode()
         hashed_password = bcrypt.hashpw(password, bcrypt.gensalt())
-        self.database.add_player("Moi", hashed_password, 0)
+        self.database.add_player("Moi", hashed_password)
         self.assertEqual(self.check.if_correct_password(
             "Moi", "testi123"), False)

@@ -1,3 +1,4 @@
+import os
 import unittest
 from logic.variables import Variables
 from database.player_database import Database
@@ -6,9 +7,11 @@ from objects.difficulties import Difficulties
 
 class TestVariables(unittest.TestCase):
     def setUp(self):
+        os.remove("player_database.db")
         self.database = Database()
-        self.database.add_player("Milla", "testi123", 0)
-        self.name = "Milla"
+        self.database.create_table()
+        self.database.add_player("Tietokone", "testi123")
+        self.name = "Tietokone"
         self.pattern = Variables(self.name, self.database)
 
     # tests __init__ construct
@@ -32,7 +35,7 @@ class TestVariables(unittest.TestCase):
     # tests level_up method
 
     def test_level_ups_by_one(self):
-        self.pattern.level_up()
+        self.pattern.level_up(Difficulties("MEDIUM"))
         self.assertEqual(self.pattern.level, 1)
 
     # tests default method
@@ -57,6 +60,6 @@ class TestVariables(unittest.TestCase):
 
     def test_hs_not_change_when_lower_level(self):
         difficulty = Difficulties("MEDIUM")
-        self.pattern.level = 5
+        self.pattern.level = -1
         self.pattern.change_high_score(difficulty)
-        self.assertNotEqual(self.pattern.high_score(difficulty), 5)
+        self.assertNotEqual(self.pattern.high_score(difficulty), self.pattern.level)

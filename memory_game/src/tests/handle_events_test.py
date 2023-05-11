@@ -1,4 +1,3 @@
-import os
 import unittest
 import pygame
 from logic.check import Check
@@ -44,17 +43,17 @@ class TestLoginEvents(unittest.TestCase):
     # login_username
 
     def test_true_username_exists(self):
-        self.database.add_player("Testi", "testi123", 0)
+        self.database.add_player("Testi", "testi123")
         self.assertEqual(self.events.login_username("Testi"), True)
 
     def test_false_username_doesnt_exist(self):
-        self.database.add_player("Hei", "testi123", 0)
+        self.database.add_player("Hei", "testi123")
         self.assertEqual(self.events.login_username("Test"), False)
 
     # sign up username
 
     def test_false_username_in_use(self):
-        self.database.add_player("Testi", "testi123", 0)
+        self.database.add_player("Testi", "testi123")
         self.assertEqual(self.events.sign_up_username("Testi"), False)
 
     def test_false_username_invalid(self):
@@ -85,10 +84,3 @@ class TestLoginEvents(unittest.TestCase):
     def test_password_changes(self):
         self.assertNotEqual(self.events.hash_password(
             "testi123".encode()), "testi123")
-
-    # key_pressed
-
-    # def test_letter_pressed(self):
-    #     event = {'unicode': 'a', 'key': 97,
-    #              'mod': 0, 'scancode': 4, 'window': None}
-    #     self.assertEqual(self.events.key_pressed(event, 1), True)
