@@ -1,3 +1,5 @@
+# Changelog
+
 ## Viikko 3
 
 - Lisätty Pattern-luokka, joka on vastuussa painallussarjan muodostamisesta
