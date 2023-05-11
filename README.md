@@ -9,17 +9,22 @@ Peliä pelaamalla käyttäjä voi testata ja harjoittaa muistiaan. Käyttäjäll
 
 ## Dokumentaatio
 
-- [Käyttöohje](https://github.com/Savones/ot-harjoitustyo/blob/master/memomy_game/dokumentaatio/kayttoohje.md)
+- [Käyttöohje](https://github.com/Savones/ot-harjoitustyo/blob/master/memory_game/dokumentaatio/kayttoohje.md)
 
-- [Työaikakirjanpito](https://github.com/Savones/ot-harjoitustyo/blob/master/memomy_game/dokumentaatio/tyoaikakirjanpito.md)
+- [Työaikakirjanpito](https://github.com/Savones/ot-harjoitustyo/blob/master/memory_game/dokumentaatio/tyoaikakirjanpito.md)
 
-- [Vaatimusmäärittely](https://github.com/Savones/ot-harjoitustyo/blob/master/memomy_game/dokumentaatio/vaatimusmaarittely.md)
+- [Vaatimusmäärittely](https://github.com/Savones/ot-harjoitustyo/blob/master/memory_game/dokumentaatio/vaatimusmaarittely.md)
 
-- [Changelog](https://github.com/Savones/ot-harjoitustyo/blob/master/memomy_game/dokumentaatio/changelog.md)
+- [Changelog](https://github.com/Savones/ot-harjoitustyo/blob/master/memory_game/dokumentaatio/changelog.md)
 
-- [Arkkitehtuuri](https://github.com/Savones/ot-harjoitustyo/blob/master/memomy_game/dokumentaatio/arkkitehtuuri.md)
+- [Arkkitehtuuri](https://github.com/Savones/ot-harjoitustyo/blob/master/memory_game/dokumentaatio/arkkitehtuuri.md)
 
 ## Pelin asennus
+
+Siirry pelin juurihakemistoon komennolla:
+```
+cd memory_game
+```
 
 Pelin riippuvuudet voit asentaa komennolla:
 ```
