@@ -94,7 +94,7 @@ class LoginEvents:
             print("Username already in use")
             return False
         if not self.check.valid_username(player_input):
-            print("Username has to be 2-6 characters")
+            print("Username has to be 1-7 characters")
             return False
 
         self.username = player_input
