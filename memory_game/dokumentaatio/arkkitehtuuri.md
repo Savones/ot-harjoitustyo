@@ -36,3 +36,4 @@ Paikallisten käyttäjien käyttäjänimet, salatut salasanat sekä paras tulos 
 ## Rakenteen heikkouksia
 
 Rakenne on hieman sekava. Esimerkiksi loops pakkauksessa olevat luokat ovat vastuussa usea asioista, eli tehtäviä ei ole jaettu yksi / luokka.
+Lisäksi tietokannan sovelluksessa ei ole käytetty ympäristömuuttujia (eivät toimineet).
