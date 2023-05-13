@@ -2,6 +2,10 @@
 
 ## Pelin käynnistys
 
+Siirry pelin juurihakemistoon komennolla:
+```
+cd memory_game
+```
 Pelin riippuvuudet voit asentaa komennolla:
 ```
 poetry install
@@ -14,6 +18,10 @@ poetry run invoke start
 ## Käyttäjän luominen
 
 Jos sinulla on jo käyttäjätili, voit siirtyä seuraavaan vaiheeseen "sisäänkirjautuminen".
+
+![aloitus](kuvat/ohje1.jpg)
+![nimen luonti](kuvat/ohje2.jpg)
+![salasanan luonti](kuvat/ohje3.jpg)
 
 Kun ohjelma käynnistyy, avautuneesta näkymästä voi siirtyä luomaan uuden käyttäjän painamalla "CREATE ACCOUNT" painiketta. Tällöin avautuu uusi näkymä, jossa voi syöttää uuden käyttäjätunnuksen. Painamalla "ENTER" painiketta tai näppäintä voi siirtyä luomaan salasanaa. Salasanan syötettyä, painamalla uudelleen "ENTER" painiketta tai näppäintä siirtyy takaisin kirjautumisnäkymään.
 
