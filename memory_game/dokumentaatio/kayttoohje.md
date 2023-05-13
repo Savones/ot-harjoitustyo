@@ -20,10 +20,16 @@ poetry run invoke start
 Jos sinulla on jo käyttäjätili, voit siirtyä seuraavaan vaiheeseen "sisäänkirjautuminen".
 
 ![aloitus](kuvat/ohje1.png)
+
+Kun ohjelma käynnistyy, avautuneesta näkymästä voi siirtyä luomaan uuden käyttäjän painamalla "CREATE ACCOUNT" painiketta.
+
 ![nimen luonti](kuvat/ohje2.png)
+
+Avautuu uusi näkymä, jossa voi syöttää uuden käyttäjätunnuksen. Painamalla "ENTER" painiketta tai näppäintä voi siirtyä luomaan salasanaa.
+
 ![salasanan luonti](kuvat/ohje3.png)
 
-Kun ohjelma käynnistyy, avautuneesta näkymästä voi siirtyä luomaan uuden käyttäjän painamalla "CREATE ACCOUNT" painiketta. Tällöin avautuu uusi näkymä, jossa voi syöttää uuden käyttäjätunnuksen. Painamalla "ENTER" painiketta tai näppäintä voi siirtyä luomaan salasanaa. Salasanan syötettyä, painamalla uudelleen "ENTER" painiketta tai näppäintä siirtyy takaisin kirjautumisnäkymään.
+Uuden salasanan syöttämisen jälkeen, painamalla uudelleen "ENTER" painiketta tai näppäintä uusi käyttäjätunnus luodaan. Näkymä vaihtuu takaisin kirjautumisnäkymään. Tietoturva syistä syötäthän salasanan, jota et jo käytä missään muualla.
 
 ## Sisäänkirjautuminen
 
