@@ -40,9 +40,12 @@ class ScoreboardDisplay:
         data = self.database.get_players_table(difficulty.name)
 
         y = 155
+        i = 0
 
-        for i, player in enumerate(data):
-            if i >= 5 or player[0] == "Tietokone":
+        for player in data:
+            if i >= 5:
+                break
+            if player[0] == "Tietokone":
                 continue
             y += 70
             if player[0] == self.player:
@@ -53,6 +56,7 @@ class ScoreboardDisplay:
             self.main.draw_text(color, 250, y, 38, player[0])
             self.main.draw_text(VIOLET, 445, y, 40,
                                 str(player[difficulty.column]))
+            i += 1
 
     def draw_button(self, hovered: bool, button):
         self.main.draw_button(hovered, button)

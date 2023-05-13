@@ -18,8 +18,8 @@ WIDTH = 600
 
 
 def main():
-    # os.remove("player_database.db")
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
+    pygame.display.set_caption('Memory Game')
 
     game_buttons = [Makebuttons(0).buttons, Makebuttons(1).buttons, Makebuttons(2).buttons,
                     Makebuttons(4).buttons]
@@ -45,17 +45,3 @@ def main():
 
 
 main()
-
-# to be added:
-# a method that makes sure database doesn't overflow
-# a quit button for the game ui
-# return button from password view (login left)
-# error messages part of graphic ui
-# method to make sure clicks during pattern showing dont count
-
-# extras:
-# color change
-# speed mode
-# a countdown before the game starts
-# hovering squares changes their color in game
-# numbered mode
