@@ -42,7 +42,7 @@ class ScoreboardDisplay:
         y = 155
 
         for i, player in enumerate(data):
-            if i >= 5:
+            if i >= 5 or player[0] == "Tietokone":
                 continue
             y += 70
             if player[0] == self.player:
