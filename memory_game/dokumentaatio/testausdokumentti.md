@@ -4,7 +4,7 @@
 
 ### Testikattavuus
 
-[coverage-report](kuvat/test_coverage.png)
+![coverage-report](kuvat/test_coverage.png)
 
 Testikattavuus on 36%, kun ui pakkauksessa olevia käyttöliittymää käsitteleviä tiedostoja ei ole otettu mukaan.
 Testauksessa painopiste on logic ja object pakkauksissa olevissa luokissa, joiden yksittäisiä metodeita on testattu kattavasti.
