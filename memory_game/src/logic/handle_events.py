@@ -57,6 +57,7 @@ class LoginEvents:
                 elif button.name == "ENTER":
                     return_value = self.enter_pressed(option)
                 elif button.name == "RETURN":
+                    self.reset_input()
                     return_value = True
         else:
             self.display.draw_button(False, button)
