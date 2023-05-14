@@ -1,6 +1,6 @@
 # Muistipeli / Memory game
 
-Peliä pelaamalla käyttäjä voi testata ja harjoittaa muistiaan. Käyttäjälle näytetään sarja ruutujen välähdyksiä, jonka käyttäjä yrittää toistaa oikeassa järjestyksessä. Sarja pitenee pelin edetessä ja väärästä painalluksesta käyttäjä häviää. Pelissä on rekisteröitymissysteemi, minkä avulla käyttäjä voi tarkastella omaa kehitystään, ja vertailla omaa suoritusta muiden paikallisten käyttäjien ennätyksiin.
+Sovellus on muistipeli, jota pelaamalla käyttäjä voi testata ja harjoittaa muistiaan. Käyttäjälle näytetään ruutujen väläytys sarja, jonka käyttäjä yrittää toistaa oikeassa järjestyksessä. Sarja pitenee pelin edetessä ja väärästä painalluksesta käyttäjä häviää. Pelissä on kolme vaikeustasoa. Vaikeustason valinta vaikuttaa välähdysnopeuteen sekä siihen, kuinka monta uutta painallusta jokaisen kierroksen jälkeen tulee lisää. Pelissä on rekisteröitymissysteemi, minkä avulla käyttäjä voi tarkastella omaa kehitystään, ja vertailla omaa suoritusta muiden käyttäjien ennätyksiin.
 
 ## Releases
 
@@ -19,6 +19,8 @@ Peliä pelaamalla käyttäjä voi testata ja harjoittaa muistiaan. Käyttäjäll
 
 - [Arkkitehtuuri](https://github.com/Savones/ot-harjoitustyo/blob/master/memory_game/dokumentaatio/arkkitehtuuri.md)
 
+- [Testausdokumentti](https://github.com/Savones/ot-harjoitustyo/blob/master/memory_game/dokumentaatio/testausdokumentti.md)
+
 ## Pelin asennus
 
 Siirry pelin juurihakemistoon komennolla:
@@ -36,15 +38,15 @@ poetry run invoke start
 ```
 ## Komentoja
 
-Testaus
+Testaa ohjelmaa alla olevalla komennolla. **Huom** - mikäli testit eivät mene läpi ensimmäisellä suorituksella, suorita komento uudelleen. Tämän pitäisi ratkaista ongelma.
 ```
 poetry run invoke test
 ```
-Testikattavuusraportti
+Testikattavuusraportin saa komennolla:
 ```
 poetry run invoke coverage-report
 ```
-Pylint
+Pylint tulokset saa komennolla:
 ```
 poetry run invoke lint
 ```
