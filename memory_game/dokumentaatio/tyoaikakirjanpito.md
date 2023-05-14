@@ -26,4 +26,9 @@ Päivä | Tunteja | Kuvaus
 3.5 | 2 | Koodausta
 6.5 | 3 | Uuden toiminnallisuuden lisäys ja testausta
 8.5 | 2 | Bugien korjausta
-Yht | 72 |
+9.5 | 1 | Testausta
+10.5 | 2 | DOCSTRING dokumentointia ja laadun parannusta
+11.5 | 2 | Dokumentaatiota sekä nimien korjausta
+13.5 | 1 | Käyttöohjeiden tekeminen
+14.5 | 2 | Dokumentaatiota ja viimeistelyä
+Yht | 80 |
