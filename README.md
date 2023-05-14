@@ -37,7 +37,10 @@ Kun riippuvuudet on asennettu, voit käynnistää pelin komennolla:
 poetry run invoke start
 ```
 ## Komentoja
-
+Ennen mitä tahansa komentoa siirry pelin juurihakemistoon:
+```
+cd memory_game
+```
 Testaa ohjelmaa alla olevalla komennolla. **Huom** - mikäli testit eivät mene läpi ensimmäisellä suorituksella, suorita komento uudelleen. Tämän pitäisi ratkaista ongelma.
 ```
 poetry run invoke test
