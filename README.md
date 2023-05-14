@@ -4,6 +4,7 @@ Sovellus on muistipeli, jota pelaamalla käyttäjä voi testata ja harjoittaa mu
 
 ## Releases
 
+- [Loppupalautus](https://github.com/Savones/ot-harjoitustyo/releases/tag/loppupalautus)
 - [Viikko6 release](https://github.com/Savones/ot-harjoitustyo/releases/tag/viikko6)
 - [Viikko5 release](https://github.com/Savones/ot-harjoitustyo/releases/tag/viikko5)
 
@@ -37,7 +38,10 @@ Kun riippuvuudet on asennettu, voit käynnistää pelin komennolla:
 poetry run invoke start
 ```
 ## Komentoja
-
+Ennen mitä tahansa komentoa siirry pelin juurihakemistoon:
+```
+cd memory_game
+```
 Testaa ohjelmaa alla olevalla komennolla. **Huom** - mikäli testit eivät mene läpi ensimmäisellä suorituksella, suorita komento uudelleen. Tämän pitäisi ratkaista ongelma.
 ```
 poetry run invoke test
