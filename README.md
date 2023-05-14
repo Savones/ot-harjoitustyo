@@ -4,6 +4,7 @@ Sovellus on muistipeli, jota pelaamalla käyttäjä voi testata ja harjoittaa mu
 
 ## Releases
 
+- [Loppupalautus](https://github.com/Savones/ot-harjoitustyo/releases/tag/loppupalautus)
 - [Viikko6 release](https://github.com/Savones/ot-harjoitustyo/releases/tag/viikko6)
 - [Viikko5 release](https://github.com/Savones/ot-harjoitustyo/releases/tag/viikko5)
 
