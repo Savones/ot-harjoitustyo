@@ -12,7 +12,7 @@ class Variables:
     def __init__(self, player, database):
         """The classes construct which initializes the variables after logging in
 
-        Attributes:
+        Args:
             Listed above
         """
 
@@ -20,7 +20,6 @@ class Variables:
         self.level = 0
         self.player = player
         self.database = database
-        # self.high_score = self.database.get_high_score(player)
 
     def add_random_press(self):
         """Adds a new random square hit to the pattern after a round
@@ -34,6 +33,9 @@ class Variables:
 
     def level_up(self, difficulty):
         """Increases level by one after a round and calls for highscore change
+
+        Args:
+            difficulty: the chosen game difficulty
         """
 
         self.level += 1
@@ -41,6 +43,9 @@ class Variables:
 
     def change_high_score(self, difficulty):
         """If level is higher than high score, changes high score to the level
+
+        Args:
+            difficulty: the chosen game difficulty
         """
 
         if self.level > self.high_score(difficulty):

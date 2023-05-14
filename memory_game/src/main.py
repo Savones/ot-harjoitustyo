@@ -43,5 +43,4 @@ def main():
         loop = Loop(variables, check, displays, game_buttons)
         loop.start_game()
 
-
 main()

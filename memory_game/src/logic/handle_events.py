@@ -15,7 +15,7 @@ class LoginEvents:
     def __init__(self, check, display, database, buttons):
         """The classes constructor which initializes the classes variables
 
-        Attributes:
+        Args:
             Listed above
         """
 
@@ -36,7 +36,7 @@ class LoginEvents:
         """Checks if a button is clicked
            and handles the click and mouse hovering
 
-        Attributes:
+        Args:
             pos: the mouse cursors position coordinates (x, y)
             event: the current pygame event
             option: int that dictates actions taken when enter pressed
@@ -65,7 +65,7 @@ class LoginEvents:
     def login_username(self, player_input):
         """Checks if the players given username exists
 
-        Attributes:
+        Args:
             player_input: the players username input
 
         Returns:
@@ -83,7 +83,7 @@ class LoginEvents:
         """Checks if username is allowed when player is
            creating a new account
 
-        Attributes:
+        Args:
             player_input: the players username input
 
         Returns:
@@ -104,7 +104,7 @@ class LoginEvents:
         """Checks if the players created password is allowed
            and if it is, adds the new player to database
 
-        Attributes:
+        Args:
             password: the players password input
 
         Returns:
@@ -123,7 +123,7 @@ class LoginEvents:
     def hash_password(self, password):
         """Crypts the given password
 
-        Attributes:
+        Args:
             password: the players password input
 
         Returns:
@@ -135,7 +135,7 @@ class LoginEvents:
     def key_pressed(self, event, option: int):
         """Handles key pressing events
 
-        Attributes:
+        Args:
             event: the current pygame event
             option: tells whether key-press is in log in or sign up display
 
@@ -160,7 +160,7 @@ class LoginEvents:
     def enter_pressed(self, option):
         """Handles actions when enter is pressed in log in or sign up display
 
-        Attributes:
+        Args:
             option: tells whether the display is log in or sign up
                     and whether username was already given
 
