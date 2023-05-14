@@ -116,16 +116,16 @@ class Loop:
 
         while self.running:
 
+            if not pattern_drawn:
+                pattern_drawn = self.display.draw_pattern(
+                    self.variables.pattern_list, self.variables.level,
+                    self.variables.high_score(difficulty), difficulty)
+                pygame.event.clear(pygame.MOUSEBUTTONDOWN)
+                continue
+
             for event in pygame.event.get():
 
                 self.closed_game(event)
-
-                if not pattern_drawn:
-                    pattern_drawn = self.display.draw_pattern(
-                        self.variables.pattern_list, self.variables.level,
-                        self.variables.high_score(difficulty), difficulty)
-                    pygame.event.clear(pygame.MOUSEBUTTONDOWN)
-                    continue
 
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     pos = pygame.mouse.get_pos()
